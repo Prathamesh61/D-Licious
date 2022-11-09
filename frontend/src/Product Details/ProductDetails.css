@@ -1,0 +1,40 @@
+@import "react-slideshow-image/dist/styles.css";
+
+.productDetails-main{
+    
+    background-color: #F7F6F6;
+}
+
+.img-desc{
+    background-color: white;
+    padding: 2%;
+   
+    display: flex;
+    width: 75%;
+    margin: auto;
+}
+
+
+
+
+.slide-img{
+    border-top-left-radius:5% ;
+    border-top-right-radius: 5%;
+    width: 700px;
+    height: 700px;
+}
+.desc-main{
+   
+    padding-left: 4%;
+}
+
+.quantity{
+    display: grid;
+    justify-content: space-between;
+    padding: 3%;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    border-radius: 5%;
+    border: 1px solid silver;
+   
+}
