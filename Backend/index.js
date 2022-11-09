@@ -11,6 +11,7 @@ app.get("/", (req, res) => {
     res.send("hello this is homepage");
 })
 
+app.use("/user", userController);
 
 app.listen(process.env.PORT, async () => {
     try {
