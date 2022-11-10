@@ -4,6 +4,7 @@ import Home from './Home';
 import Profile from './Profile';
 import Signup from './Signup';
 
+
 const AllRoutes = () => {
   return (
     <div>
