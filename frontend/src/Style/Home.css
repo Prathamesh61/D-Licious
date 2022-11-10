@@ -12,6 +12,10 @@
 .category{
     font-size: 24px;
     font-weight: 500;
+    text-align: left;
+}
+.para{
+    text-align: left;
 }
 .inner{
     display: grid;
@@ -65,7 +69,8 @@
     font-style:bold;
     font-weight: 600;
     padding-left:10px;
-    padding-bottom:10px
+    padding-bottom:10px;
+    text-align: left;
 }
 .premiumdiv{
     display:flex;
@@ -93,7 +98,8 @@
     border-radius: 10px;
     color:#e1003e;
     padding:5px;
-    margin-left:700px;
+    /* margin-left:500px; */
+
     cursor:pointer
 }
 .secondDiv{
@@ -101,6 +107,7 @@
     width: 74%;
     height: 470px;
     margin: auto;
+    text-align: left;
     margin-top: 15px;
     margin-bottom: 50px;
     border-radius: 10px;

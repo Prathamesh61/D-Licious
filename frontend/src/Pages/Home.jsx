@@ -31,7 +31,7 @@ const Home = () => {
       
     {/* Shop category */}
       <div className='firstDiv'>
-        <Text className='category'>Shop by categories</Text>
+        <Text className ='category'>Shop by categories</Text>
         <p className='para'>Freshest meats just for you</p>
         <div className='inner'>
           <div>
@@ -156,10 +156,10 @@ const Home = () => {
 
 
       {/* Boneless Cuts */}
-      <div className='secondDiv'>
+      {/* <div className='secondDiv'>
             <Text className='category1'>Boneless Cuts</Text>
             <Slider/>
-          </div>
+          </div> */}
       {/* Boneless Cuts */}
 
     </div>
