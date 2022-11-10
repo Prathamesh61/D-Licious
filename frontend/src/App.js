@@ -1,12 +1,10 @@
-import './App.css';
+import React from 'react';
 import AllRoutes from './Pages/AllRoutes';
-import Profile from './pages/Profile';
 
 function App() {
   return (
     <div className="App">
-        <AllRoutes/>
-        <Profile/>
+      <AllRoutes/>
     </div>
   );
 }
