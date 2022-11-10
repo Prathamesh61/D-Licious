@@ -1,4 +1,6 @@
 import {
+    USER_LOGIN_REQUEST,
+    USER_LOGIN_SUCCESS,
     USER_SIGNUP_FAILURE,
     USER_SIGNUP_REQUEST,
     USER_SIGNUP_SUCCESS,
@@ -29,6 +31,13 @@ export const reducer = (oldState = initState, action) => {
             return {
                 ...oldState,
                 isLoading: true,
+                isError: false,
+            };
+        case USER_LOGIN_SUCCESS:
+            return {
+                ...oldState,
+                isAuth: true,
+                isLoading: false,
                 isError: false,
             };
         default:
