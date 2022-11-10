@@ -1,8 +1,25 @@
 import { Text } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../Style/Home.css";
+import Slider from './Slider';
 
 const Home = () => {
+  const [datamap, setdatamap] = useState([]);
+  const getdata1 = async () => {
+    try {
+      let res = await fetch("https://liciousdata.herokuapp.com/Bestseller");
+      let data = await res.json();
+      setdatamap(data);
+      // console.log("Data",data);
+    } catch (err) {
+      console.log("err", err);
+    }
+  };
+
+  useEffect(() => {
+    getdata1();
+   }, []);
+
   return (
     <div>
       {/* Anil kapoor slider */}
@@ -11,9 +28,10 @@ const Home = () => {
       </div>
       {/* Anil kapoor slider */}
 
+      
     {/* Shop category */}
       <div className='firstDiv'>
-        <Text className='category'>Shop by categories</Text>
+        <Text className ='category'>Shop by categories</Text>
         <p className='para'>Freshest meats just for you</p>
         <div className='inner'>
           <div>
@@ -56,6 +74,94 @@ const Home = () => {
         </div>
       </div>
       {/* Shop category */}
+
+      {/* Licious offers */}
+      <div className="luccdiv">
+        <div>
+          <img
+            src="https://www.licious.in/img/rebranding/loyalty_licious_logo.svg"
+            alt="luciousmetiapalogo"/>
+          <button>JOIN NOW</button>
+        </div>
+        <hr />
+        <p>
+        Join MEATOPIA to get free delivery on all orders with cart value more than Rs.99.
+        </p>
+      </div>
+
+      <h2
+        style={{
+          textAlign: "center",
+          marginTop: "20px",
+          color: "#e1003e",
+          fontSize: "20px",
+          fontWeight: "700",
+        }}>Know the Licious way</h2>
+
+      <div className="premiumdiv">
+        <div>
+          <p>Premium</p>
+          <p>Produce</p>
+        </div>
+
+        <div>
+          <p>World-Class Central</p>
+          <p>Production Unit</p>
+        </div>
+
+        <div>
+          <p>150 Quality</p>
+          <p>Checks</p>
+        </div>
+
+        <div>
+          <p>Delivered Fresh</p>
+          <p>Everyday</p>
+        </div>
+
+        <div>
+          <p>Extraordinary</p>
+          <p>Cooking</p>
+        </div>
+      </div>
+
+      <select className="ssdiv">
+        <option value="discover">Discover How</option>
+      </select>
+
+
+      <div>
+        <img
+          style={{
+            marginTop: "10px",
+            marginBottom: "20px",
+            height: "110px",
+            marginLeft: "260px",
+            cursor: "pointer",
+            width: "1000px",
+          }}
+          src="https://dao54xqhg9jfa.cloudfront.net/OMS-StaticBanner/4c895baf-28fb-2833-8d19-37d05c51d39c/original/static-bank-units-Sep-web_(11).jpg?format=webp"
+          alt=""
+        />
+      </div>
+      {/* Licious offers */}
+
+
+      {/* Best seller */}
+          <div className='secondDiv'>
+            <Text className='category1'>Best Sellers</Text>
+            <Slider/>
+          </div>
+      {/* Best seller */}
+
+
+      {/* Boneless Cuts */}
+      {/* <div className='secondDiv'>
+            <Text className='category1'>Boneless Cuts</Text>
+            <Slider/>
+          </div> */}
+      {/* Boneless Cuts */}
+
     </div>
   );
 };

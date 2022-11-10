@@ -12,11 +12,11 @@
 .category{
     font-size: 24px;
     font-weight: 500;
-    /* margin-left: 50px; */
+    text-align: left;
 }
-/* .para{
-    margin-left: 50px;
-} */
+.para{
+    text-align: left;
+}
 .inner{
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -24,15 +24,97 @@
 }
 .inner>div{
     border: 1px solid green;
-    /* height: 220px; */
     padding: -10px;
     width: 100%;
-    /* margin: auto; */
 }
-/* .inner img:hover{
-    
-} */
 .inner p{
     text-align: center;
     font-weight: 600;
+}
+.luccdiv{
+    background: #ffdc93;
+    width:800px;
+    margin:auto;
+    margin-top:20px;
+    border-radius: 10px;
+    cursor:pointer
+}
+.luccdiv>div{
+    display:flex;
+    /* border: 1px solid crimson; */
+    justify-content:space-between;
+    width:95%;
+    margin:auto;
+    padding-top:20px
+}
+.luccdiv>div img{
+    margin-right: 50px;
+    /* border: 1px solid crimson; */
+}
+.luccdiv>div button{
+    cursor: pointer;
+    background-color: #d11243;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 15px;
+    width: 100px;
+    font-weight:600
+}
+.luccdiv>p{
+    margin-left:10px;
+    font-size:13px;
+    font-style:bold;
+    font-weight: 600;
+    padding-left:10px;
+    padding-bottom:10px;
+    text-align: left;
+}
+.premiumdiv{
+    display:flex;
+    width:74%;
+    height: 75px;
+    margin:auto;
+    border:1px solid palegoldenrod;
+    justify-content:space-between;
+    align-items: center;
+}
+.premiumdiv>div{
+    /* border:1px solid black; */
+    height: 100%;
+    width: 18%;
+    line-height:10.5px;
+    justify-content: space-evenly;
+}
+.premiumdiv p{
+    text-align: center;
+    font-size: large;
+    margin-top: 16px;
+}
+.ssdiv{
+    border: 3px solid #e1003e;
+    border-radius: 10px;
+    color:#e1003e;
+    padding:5px;
+    /* margin-left:500px; */
+
+    cursor:pointer
+}
+.secondDiv{
+    border: none ;
+    width: 74%;
+    height: 470px;
+    margin: auto;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+.category1{
+    font-size: 24px;
+    font-weight: 500;
+    margin-left: 8px;
+    margin-bottom: 10px;
 }
