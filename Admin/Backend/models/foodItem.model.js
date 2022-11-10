@@ -9,9 +9,10 @@ const foodItemSchema = mongoose.Schema({
     imgUrl2: objStr,
     short_desc: objStr,
     net: objStr, // 10gms, 0.5lts
-    tag: { type: Object },
+    tag: objStrOpt,
     price: objNum,
     discount: { objNumOpt },
+    qty:objNum,
     category: objStr,
     sub_cate: objStr,
     desc: objStr,

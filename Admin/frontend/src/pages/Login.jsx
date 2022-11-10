@@ -1,18 +1,26 @@
 import { Box, Button, Grid, Heading, Input, useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import Card from "../Components/Box/Card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { store } from "../Redux/store";
-import { MdEmail } from "react-icons/md";
 import { toastAlert } from "../Components/utils/actions";
 import axios from "axios";
+import { USER_LOGIN_SUCCESS } from "../Redux/AuthReducer/actionTypes";
+import { useEffect } from "react";
 
 const Login = () => {
+    let navigate = useNavigate();
     let [formData, setFormData] = useState({ email: "", password: "" });
     let state = useSelector((state) => state.AuthReducer);
     let dispatch = useDispatch();
     let toast = useToast();
+    let token = localStorage.getItem("token");
+    useEffect(()=>{
+        if(token){
+            return navigate("/dashboard")
+        }
+    },[])
+
     let handleChange = (e) => {
         let { name, value } = e.target;
         setFormData({
@@ -32,6 +40,12 @@ const Login = () => {
                     let status = res.data.status;
                     if (status === 200) {
                         toastAlert(toast, "Login Success", "success");
+                        localStorage.setItem("token", res.data.token);
+                        dispatch({
+                            type: USER_LOGIN_SUCCESS,
+                            payload: res.data,
+                        });
+                        navigate("/dashboard");
                     } else if (status === 500) {
                         toastAlert(toast, res.data.msg, "error");
                     }

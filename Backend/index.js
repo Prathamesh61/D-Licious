@@ -1,5 +1,6 @@
 const express = require('express');
 const { connection } = require('./config/db');
+const { userController } = require("./routes/user.routes");
 
 const app = express();
 app.use(express.json());
