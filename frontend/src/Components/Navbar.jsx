@@ -1,40 +1,43 @@
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Input, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Signup from '../Pages/Signup'
+import Signup from '../pages/Signup'
 
 const Navbar = () => {
-   const { isOpen, onOpen, onClose } = useDisclosure()
-   const btnRef = React.useRef()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
 
   return (
     <div style={{ display: "flex" }}>
-        <div>
-          {/* <Link to="/signup">Signup</Link> */}
-          <Button  onClick={onOpen}> Open </Button>
-        </div>
-        <div>
-           <Link to="/home">Home</Link>
-        </div>
-        <div>
-           <Link to="/profile">profile</Link>
-        </div>  
+      <div>
+        {/* <Link to="/signup">Signup</Link> */}
+        <Button onClick={onOpen}> Open </Button>
+      </div>
+      <div>
+        <Link to="/home">Home</Link>
+      </div>
+      <div>
+        <Link to="/profile">profile</Link>
+      </div>
+      <div>
+        <Link to="/checkout">Checkout</Link>
+      </div>
 
-        {/* *********** login/signup slider start */}
-         <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')"> 
-         <Box>
-           <DrawerOverlay />
-             <DrawerContent>
-               <DrawerCloseButton />
-               <DrawerHeader>Sign In/Sign Up</DrawerHeader>
-               <DrawerBody>
-                 <Signup />
-               </DrawerBody>
-            </DrawerContent>
-         </Box>
-           
-         </Drawer>
-       {/* *********** login/signup slider end */}
+      {/* *********** login/signup slider start */}
+      <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')">
+        <Box>
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Sign In/Sign Up</DrawerHeader>
+            <DrawerBody>
+              <Signup />
+            </DrawerBody>
+          </DrawerContent>
+        </Box>
+
+      </Drawer>
+      {/* *********** login/signup slider end */}
 
     </div>
   )
