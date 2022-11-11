@@ -125,10 +125,11 @@ const Home = () => {
         </div>
       </div>
 
-      <select className="ssdiv">
-        <option value="discover">Discover How</option>
-      </select>
-
+      <center>
+        <select className="ssdiv">
+          <option value="discover">Discover How</option>
+        </select>
+      </center>
 
       <div>
         <img

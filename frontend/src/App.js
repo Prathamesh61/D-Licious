@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './Components/Navbar';
 import React from 'react';
-import AllRoutes from './pages/AllRoutes'
+import AllRoutes from './Pages/AllRoutes'
 function App() {
   return (
     <div className="App">
