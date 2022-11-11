@@ -20,46 +20,46 @@ import {
     VStack,
     Image,
     RadioGroup,
+    Stat,
 } from '@chakra-ui/react';
 import { MdCheckCircle } from 'react-icons/md'
 import { useToast } from '@chakra-ui/react';
+import Checkout_cart_prod_card from './Checkout_cart_prod_card';
+import Address_card from '../Address_card';
 const Form1 = () => {
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
     return (
         <>
-            <Text w="100%" fontSize={"2xl"} textAlign={'start'} fontWeight="normal" mb="2%">
-                Address
-            </Text>
-
             <Button variant='outline' width={["100%", "80%", "60%"]} colorScheme={"red"} > + Add New Address</Button>
-
-
-            <FormControl mt="2%">
-                <FormLabel htmlFor="email" fontWeight={'normal'}>
-                    Select address
-                </FormLabel>
-                <Radio id="email" type="radio" >my address</Radio>
-            </FormControl>
+            <Text fontWeight={"bold"} fontSize={"20px"} alignSelf={"start"}>Saved Addresses</Text>
+            <Text fontSize={"16px"} alignSelf={"start"}>1 Saved Addresses</Text>
+            <Text alignSelf={"start"}></Text>
+            <RadioGroup defaultValue='1' justifyContent={"start"} alignItems={"start"}>
+                <VStack mt="2%">
+                    <Radio value={'1'} mt="2%" colorScheme={"red"} ><Address_card /></Radio>
+                    <Radio value={'2'} mt="2%" colorScheme={"red"} ><Address_card /></Radio>
+                </VStack >
+            </RadioGroup >
         </>
     );
 };
-
 const Form2 = () => {
+    let date = new Date();
+    let current_time = date.getHours();
+    let converted = (current_time > 12 ? current_time - 12 : current_time);
     return (
         <>
-            <Text w="100%" fontSize={"2xl"} textAlign={'start'} fontWeight="normal" mb="2%">
-                Delivery Summary
-            </Text>
             <Text>1 Item Delivered Today in </Text>
-            <Select borderColor={"#d11243"} placeholder='Select Duration'>
-                <option> 6PM - 8pm</option>
-                <option> 6PM - 8pm</option>
-                <option> 6PM - 8pm</option>
-                <option> 6PM - 8pm</option>
-                <option> 6PM - 8pm</option>
+            <Select cursor={"pointer"} borderColor={"#d11243"} placeholder='Select Duration'>
+                <option> {(converted >= 12 ? converted - 12 : converted) + 2}PM - {(converted >= 12 ? converted - 12 : converted) + 4}pm</option>
+                <option> {(converted >= 12 ? converted - 12 : converted) + 4}PM - {(converted >= 12 ? converted - 12 : converted) + 6}pm</option>
+                <option> {(converted >= 12 ? converted - 12 : converted) + 6}PM - {(converted >= 12 ? converted - 12 : converted) + 8}pm</option>
             </Select>
-            <Box border={"1px solid #d11243"} borderRadius={"5px"}>
+            <br />
+            <Box padding={"2"} height={"250px"} overflowY={"auto"} borderRadius={"5px"}>
+                <Checkout_cart_prod_card />
+                <Checkout_cart_prod_card />
             </Box>
         </>
     );
@@ -71,9 +71,9 @@ const Form3 = () => {
         <>
             <HStack justifyContent={"flex-start"} alignItems={"flex-start"}>
                 <VStack spacing={"0px"} gap={"-5px"} margin={"0"} borderRadius={"0"} width={"40%"}>
-                    <Box width={"100%"} textAlign="start" colorScheme={"whiteAlpha"} color="#d4224f" onClick={() => setPaymentMethod("UPI")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Pay Using UPI</Box>
-                    <Box width={"100%"} textAlign="start" colorScheme={"whiteAlpha"} color="#d4224f" onClick={() => setPaymentMethod("CARD")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Credit/Debit Cards</Box>
-                    <Box width={"100%"} textAlign="start" colorScheme={"whiteAlpha"} color="#d4224f" onClick={() => setPaymentMethod("NET")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Netbanking</Box>
+                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("UPI")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Pay Using UPI</Box>
+                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("CARD")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Credit/Debit Cards</Box>
+                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("NET")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Netbanking</Box>
                 </VStack>
                 <Box boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} width={"100%"}>
                     {PaymentMethod == "CARD" ? <CARD /> : PaymentMethod == "NET" ? <NET /> : <UPI />}
@@ -99,6 +99,24 @@ const UPI = () => {
         </Box>
     )
 }
+const Stats = () => {
+    return (
+        <Box padding={"8px"} border={'1px solid red'}>
+            <Text w="100%" fontSize={"xl"} textAlign={'start'} fontWeight="bold" mb="2%">
+                Bill Details
+            </Text>
+            <VStack flexWrap={"wrap"} width={"100%"} gap={"3"}>
+                <HStack justifyContent={"space-between"} alignItems={"center"}><Text>Sub Total</Text> <Text>1636.1</Text> </HStack>
+                <HStack justifyContent={"space-between"} alignItems={"center"}><Text>Delivery Charge</Text> <Text>0</Text> </HStack>
+                <HStack justifyContent={"space-between"} alignItems={"center"}><Text>Discount</Text> <Text>0</Text> </HStack>
+                <HStack justifyContent={"space-between"} alignItems={"center"}><Text>Liscious Wallet</Text> <Text>0</Text> </HStack>
+            </VStack>
+            <br />
+            <Button alignContent={"center"} bg="#d11243" color={"white"} >Pay ₹370 </Button>
+        </Box>
+    )
+}
+
 const CARD = () => {
     return (
         <Box padding={"8px"}>
@@ -178,7 +196,9 @@ const NET = () => {
 export default function Checkout() {
     const [sliderValue, setSliderValue] = React.useState(0)
     const toast = useToast();
+    const [show, setShow] = useState(false);
     const [step, setStep] = useState(1);
+    console.log(show)
     return (
         <>
             <Flex width={"80%"} flexWrap={"wrap"} margin="auto" mt={"10px"} justifyContent={'space-around'} alignItems="center">
@@ -222,7 +242,6 @@ export default function Checkout() {
                                             setSliderValue(sliderValue + 50);
                                         }
                                     }}
-                                    colorScheme="teal"
                                     variant="outline">
                                     Next
                                 </Button>
@@ -248,12 +267,13 @@ export default function Checkout() {
                         </Flex>
                     </ButtonGroup>
                 </Box>
+
                 <Box
-                    // border={"1px solid red"}
+                    border={"1px solid red"}
                     padding="10px" position={"relative"}
                     width={"40%"}>
                     <Slider
-                        // border={"1px solid red"}
+                        border={"1px solid red"}
                         paddingY={"110px"}
                         width="85%"
                         position={'absolute'}
@@ -289,6 +309,8 @@ export default function Checkout() {
                         </SliderThumb>
                     </Slider>
                 </Box>
+                <Stats />
+
             </Flex>
         </>
     );
