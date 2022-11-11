@@ -12,7 +12,7 @@ import React, {  useState } from "react";
 import Card from "../Components/Box/Card";
 import { MdLocationOn } from "react-icons/md";
 import { Link,  useNavigate } from "react-router-dom";
-
+import axios from "axios"
 import { useDispatch, useSelector } from "react-redux";
 import {
     USER_SIGNUP_FAILURE,
