@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "../Style/Slider.css";
+import "../Style/BestSeller_Slider.css";
 import { MdKeyboardArrowLeft,MdKeyboardArrowRight } from "react-icons/md"
 import axios from "axios";
-
+import { Box, Button } from "@chakra-ui/react";
+ 
 const Slider = ({props}) => {
     const [data, setData] = useState([])
 
@@ -14,13 +15,33 @@ const Slider = ({props}) => {
 
     const slideLeft = () =>{
        var slider = document.getElementById("slider");
-       slider.scrollLeft = slider.scrollLeft + 400;
+       slider.scrollLeft = slider.scrollLeft - 400;
     }
 
     const slideRight = () =>{
         var slider = document.getElementById("slider");
-        slider.scrollLeft = slider.scrollLeft - 400;
+        slider.scrollLeft = slider.scrollLeft + 400;
      }
+
+
+     const ADDTOCARTBUTTON=()=>{
+        const [check,setcheck]=useState(0)
+        return(<>
+          { (check<1 &&  <Button onClick={()=>setcheck(1)}
+          style={{backgroundColor:"#D11243",color:"white", fontSize: "13px",fontWeight: "600",height: "30px",width: "100px"}}>ADD TO CART</Button>)
+          ||(
+           check>=1 && <Box>
+            <Button style={{backgroundColor:"white",fontSize:"30px",
+          color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
+            <Button style={{backgroundColor:"white",fontSize:"20px",
+          }}  >{check}</Button>
+            <Button
+             style={{backgroundColor:"white",fontSize:"30px",
+          color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
+           </Box>
+          )}</>)
+      }
+
 
     return(
         <div className="main_slider_container">
@@ -35,28 +56,7 @@ const Slider = ({props}) => {
                         <div id="wt"><p>{slide.weight}</p></div>
                         <div id="blook">
                             <p style={{ color: "#e1003e", fontWeight: "700" }}>MRP:  ₹{slide.markprice}</p>
-
-                            {/* {count === 0 ? ( */}
-                            <button className="sigbudiv">
-                                ADD TO CART
-                            </button>
-                            {/* ) : ( */}
-                            {/* <div style={{ marginLeft: "20px" }}>
-                                <button
-                                onClick={handledelcount}
-                                style={{ border: "1px solid #e1003e" }}
-                                >
-                                -
-                                </button>{" "}
-                                <b>{count}</b>{" "}
-                                <button
-                                onClick={handleccount}
-                                style={{ border: "1px solid #e1003e" }}
-                                >
-                                +
-                                </button>
-                            </div> */}
-                            {/* )} */}
+                            <ADDTOCARTBUTTON/>
                         </div>
                     </div>
                 )})}

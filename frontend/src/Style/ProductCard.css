@@ -1,0 +1,12 @@
+.product_card_wrapper{
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    border: 1px solid;
+}
+
+.product_card_wrapper > div {
+    border: 1px solid;
+}
