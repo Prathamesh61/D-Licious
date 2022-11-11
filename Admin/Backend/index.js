@@ -1,8 +1,10 @@
 const express = require("express");
-const address = require("address");
 const cors = require("cors");
 const { connection } = require("./configs/db");
 const { restaurentRoute } = require("./routes/restaurent.route");
+const { categoryRoute } = require("./routes/category.route");
+const { foodItemRoute } = require("./routes/footitem.route");
+const { subCategoryRoute } = require("./routes/subcategory.route");
 require("dotenv").config();
 // --------------
 const app = express();
@@ -14,8 +16,9 @@ app.get("/", (req, res) => {
 });
 
 app.use("/restaurent", restaurentRoute);
-
-
+app.use("/category", categoryRoute);
+app.use("/fooditems", foodItemRoute);
+app.use("/subcat",subCategoryRoute);
 
 
 // ------------------------
