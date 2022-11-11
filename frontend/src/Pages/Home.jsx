@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import "../Style/Home.css";
 import Slider from './BestSeller_Slider';
 import Slider2 from './Boneless_Slider';
+import { Box, Button } from "@chakra-ui/react";
 
 const Home = () => {
   const [datamap, setdatamap] = useState([]);
@@ -16,6 +17,26 @@ const Home = () => {
       console.log("err", err);
     }
   };
+
+
+  const ADDTOCARTBUTTON=()=>{
+    const [check,setcheck]=useState(0)
+    return(<>
+      { (check<1 &&  <Button onClick={()=>setcheck(1)}
+      style={{backgroundColor:"#D11243",color:"white", fontSize: "13px",fontWeight: "600",height: "30px",width: "100px"}}>ADD TO CART</Button>)
+      ||(
+       check>=1 && <Box>
+        <Button style={{backgroundColor:"white",fontSize:"30px",
+      color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
+        <Button style={{backgroundColor:"white",fontSize:"20px",
+      }}  >{check}</Button>
+        <Button
+         style={{backgroundColor:"white",fontSize:"30px",
+      color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
+       </Box>
+      )}</>)
+  }
+
 
   useEffect(() => {
     getdata1();
@@ -235,9 +256,7 @@ const Home = () => {
                 <div id="wt1"><p>Pieces: 1</p></div>
                 <div id="blook1">
                   <p style={{ color: "#e1003e", fontWeight: "700" }}>MRP:  ₹219</p>
-                  <button className="sigbudiv1">
-                      ADD TO CART
-                  </button>
+                  <ADDTOCARTBUTTON/>
                 </div>
               </div>
 
@@ -248,9 +267,7 @@ const Home = () => {
                 <div id="wt1"><p>Pieces: 1</p></div>
                 <div id="blook1">
                   <p style={{ color: "#e1003e", fontWeight: "700" }}>MRP:  ₹119</p>
-                  <button className="sigbudiv1">
-                      ADD TO CART
-                  </button>
+                  <ADDTOCARTBUTTON/>
                 </div>
               </div>
 
@@ -261,9 +278,7 @@ const Home = () => {
                 <div id="wt1"><p>Pieces: 1</p></div>
                 <div id="blook1">
                   <p style={{ color: "#e1003e", fontWeight: "700" }}>MRP:  ₹219</p>
-                  <button className="sigbudiv1">
-                      ADD TO CART
-                  </button>
+                  <ADDTOCARTBUTTON/>
                 </div>
               </div>
             </div>
