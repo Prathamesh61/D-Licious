@@ -19,8 +19,10 @@ const Signup = () => {
    const navigate = useNavigate();
    const toast = useToast();
    let dispatch = useDispatch();
-   const state = useSelector((state) => state.AuthSignupReducer);
+   const Rstate = useSelector((state) => state.AuthSignupReducer);
 
+
+   // *********************
    const handleChange = (e) => {
       const {name, value} = e.target;
       setData({
@@ -68,10 +70,8 @@ const Signup = () => {
             <Input variant='flushed'  onChange={(e) => handleChange(e)} name='mobile' type={"number"} placeholder='Enter Mobile Number' />
             <Input variant='flushed'  onChange={(e) => handleChange(e)} name='password' type={"password"} placeholder='Enter Password' />
             <Button  onClick={handleSubmit} colorScheme='red' className='submit_btn'> Sign Up </Button>
+            <p>Allready have an acount </p><span>Login</span>
         </div>
-        <Box w='90%' m="auto">
-          <p>Allready have an account? <Link to="/login">Login</Link></p>
-        </Box>
     </div>
   )
 }

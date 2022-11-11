@@ -22,6 +22,9 @@ const Navbar = () => {
       <div>
         <Link to="/checkout">Checkout</Link>
       </div>
+      <div>
+           <Link to="/product">Product</Link>
+        </div>  
 
       {/* *********** login/signup slider start */}
       <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')">
