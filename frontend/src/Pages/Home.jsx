@@ -1,7 +1,7 @@
 import { Text } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import "../Style/Home.css";
-import Slider from './Slider';
+import Slider from './BestSeller_Slider';
 
 const Home = () => {
   const [datamap, setdatamap] = useState([]);

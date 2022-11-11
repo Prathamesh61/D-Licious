@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Style/Slider.css";
+import "../Style/BestSeller_Slider.css";
 import { MdKeyboardArrowLeft,MdKeyboardArrowRight } from "react-icons/md"
 import axios from "axios";
 
