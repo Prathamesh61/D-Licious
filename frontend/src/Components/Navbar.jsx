@@ -1,7 +1,7 @@
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Input, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Signup from '../pages/Signup'
+import Signup from '../Pages/Signup'
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
