@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from "react";
-import "../Style/BestSeller_Slider.css";
+import "../Style/Boneless_Slider.css";
 import { MdKeyboardArrowLeft,MdKeyboardArrowRight } from "react-icons/md"
 import axios from "axios";
  
-const Slider = ({props}) => {
+const Slider2 = ({props}) => {
     const [data, setData] = useState([])
 
     useEffect(()=>{
-        axios.get("https://liciousdata.herokuapp.com/Bestseller")
+        axios.get("https://liciousdata.herokuapp.com/Boneless")
         .then((res) => {setData(res.data)});
     },[])
     console.log(data)
 
-    const slideLeft = () =>{
-       var slider = document.getElementById("slider");
-       slider.scrollLeft = slider.scrollLeft - 400;
+    const slideLeft1 = () =>{
+       var slider1 = document.getElementById("slider1");
+       slider1.scrollLeft = slider1.scrollLeft - 400;
     }
 
-    const slideRight = () =>{
-        var slider = document.getElementById("slider");
-        slider.scrollLeft = slider.scrollLeft + 400;
+    const slideRight1 = () =>{
+        var slider1 = document.getElementById("slider1");
+        slider1.scrollLeft = slider1.scrollLeft + 400;
      }
 
     return(
-        <div className="main_slider_container">
-            <MdKeyboardArrowLeft size={40} className="slider_icon_left" onClick={slideLeft} />
-            <div id="slider">
+        <div className="main_slider_container1">
+            <MdKeyboardArrowLeft size={40} className="slider_icon_left1" onClick={slideLeft1} />
+            <div id="slider1">
              {data.map((slide)=> {
                 return(
-                    <div className="slider_card">
+                    <div className="slider_card1">
                         <div id="image"><img src={slide.image} alt="image" /></div>
                         <div id="heading"><p>{slide.name}</p></div> 
                         <div id="para"><p>{slide.des}</p></div>
@@ -61,9 +61,9 @@ const Slider = ({props}) => {
                     </div>
                 )})}
             </div>
-            <MdKeyboardArrowRight size={40} className="slider_icon_right" onClick={slideRight} />
+            <MdKeyboardArrowRight size={40} className="slider_icon_right1" onClick={slideRight1} />
         </div>
     )
 }
 
-export default Slider;
+export default Slider2;
