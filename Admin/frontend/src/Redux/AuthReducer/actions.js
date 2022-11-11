@@ -6,13 +6,13 @@ import {
 } from "./actionsTypes";
 
 const loginRequest = (payload) => {
-    return { action: USER_LOGIN_REQUEST, payload };
+    return { type: USER_LOGIN_REQUEST, payload };
 };
 
 const loginFailure = () => {
-    return { action: USER_LOGIN_FAILURE };
+    return { type: USER_LOGIN_FAILURE };
 };
 const loginSuccess = (payload) => {
-    return { action: USER_LOGIN_SUCCESS, payload };
+    return { type: USER_LOGIN_SUCCESS, payload };
 };
 const signupRequest = (payload)
