@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
 import Home from './Home';
+import Product from './Product';
 import Profile from './Profile';
 import Signup from './Signup';
 
@@ -13,6 +14,7 @@ const AllRoutes = () => {
         <Route path='/home' element={<Home/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/profile' element={<Profile/>}/>
+        <Route path='/product' element={<Product />}/>
       </Routes>
     </div>
   )

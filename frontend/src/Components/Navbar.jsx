@@ -19,19 +19,22 @@ const Navbar = () => {
         <div>
            <Link to="/profile">profile</Link>
         </div>  
+        <div>
+           <Link to="/product">Product</Link>
+        </div>  
 
         {/* *********** login/signup slider start */}
          <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')"> 
-         <Box>
-           <DrawerOverlay />
-             <DrawerContent>
-               <DrawerCloseButton />
-               <DrawerHeader>Sign In/Sign Up</DrawerHeader>
-               <DrawerBody>
-                 <Signup />
-               </DrawerBody>
-            </DrawerContent>
-         </Box>
+          <Box>
+            <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Sign In/Sign Up</DrawerHeader>
+                <DrawerBody>
+                  <Signup />
+                </DrawerBody>
+              </DrawerContent>
+          </Box>
            
          </Drawer>
        {/* *********** login/signup slider end */}
