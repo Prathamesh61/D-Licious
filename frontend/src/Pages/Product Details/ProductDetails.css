@@ -1,0 +1,121 @@
+@import "react-slideshow-image/dist/styles.css";
+
+.productDetails-main{
+    
+    background-color: #F7F6F6;
+}
+.sizeChange{
+    width: 80%;
+    margin: auto;
+}
+.img-desc{
+    background-color: white;
+    padding: 2%; 
+    display: flex;  
+    margin: auto;
+}
+
+
+
+
+.slide-img{
+    border-top-left-radius:5% ;
+    border-top-right-radius: 5%;
+    width: 650px;
+    height: 700px;
+}
+.desc-main{
+   
+    padding-left: 4%;
+}
+
+.quantity{
+    display: grid;
+    justify-content: space-between;
+    padding: 3%;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    border-radius: 2%;
+    border: 1px solid silver;
+}
+
+.price-addtwocard-main{
+    display: flex;
+  align-items: center;
+  justify-content: space-between;
+    /* border: 1px solid red; */  
+}
+
+.sourcing-whtUget{
+    width: 100%;
+    padding: 2%;
+    margin: auto;
+    display: flex;
+    background-color: white;
+}
+
+.sourcing-box{
+    width: 100%;    
+    border-radius: 2%;
+   padding: 3%;
+   background-color: #F7F6F6;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.head-box{
+  /* border: 1px solid red;  */
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
+}
+
+.spaceing{
+    padding-top: 3%;
+}
+
+.left-space{
+    padding-left: 2%;
+}
+.make-it-scroll{
+    height:350px;
+    /* overflow: hidden; */
+    overflow-y: scroll;
+}
+
+.DLicious-way{
+background-color: white;
+height: 400px;
+margin-top: 3%;
+padding-top: 5%;
+box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+/* border: 1px solid red; */
+
+}
+
+/* #D11243 */
+.theDeliciousWay{
+    font-size: 32px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
+  
+.theDeliciousWay:before,
+.theDeliciousWay:after {
+    content: "";
+    flex: 1 1;
+    border-bottom: 1px solid rgb(97, 92, 92);
+    margin: auto;
+}
+.deliciousBox{
+    margin-top: 2%;
+    display: grid;
+    padding-left: 2%;
+    padding-right: 2%;
+    align-items:baseline;
+    gap:8%;
+    font-weight: 600;
+    color: rgb(99, 95, 95);
+   /* border: 1px solid yellow; */
+    grid-template-columns: repeat(5,1fr);
+}
