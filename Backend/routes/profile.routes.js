@@ -118,7 +118,7 @@ ProfileRouter.delete("/deletecartprod/:id", async (req, res) => {
     const { email } = req.body;
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
-    
+
     const cart = user.cart.id(id);
     cart.remove();
     await user.save();

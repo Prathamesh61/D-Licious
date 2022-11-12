@@ -1,5 +1,37 @@
 import React, { useState } from "react";
 import {
+
+    Box,
+    ButtonGroup,
+    Button,
+    Heading,
+    Flex,
+    FormControl,
+    FormLabel,
+    Input,
+    Select,
+    Radio,
+    Text,
+    Slider,
+    SliderMark,
+    SliderFilledTrack,
+    SliderTrack,
+    SliderThumb,
+    HStack,
+    VStack,
+    Image,
+    RadioGroup,
+    Stat,
+} from '@chakra-ui/react';
+import { MdCheckCircle } from 'react-icons/md'
+import { useToast } from '@chakra-ui/react';
+import Checkout_cart_prod_card from './Checkout_cart_prod_card';
+import Address_card from '../Address_card';
+import axios from 'axios';
+import { getCartData } from '../../Redux/ProfileRedux/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
   Box,
   ButtonGroup,
   Button,
@@ -30,6 +62,7 @@ import axios from "axios";
 import { getCartData } from "../../Redux/ProfileRedux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+
 const Form1 = () => {
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
@@ -387,6 +420,106 @@ const NET = () => {
   );
 };
 export default function Checkout() {
+
+    const [sliderValue, setSliderValue] = React.useState(0)
+    const toast = useToast();
+    const [show, setShow] = useState(false);
+    const [step, setStep] = useState(1);
+    console.log(show)
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.ProfileReducer.cart);
+    console.log(cart);
+
+    useEffect(() => {
+        dispatch(getCartData());
+    }, [])
+
+
+    const handleSubmit = () => {
+        console.log(cart)
+        console.log(localStorage.getItem("token"))
+        axios.post("http://localhost:8080/profile/createmyorderprod", {
+            data: cart, headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }
+
+        }).then((res) => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+        toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        });
+
+    }
+
+    return (
+        <>
+            <Flex width={"80%"} flexWrap={"wrap"} margin="auto" mt={"10px"} justifyContent={'space-around'} alignItems="center">
+                <Box
+                    height={'450px' || 'fit-content'}
+                    borderWidth="1px"
+                    rounded="lg"
+                    boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                    width={"50%"}
+                    position={"relative"}
+                    p={6}
+                    as="form">
+                    {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
+                    <ButtonGroup mt="5%" w="100%" >
+                        <Flex w="90%" justifyContent="space-between" position={'absolute'} bottom={"5"}>
+                            <Flex>
+                                <Button
+                                    onClick={() => {
+                                        setStep(step - 1);
+                                        setSliderValue(sliderValue - 50);
+                                    }}
+                                    isDisabled={step === 1}
+                                    bg="#d11243"
+                                    color={"white"}
+                                    variant="solid"
+                                    w="7rem"
+                                    mr="5%">
+                                    Back
+                                </Button>
+                                <Button
+                                    w="7rem"
+                                    bg="#d11243"
+                                    color={"white"}
+                                    isDisabled={step === 3}
+                                    onClick={() => {
+                                        setStep(step + 1);
+                                        if (step === 3) {
+                                            // setProgress(100);
+                                            setSliderValue(sliderValue + 50);
+                                        } else {
+                                            setSliderValue(sliderValue + 50);
+                                        }
+                                    }}
+                                    variant="outline">
+                                    Next
+                                </Button>
+                            </Flex>
+                            {step === 3 ? (
+                                <Button
+                                    w="7rem"
+                                    bg="#d11243"
+                                    color={"white"}
+                                    variant="solid"
+                                    onClick={handleSubmit}>
+                                    Submit
+                                </Button>
+                            ) : null}
+                        </Flex>
+                    </ButtonGroup>
+                </Box>
+
   const [sliderValue, setSliderValue] = React.useState(0);
   const toast = useToast();
   const [show, setShow] = useState(false);
@@ -395,6 +528,7 @@ export default function Checkout() {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.ProfileReducer.cart);
   console.log(cart);
+
 
   useEffect(() => {
     dispatch(getCartData());
