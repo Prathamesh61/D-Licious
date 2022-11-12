@@ -1,3 +1,4 @@
+
 import {
   Drawer,
   DrawerBody,
@@ -9,6 +10,13 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Image, Input, useDisclosure } from '@chakra-ui/react'
+import React from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import Signup from '../Pages/Signup'
+
 
 import Signup from "../Pages/Signup";
 
@@ -186,7 +194,9 @@ const MiddleNavbar = () => {
     });
   }, [Latitude, Longitude]);
 
+
   return (
+
     <Box className="MiddleNavbar-main">
       <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
         <Box>
@@ -420,7 +430,29 @@ const MiddleNavbar = () => {
       </Flex>
 
       <Drawer size={"md"} isOpen={isOpen} placement="right" onClose={onClose}>
+=======
+    <div style={{ display: "flex" }}>
+      <div>
+        <Button onClick={onOpen}> Signup </Button>
+      </div>
+      <div>
+        <Link to="/home">Home</Link>
+      </div>
+      <div>
+        <Link to="/profile">profile</Link>
+      </div>
+      <div>
+        <Link to="/checkout">Checkout</Link>
+      </div>
+      <div>
+           <Link to="/product">Product</Link>
+        </div>  
+
+      {/* *********** login/signup slider start */}
+      <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} >
+
         <Box>
+        
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
@@ -445,6 +477,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
 
 
 
@@ -510,3 +543,4 @@ export default Navbar;
   /* 
 export default Navbar */
 }
+
