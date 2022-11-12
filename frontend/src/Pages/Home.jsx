@@ -17,7 +17,7 @@ const Home = () => {
       console.log("err", err);
     }
   };
-
+  
 
   const ADDTOCARTBUTTON=()=>{
     const [check,setcheck]=useState(0)
@@ -357,9 +357,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* news */}
-
-
+      {/* news */} 
     </div>
   );
 };

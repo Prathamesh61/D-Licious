@@ -1,3 +1,6 @@
+.Divvv{
+    border: 1px solid black;
+}
 .mainDiv{
     /* border: 1px solid black ; */
     height: auto;
@@ -32,9 +35,10 @@
     border-radius: 10px;
     
 }
-/* .inner>div:hover{
-    background-color: red;
-} */
+.inner img:hover{
+    transition: 1s;
+    transform: scale(1.1);
+}
 .inner img{
     border-radius: 10px;
     margin-bottom: 10px;
@@ -211,6 +215,10 @@
     box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
     /* zoom: 1 */
 }
+.inner1 img:hover{
+    transition: 1s;
+    transform: scale(1.1);
+}
 .inner1 p{
     text-align: center;
     font-weight: 600;
@@ -363,10 +371,12 @@
     width: 100%;
     gap: 12px;
     margin-top: 20px;
+    margin-bottom: 50px;
 }
 .newsdivinner{
     /* border: 1px solid black; */
     width: 27%;
+    cursor: pointer;
     /* margin-top:20px; */
     /* margin-bottom:40px */
 }
