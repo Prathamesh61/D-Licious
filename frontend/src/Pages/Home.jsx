@@ -19,6 +19,26 @@ const Home = () => {
     }
   };
 
+
+  const ADDTOCARTBUTTON=()=>{
+    const [check,setcheck]=useState(0)
+    return(<>
+      { (check<1 &&  <Button onClick={()=>setcheck(1)}
+      style={{backgroundColor:"#D11243",color:"white", fontSize: "13px",fontWeight: "600",height: "30px",width: "100px"}}>ADD TO CART</Button>)
+      ||(
+       check>=1 && <Box>
+        <Button style={{backgroundColor:"white",fontSize:"30px",
+      color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
+        <Button style={{backgroundColor:"white",fontSize:"20px",
+      }}  >{check}</Button>
+        <Button
+         style={{backgroundColor:"white",fontSize:"30px",
+      color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
+       </Box>
+      )}</>)
+  }
+
+
   const ADDTOCARTBUTTON = () => {
     const [check, setcheck] = useState(0);
     return (
@@ -74,7 +94,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className='Divvv'>
       {/* Anil kapoor slider */}
       <div className="mainDiv">
         <img
@@ -286,7 +306,7 @@ const Home = () => {
         </select>
       </center>
 
-      <div>
+      <div id='pic'>
         <img
           style={{
             marginTop: "10px",
