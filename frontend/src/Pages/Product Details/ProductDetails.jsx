@@ -20,10 +20,7 @@ import 'slick-carousel/slick/slick.css'
 
 // style was imported in index.css
 // import "react-slideshow-image/dist/styles.css";
-const images = [
-  "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/a9115623-36e0-7a11-4c65-0f7a097c2d27/original/WhatsApp_Image_2022-06-10_at_12.37.50_PM_(1).jpeg?format=webp",
-  "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/d49aac35-6784-73e1-93ff-ac738c240f15/original/Chicken-Breast-Boneless-(3-4-Pieces)-Hero-Shot_(1).jpg?format=webp",
-];
+
 
 const zoomOutProperties = {
   duration: 2000,
@@ -35,6 +32,10 @@ const zoomOutProperties = {
 };
 
 const Slideshow = () => {
+  const images = [
+    "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/a9115623-36e0-7a11-4c65-0f7a097c2d27/original/WhatsApp_Image_2022-06-10_at_12.37.50_PM_(1).jpeg?format=webp",
+    "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/d49aac35-6784-73e1-93ff-ac738c240f15/original/Chicken-Breast-Boneless-(3-4-Pieces)-Hero-Shot_(1).jpg?format=webp",
+  ];
   return (
     <div className="slide-container">
       <Slide className=".slide-img" {...zoomOutProperties}>
