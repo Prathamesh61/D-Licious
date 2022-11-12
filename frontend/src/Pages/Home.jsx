@@ -357,9 +357,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      {/* news */}
-
-
+      {/* news */} 
     </div>
   );
 };
