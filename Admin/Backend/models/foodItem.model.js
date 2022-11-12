@@ -6,11 +6,11 @@ let objNumOpt = { type: Number, default: 0 };
 const foodItemSchema = mongoose.Schema({
     name: objStr,
     imgUrl: objStr,
-    imgUrl2: objStr,
+    imgUrl2: objStrOpt,
     short_desc: objStr,
     net: objStr, // 10gms, 0.5lts
     tags: objStrOpt,
-    price: objNum,
+    price: objNum, 
     discount: { objNumOpt },
     qty: objStrOpt,
     category_id: objStr,
