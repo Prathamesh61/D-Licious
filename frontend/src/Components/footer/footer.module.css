@@ -1,0 +1,96 @@
+.maxWidth{
+    width: 74% ;
+    margin:0px auto;
+    /* border: 1px solid red; */
+}
+.firstimg{
+    /* border: 1px solid red; */
+    width: 120px;
+    height: 50px; 
+    margin-bottom: 15px;
+}
+.fmdiv{
+    /* border: 1px solid black; */
+    display:flex;
+    gap:40px;
+    margin-top: 25px;
+}
+.fmdiv>div li{
+    /* border: 1px solid crimson; */
+    list-style:none;
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.firli{
+    /* border: 1px solid green; */
+    font-weight: 600px; 
+    color: rgb(100 100 100);
+}
+.logos{
+    font-weight: 600px; 
+    color: rgb(100 100 100);
+}
+.apps{
+    /* border: 1px solid red; */
+    display: flex;
+}
+.fmiddiv{
+    /* border: 1px solid aqua; */
+    margin-left:150px
+}
+.fmiddiv>a{
+    /* border: 1px solid blueviolet; */
+    font-size:22px;
+    margin-left:15px;
+    /* margin-top: 8px; */
+    color:hsl(0,0%,32%);
+    cursor:pointer
+}
+.fmiddiv>span{
+    /* border: 1px solid blueviolet; */
+    font-weight: 600;
+    font-style: bold;
+    color:hsl(0,0%,32%);
+    /* margin-bottom: 8px; */
+    margin-right: 15px;
+}
+.fmiddiv>a:hover{
+    color:rgb(209, 51, 91)
+} 
+.citidiv{
+    display:flex;
+    border: 1px solid red;
+}
+.citidiv>ul{
+    font-weight: 600;
+    font-style: bold;
+    color:hsl(0,0%,32%)
+}
+.citidiv>hr{
+    color:hsl(0,0%,58%);
+    width: 1000px; 
+    height: 0.5px
+}
+.fddiv>div>li{
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.fddiv{
+    display:flex;
+    flex-direction: column;
+}
+.fddiv>div{
+    display:flex;
+    gap:20px
+}
+
+
+.endFooter{
+    /* border: 1px solid indigo; */
+    margin-top: 25px;
+    width: 100%;
+    margin-right: 100px;
+    cursor: pointer;
+}
