@@ -1,46 +1,30 @@
-
+import React, { useEffect, useState } from "react";
 import {
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Image, Input, useDisclosure } from '@chakra-ui/react'
-import React from 'react'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import Signup from '../Pages/Signup'
-
-
 import Signup from "../Pages/Signup";
-
+import "./Navbar.css";
 import {
   Box,
   Flex,
   Text,
   Image,
-  Select,
   Button,
   Input,
 } from "@chakra-ui/react";
-import "./Navbar.css";
-import { Link } from "react-router-dom";
 import {
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import LICIOUS from "./D'LICIOUS.jpeg";
 import axios from "axios";
 
@@ -166,17 +150,13 @@ const AboveNavbar = () => {
 };
 
 const MiddleNavbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const Api_start = `https://api.openweathermap.org/data/2.5/weather?`;
   const Api_key = `566cee1b29349fab7cfc8dfe8ff9e2fc`;
 
   const [Latitude, setLatitude] = useState("");
   const [Longitude, setLongitude] = useState("");
   const [city, setCity] = useState("");
-
-
-
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -192,17 +172,14 @@ const MiddleNavbar = () => {
       console.log(res.data.name);
       setCity(res.data.name);
     });
-  }, [Latitude, Longitude]);
+   }, [Latitude, Longitude]);
 
 
   return (
-
     <Box className="MiddleNavbar-main">
       <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
         <Box>
-          <Link to="/home">
-            <Image width="150px" src={LICIOUS} />
-          </Link>
+          <Link to="/home"> <Image width="150px" src={LICIOUS} /> </Link>
         </Box>
         <Box>
           <Flex>
@@ -213,22 +190,10 @@ const MiddleNavbar = () => {
       </Flex>
 
       <Box width="30%">
-        <Input
-          borderColor="gray"
-          variant="filled"
-          size={["sm", "md", "lg"]}
-          placeholder="Search for any delicious product"
-        />
+        <Input borderColor="gray" variant="filled" size={["sm", "md", "lg"]}  placeholder="Search for any delicious product" />
       </Box>
 
-      <Flex
-        style={{
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "12%",
-          width: "30%",
-        }}
-      >
+      <Flex style={{ alignItems: "center",  justifyContent: "space-between",gap: "12%",width: "30%"}}>
         <Box>
           <Menu>
             {({ isOpen }) => (
@@ -243,53 +208,29 @@ const MiddleNavbar = () => {
                 </MenuButton>
                 <MenuList style={{ padding: "5%" }}>
                   <MenuItem>
-                    <Link
-                      to="/product"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Image
-                        width="35px"
-                        src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/d52759ea-ba5a-0f5b-3dc1-d28875335a3f/original/Todays_Deal_1.png"
-                      />
+                    <Link to="/product" style={{ display: "flex", alignItems: "center" }}>
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/d52759ea-ba5a-0f5b-3dc1-d28875335a3f/original/Todays_Deal_1.png"/>
                       <Text>&nbsp;Today's Deals</Text>
                     </Link>{" "}
                   </MenuItem>
 
                   <MenuItem>
-                    <Link
-                      to="/product"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Image
-                        width="35px"
-                        src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/ad04872e-60af-387c-533c-efa7dc6eb565/original/Chicken_(1).png"
-                      />
+                    <Link to="/product"  style={{ display: "flex", alignItems: "center" }} >
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/ad04872e-60af-387c-533c-efa7dc6eb565/original/Chicken_(1).png" />
                       <Text>&nbsp;Chicken</Text>
                     </Link>{" "}
                   </MenuItem>
 
                   <MenuItem>
-                    <Link
-                      to="/product"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Image
-                        width="35px"
-                        src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/eb162d28-5f88-a381-1d45-7f2f66d2c776/original/FIsh.png"
-                      />
+                    <Link to="/product" style={{ display: "flex", alignItems: "center" }}>
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/eb162d28-5f88-a381-1d45-7f2f66d2c776/original/FIsh.png"/>
                       <Text>&nbsp;Fish & Seafood</Text>
                     </Link>{" "}
                   </MenuItem>
 
                   <MenuItem>
-                    <Link
-                      to="/product"
-                      style={{ display: "flex", alignItems: "center" }}
-                    >
-                      <Image
-                        width="35px"
-                        src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/7113e792-7025-9e6f-6057-7174edf30856/original/Mu.png"
-                      />
+                    <Link  to="/product"  style={{ display: "flex", alignItems: "center" }}>
+                      <Image  width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/7113e792-7025-9e6f-6057-7174edf30856/original/Mu.png" />
                       <Text>&nbsp;Mutton</Text>
                     </Link>{" "}
                   </MenuItem>
@@ -397,8 +338,6 @@ const MiddleNavbar = () => {
                       <Text>&nbsp;Plant-Based-Meat</Text>
                     </Link>{" "}
                   </MenuItem>
-
-                
                 </MenuList>
               </>
             )}
@@ -409,9 +348,7 @@ const MiddleNavbar = () => {
         <Box>
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
-            <Text _hover={{ color: "#D11243" }}>
-              <Button onClick={onOpen}>Login</Button>
-            </Text>
+            <Text _hover={{ color: "#D11243" }}> <Button onClick={onOpen}>Login</Button></Text>
           </Flex>
         </Box>
         <Box className="cart-box">
@@ -429,30 +366,9 @@ const MiddleNavbar = () => {
         </Box>
       </Flex>
 
-      <Drawer size={"md"} isOpen={isOpen} placement="right" onClose={onClose}>
-=======
-    <div style={{ display: "flex" }}>
-      <div>
-        <Button onClick={onOpen}> Signup </Button>
-      </div>
-      <div>
-        <Link to="/home">Home</Link>
-      </div>
-      <div>
-        <Link to="/profile">profile</Link>
-      </div>
-      <div>
-        <Link to="/checkout">Checkout</Link>
-      </div>
-      <div>
-           <Link to="/product">Product</Link>
-        </div>  
-
-      {/* *********** login/signup slider start */}
+     {/* signup Drawer start */}
       <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} >
-
         <Box>
-        
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
@@ -464,6 +380,7 @@ const MiddleNavbar = () => {
         </Box>
       </Drawer>
     </Box>
+
   );
 };
 
@@ -489,58 +406,4 @@ export default Navbar;
 
 
 
-
-// const Navbar = () => {
-//   const { isOpen, onOpen, onClose } = useDisclosure()
-//   const btnRef = React.useRef()
-
-//   return (
-//      <div style={{ display: "flex" }}>
-//       { <div>
-//          <Link to="/signup">Signup</Link> }
-//         <Button onClick={onOpen}> Open </Button>
-//       </div>
-//       <div>
-//         <Link to="/home">Home</Link>
-//       </div>
-//       <div>
-//         <Link to="/profile">profile</Link>
-//       </div>
-//       <div>
-//         <Link to="/checkout">Checkout</Link>
-//       </div>
-//       <div>
-//            <Link to="/product">Product</Link>
-//         </div>
-
-{
-  /* *********** login/signup slider start */
-}
-{
-  /* <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')">
-        <Box>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerHeader>Sign In/Sign Up</DrawerHeader>
-            <DrawerBody>
-              <Signup />
-            </DrawerBody>
-          </DrawerContent>
-        </Box>
-
-      </Drawer> */
-}
-{
-  /* *********** login/signup slider end */
-}
-{
-  /* </div> */
-}
-//   )
-// }
-{
-  /* 
-export default Navbar */
-}
 

@@ -1,6 +1,6 @@
 .aboveNavbar{
-    background-color: #d3d3d3;
-    height: 30px;
+    background-color: #f1eded;
+    height: 20px;
     /* position: fixed;
     top: 0; */
     overflow: hidden;
@@ -9,6 +9,7 @@
     font-family: sans-serif;
     align-items: center;
     margin: auto;
+    color: #727272;
 }
 .aboveNavbar-inner{
     width: 80%;
@@ -34,9 +35,9 @@
 
 /* for Middle Navbar-main */
 .MiddleNavbar-main{
-width: 80%;
+width: 100%;
 margin: auto;
-height:100px ;
+height:60px ;
 /* border: 1px solid green; */
 align-items: center;
 padding: 1%;
