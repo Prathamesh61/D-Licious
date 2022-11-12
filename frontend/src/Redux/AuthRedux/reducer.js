@@ -15,6 +15,8 @@ const AuthSignupReducer = ( state=initalState, action ) => {
             return {...state, isLoading:false, isError: false }
         case types.SIGNUP_FAILURE: 
             return {...state, isError:true, isLoading: false }
+        case types.LOGIN_SUCCESS:
+            return { ...state, isError: false, isLoading: false,  isAuth: true,}
         default: 
             return state;
     }
