@@ -122,10 +122,10 @@ const AboveNavbar = () => {
         </Box>
         <Box className="contact-about">
           <Text>
-            <a href="">Certification</a>
+            <Link to="/certificate">Certification</Link>
           </Text>
           <Text>
-            <a href="">About</a>
+            <Link to='/aboutDelicious'>About</Link>
           </Text>
           <Text>
             <a href="">Careers</a>

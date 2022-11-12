@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, Routes } from "react-router-dom";
+import AboutDelicious from './AboutDelicious';
+import Certificate from './Certificate';
 import Checkout from './Checkout/Checkout';
 import Home from './Home';
 import Product from './Product';
@@ -16,6 +18,8 @@ const AllRoutes = () => {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/product' element={<Product />}/>
+        <Route path='/certificate' element={<Certificate/>}/>
+        <Route path='/aboutDelicious' element={<AboutDelicious />}/>
       </Routes>
     </div>
   )
