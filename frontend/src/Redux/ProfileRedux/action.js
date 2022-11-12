@@ -23,6 +23,7 @@ export const getProfileData = () => (dispatch) => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         }
     }).then((r) => {
+        console.log(localStorage.getItem("token"))
         console.log("r", r.data)
         dispatch(profileSuccess(r.data));
     }).catch((e) => {
@@ -110,7 +111,7 @@ export const patchAddressData = (id, payload) => (dispatch) => {
 };
 export const deleteAddressData = (id) => (dispatch) => {
     dispatch(addressRequest());
-    console.log(payload, "payload")
+    // console.log(payload, "payload")
     return axios.delete(`http://localhost:8080/profile/deleteaddress/${id}`, {
         headers: {
             "Content-Type": "application/json",
@@ -172,7 +173,7 @@ export const postCartData = (payload) => (dispatch) => {
 
 export const deleteCartData = (id) => (dispatch) => {
     dispatch(cartRequest());
-    console.log(payload, "payload")
+    // console.log(payload, "payload")
     return axios.delete(`http://localhost:8080/profile/deletecartprod/${id}`, {
         headers: {
             "Content-Type": "application/json",

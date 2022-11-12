@@ -16,6 +16,7 @@ ProfileRouter.get("/getUser", async (req, res) => {
     const user = await UserModel.findOne({ email });
     res.send({ user: user })
 })
+
 ProfileRouter.patch("/updateuser", async (req, res) => {
     const { email, name, mobile } = req.body;
     console.log(email, name, mobile);
@@ -117,6 +118,7 @@ ProfileRouter.delete("/deletecartprod/:id", async (req, res) => {
     const { email } = req.body;
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
+    
     const cart = user.cart.id(id);
     cart.remove();
     await user.save();
@@ -130,25 +132,28 @@ ProfileRouter.delete("/deletecartprod/:id", async (req, res) => {
 
 //create my order
 ProfileRouter.post("/createmyorderprod", async (req, res) => {
-    const { email, name, imgUrl, short_desc, net, price, discount, qty, totalPrice } = req.body;
+    const { email } = req.body;
     const user = await UserModel.findOne({ email });
-    const new_myOrder_prod = new MyOrderMOdel({
-        email,
-        name,
-        imgUrl,
-        short_desc,
-        net,
-        price,
-        discount,
-        qty,
-        totalPrice
+    const user_id = user._id;
+    const cart = user.cart;
+    // const myOrders = user.myorders;
+    // user.myorders = [...user.myorders, ...cart]
+    // myOrders.products = cart
+    // console.log(myOrders)
+    const updated_myorder = new MyOrderMOdel({
+        user_id,
+        products: cart
     })
-    user.myorders.push(new_myOrder_prod);
+
+    await updated_myorder.save();
+    myOrders.push(cart);
     await user.save();
     console.log(user);
-    res.send({ msg: `Check My Orders.`, new_myOrder_prod: user.myorders });
+    res.send({ msg: `Check My Orders.` });
 })
 
+// ordersModel 
+// {_id , user_id,products:[]}
 
 //get my order
 ProfileRouter.get("/getmyorderprod", async (req, res) => {

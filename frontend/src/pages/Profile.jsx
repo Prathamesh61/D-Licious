@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Image, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderTrack, Stack, Text, useDisclosure, VStack } from '@chakra-ui/react';
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Image, Img, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderTrack, Stack, Text, UnorderedList, useDisclosure, VStack, Wrap } from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAddressData, getProfileData } from '../Redux/ProfileRedux/action';
+import { useLocation } from 'react-router-dom';
+import Address_card from './Address_card';
 
 let initial = {
     email: "",
@@ -11,6 +16,18 @@ const Profile = () => {
     const firstField = React.useRef();
     const [userDetail, setuserDetail] = useState({});
     const [userAdd, setuserAdd] = useState({});
+    const dispatch = useDispatch();
+    const Profile = useSelector((state) => state.ProfileReducer.profile) || {};
+
+    const Address = useSelector((state) => state.ProfileReducer.address) || null
+
+    console.log(Address, "Address");
+    useEffect(() => {
+        dispatch(getProfileData());
+        dispatch(getAddressData());
+    }, [])
+    // console.log(Profile)
+
     const AddAddress = () => {
         setIsModalVisible(true);
     }
@@ -33,7 +50,7 @@ const Profile = () => {
             [name]: value
         })
     }
-    console.log(userDetail);
+    // console.log(userDetail);
     return (
         <Box width={["100%"]} >
             <Box position={'relative'}>
@@ -44,9 +61,9 @@ const Profile = () => {
                     <Flex onClick={onOpen} gap={3} flexWrap={"wrap"} padding="10px" backgroundColor={"#ffffff"} margin={"auto"} width={["100%", "80%", "60%"]} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" alignItems={"center"}>
                         <Image src='https://www.licious.in/img/rebranding/profile_icon_2.svg' alt='profile' />
                         <VStack padding={"5px"} width={['60%', '60%', '30%']} justifyContent={"center"} alignItems="flex-start" lineHeight={"16px"}>
-                            <Text textDecoration={"underline"} marginBottom={1.0}>Prathamesh Rawool</Text>
-                            <Text fontSize={"14px"} lineHeight={"13px"}>rawoolprathamesh61@gmail.com</Text>
-                            <Text fontSize={"13px"} lineHeight={"13px"}>+91 7083039182</Text>
+                            <Text textDecoration={"underline"} marginBottom={1.0}>{Profile?.user?.name}</Text>
+                            <Text fontSize={"14px"} lineHeight={"13px"}>{Profile?.user?.email}</Text>
+                            <Text fontSize={"13px"} lineHeight={"13px"}>+91 {Profile?.user?.mobile}</Text>
                         </VStack>
                         <Box height={'fit-content'} width={["100%", "100%", "35%"]} padding={"8px"} borderRadius={"5px"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px">
                             <HStack justifyContent={"space-between"}>
@@ -116,7 +133,10 @@ const Profile = () => {
                                 <AccordionPanel pb={4}>
                                     <VStack padding={"10px"} height={"250px"} overflowY={"scroll"} border={"1px solid red"} justifyContent={"flex-start"} alignItems={"flex-start"}>
                                         <Button alignSelf={"end"} bg={"#d11243"} size={"sm"} color={"white"} onClick={AddAddress}>Add New Address</Button>
-                                        <Text>No Address yet.</Text>
+                                        <Text>Saved Address</Text>
+                                        {Address.address_List.map((item) => {
+                                            <Address_card key={item._id} item={item} />
+                                        })}
                                     </VStack>
                                 </AccordionPanel>
                             </AccordionItem>
@@ -180,9 +200,9 @@ const Profile = () => {
                             <ModalCloseButton />
                             <ModalBody>
                                 <VStack gap={3}>
-                                    <Input name='locality' placeholder='Enter Your Locality' _placeholder={{ color: '#d11243' }} />
                                     <Input name='bldgno' placeholder='Flat no. / Building Name / Street no.' _placeholder={{ color: '#d11243' }} />
-                                    <Input name='lndmrk' placeholder='landmark ' _placeholder={{ color: '#d11243' }} />
+                                    <Input name='locality' placeholder='Enter Your Locality' _placeholder={{ color: '#d11243' }} />
+                                    <Input name='landmark' placeholder='landmark ' _placeholder={{ color: '#d11243' }} />
                                     <Input name='city' placeholder='city' _placeholder={{ color: '#d11243' }} />
                                 </VStack>
                             </ModalBody>
@@ -229,10 +249,10 @@ const Profile = () => {
                             <Box>
                                 <FormLabel fontSize={"13px"} htmlFor='Full Name'>Full name</FormLabel>
                                 <Input name="name" onChange={handleUserDetail}
-                                    //  value={user.email}
+                                    value={Profile?.user?.name}
                                     type={"text"}
                                     ref={firstField}
-                                    id='username'
+                                    id='name'
                                     placeholder='Please enter Full Name'
                                 />
                             </Box>
@@ -243,16 +263,18 @@ const Profile = () => {
                                     type={"email"}
                                     ref={firstField}
                                     id='email'
+                                    value={Profile?.user?.email}
                                     placeholder='Please enter Email ID'
+                                    readOnly
                                 />
                             </Box>
                             <Box>
                                 <FormLabel fontSize={"13px"} htmlFor='Phone'>Phone Number</FormLabel>
-                                <Input name="phone" onChange={handleUserDetail}
-                                    // value={user.password}
+                                <Input name="mobile" onChange={handleUserDetail}
                                     type={"tel"}
                                     ref={firstField}
                                     id='phone'
+                                    value={Profile?.user?.mobile}
                                     placeholder='Please enter Phone No'
                                 />
                             </Box>
@@ -271,7 +293,5 @@ const Profile = () => {
     )
 }
 
-
-export default Profile;
-
+export default Profile
 

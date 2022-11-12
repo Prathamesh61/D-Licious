@@ -26,6 +26,10 @@ import { MdCheckCircle } from 'react-icons/md'
 import { useToast } from '@chakra-ui/react';
 import Checkout_cart_prod_card from './Checkout_cart_prod_card';
 import Address_card from '../Address_card';
+import axios from 'axios';
+import { getCartData } from '../../Redux/ProfileRedux/action';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
 const Form1 = () => {
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
@@ -199,6 +203,40 @@ export default function Checkout() {
     const [show, setShow] = useState(false);
     const [step, setStep] = useState(1);
     console.log(show)
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.ProfileReducer.cart);
+    console.log(cart);
+
+    useEffect(() => {
+
+        dispatch(getCartData());
+    }, [])
+
+
+    const handleSubmit = () => {
+        console.log(cart)
+        console.log(localStorage.getItem("token"))
+        axios.post("http://localhost:8080/profile/createmyorderprod", {
+            data: cart, headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+            }
+
+        }).then((res) => {
+            console.log(res)
+        }).catch(err => {
+            console.log(err)
+        })
+        toast({
+            title: 'Account created.',
+            description: "We've created your account for you.",
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        });
+
+    }
+
     return (
         <>
             <Flex width={"80%"} flexWrap={"wrap"} margin="auto" mt={"10px"} justifyContent={'space-around'} alignItems="center">
@@ -252,15 +290,7 @@ export default function Checkout() {
                                     bg="#d11243"
                                     color={"white"}
                                     variant="solid"
-                                    onClick={() => {
-                                        toast({
-                                            title: 'Account created.',
-                                            description: "We've created your account for you.",
-                                            status: 'success',
-                                            duration: 3000,
-                                            isClosable: true,
-                                        });
-                                    }}>
+                                    onClick={handleSubmit}>
                                     Submit
                                 </Button>
                             ) : null}
