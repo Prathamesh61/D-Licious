@@ -1,23 +1,19 @@
-import './App.css';
+import "./App.css";
 
-import React, { useEffect, useState } from 'react';
-import AllRoutes from './Pages/AllRoutes'
+import React, { useEffect, useState } from "react";
+import AllRoutes from "./Pages/AllRoutes";
 
-import Navbar from './Components/Navbar';
-import axios from 'axios';
+import Navbar from "./Components/Navbar";
+import axios from "axios";
 
-
-import Footer from './Components/footer/Footer';
+import Footer from "./Components/footer/Footer";
 
 function App() {
-  
-  
-
   return (
     <div className="App">
-    <Navbar   />
+      <Navbar />
       <AllRoutes />
-      <Footer/>
+      <Footer />
     </div>
   );
 }
