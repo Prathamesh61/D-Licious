@@ -17,7 +17,7 @@ const Home = () => {
       console.log("err", err);
     }
   };
-  
+
 
   const ADDTOCARTBUTTON=()=>{
     const [check,setcheck]=useState(0)
@@ -43,7 +43,7 @@ const Home = () => {
    }, []);
 
   return (
-    <div>
+    <div className='Divvv'>
       {/* Anil kapoor slider */}
       <div className='mainDiv'>
         <img src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e" alt="" />
@@ -153,7 +153,7 @@ const Home = () => {
         </select>
       </center>
 
-      <div>
+      <div id='pic'>
         <img
           style={{
             marginTop: "10px",
