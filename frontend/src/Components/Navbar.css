@@ -1,0 +1,64 @@
+.aboveNavbar{
+    background-color: #d3d3d3;
+    height: 30px;
+    /* position: fixed;
+    top: 0; */
+    overflow: hidden;
+    width: 100%;
+    font-size: 15px;
+    font-family: sans-serif;
+    align-items: center;
+    margin: auto;
+}
+.aboveNavbar-inner{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    /* border: 1px solid red; */
+    justify-content: space-between;
+}
+.contact-about{
+    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:0.5%;
+}
+.apple-playStore{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:1%;
+}
+
+/* for Middle Navbar-main */
+.MiddleNavbar-main{
+width: 80%;
+margin: auto;
+height:100px ;
+/* border: 1px solid green; */
+align-items: center;
+padding: 1%;
+display: flex;
+justify-content: space-between;
+
+
+}
+
+.cart-box{
+    border: 1px solid #D11243;
+    width: 120px;
+    border-radius: 6%;
+    display: flex;
+}
+
+
+.Navbar-Main{
+    
+    top:0;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+}

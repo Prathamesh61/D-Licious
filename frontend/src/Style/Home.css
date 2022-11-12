@@ -3,6 +3,7 @@
 }
 .mainDiv{
     /* border: 1px solid black ; */
+    margin-top: 10%;
     height: auto;
     width: auto;
     cursor: pointer;
