@@ -1,11 +1,13 @@
 const express = require('express');
 const { connection } = require('./config/db');
 const { userController } = require("./routes/user.routes");
+const { ProfileRouter } = require("./routes/profile.routes")
 
 const app = express();
 app.use(express.json());
 require('dotenv').config();
 const cors = require('cors');
+const { authentication } = require('./middlewares/Authentication');
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -13,6 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/user", userController);
+app.use("/profile", authentication, ProfileRouter);
 
 app.listen(process.env.PORT, async () => {
     try {

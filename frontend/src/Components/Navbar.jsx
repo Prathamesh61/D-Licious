@@ -1,5 +1,6 @@
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Input, useDisclosure } from '@chakra-ui/react'
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, Image, Input, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Signup from '../Pages/Signup'
 
@@ -7,11 +8,11 @@ const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = React.useRef()
 
+
   return (
     <div style={{ display: "flex" }}>
       <div>
-        {/* <Link to="/signup">Signup</Link> */}
-        <Button onClick={onOpen}> Open </Button>
+        <Button onClick={onOpen}> Signup </Button>
       </div>
       <div>
         <Link to="/home">Home</Link>
@@ -27,8 +28,10 @@ const Navbar = () => {
         </div>  
 
       {/* *********** login/signup slider start */}
-      <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} backgroundImage="url('https://m.licious.in/image/rebranding/jpg/user-login-new.jpg')">
+      <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} >
+         
         <Box>
+        
           <DrawerOverlay />
           <DrawerContent>
             <DrawerCloseButton />
@@ -49,10 +52,3 @@ const Navbar = () => {
 export default Navbar
 
 
-{/* <DrawerContent>
-               <DrawerCloseButton />
-               <DrawerHeader>Sign In/Sign Up</DrawerHeader>
-               <DrawerBody>
-                 <Input placeholder='Type here...' />
-               </DrawerBody>
-</DrawerContent> */}
