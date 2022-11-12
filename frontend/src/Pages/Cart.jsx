@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
     Drawer,
     DrawerBody,
@@ -17,10 +17,19 @@ import {
     VStack
 } from '@chakra-ui/react'
 import Cart_prod_card from './Cart_prod_card'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCartData } from '../Redux/ProfileRedux/action'
 
 const Cart = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+    const btnRef = React.useRef();
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.ProfileReducer.cart);
+    console.log(cart);
+
+    useEffect(() => {
+        dispatch(getCartData());
+    }, [])
 
     return (
         <>

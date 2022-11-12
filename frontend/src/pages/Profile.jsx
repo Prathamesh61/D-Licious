@@ -17,11 +17,11 @@ const Profile = () => {
     const [userDetail, setuserDetail] = useState({});
     const [userAdd, setuserAdd] = useState({});
     const dispatch = useDispatch();
-    const Profile = useSelector((state) => state.ProfileReducer.profile) || {};
+    const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
 
     const Address = useSelector((state) => state.ProfileReducer.address) || null
 
-    console.log(Address, "Address");
+    console.log(Profile, Address, "Address");
     useEffect(() => {
         dispatch(getProfileData());
         dispatch(getAddressData());
@@ -52,7 +52,7 @@ const Profile = () => {
     }
     // console.log(userDetail);
     return (
-        <Box width={["100%"]} >
+        <Box width={["100%"]} height={"800px"}  >
             <Box position={'relative'}>
                 <Box height={"200px"} overflowY={"hidden"} >
                     <Image src="https://www.licious.in/img/default/licious-b-1.jpg" filter={"blur(1.5px)"} width="100%" alt=" bannerImage" />
@@ -77,118 +77,119 @@ const Profile = () => {
                             </Slider>
                         </Box>
                     </Flex>
-                    <br />
-                    <Box margin={"auto"} width={["70%", "50%", "30%"]} _hover={{ border: "1px solid #d11243" }} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
-                        <Accordion allowMultiple  >
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3 >
-                                    <AccordionButton>
-                                        <Image width={"20px"} src='https://www.licious.in/img/rebranding/rewards/milestone_logo.svg' />&nbsp;&nbsp;&nbsp;
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            My Rewards
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <Text>No rewards yet.</Text>
-                                </AccordionPanel>
-                            </AccordionItem>
-                        </Accordion>
-                    </Box>
-                    <br />
-                    <Box margin={"auto"} bg={"#ffdc93"} width={["80%", "60%", "40%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
-                        <HStack justifyContent={"space-between"} padding={"10px"} alignItems="center">
-                            <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
-                            <Button bg={"#d11243"} color={"white"} size='sm' >Join Now</Button>
-                        </HStack>
-                        <hr color={"black"} />
-                        <Text padding={"10px"} fontSize={"13px"} lineHeight={"13px"}>Join MEATOPIA to get free delivery on all orders with cart value more than Rs.99.</Text>
-                    </Box>
-                    <br />
-                    <Box margin={"auto"} width={["95%", "80%", "60%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
-                        <Accordion allowMultiple  >
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3>
-                                    <AccordionButton>
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            Order History
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <Text>No Orders yet.</Text>
-                                </AccordionPanel>
-                            </AccordionItem>
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3>
-                                    <AccordionButton>
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            Saved Address
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <VStack padding={"10px"} height={"250px"} overflowY={"scroll"} border={"1px solid red"} justifyContent={"flex-start"} alignItems={"flex-start"}>
-                                        <Button alignSelf={"end"} bg={"#d11243"} size={"sm"} color={"white"} onClick={AddAddress}>Add New Address</Button>
-                                        <Text>Saved Address</Text>
-                                        {Address.address_List.map((item) => {
+                </Box>
+                <br />
+                <Box margin={"60px auto"} width={["70%", "50%", "30%"]} _hover={{ border: "1px solid #d11243" }} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
+                    <Accordion allowMultiple  >
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3 >
+                                <AccordionButton>
+                                    <Image width={"20px"} src='https://www.licious.in/img/rebranding/rewards/milestone_logo.svg' />&nbsp;&nbsp;&nbsp;
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        My Rewards
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <Text>No rewards yet.</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Box>
+
+                <Box margin={"auto"} bg={"#ffdc93"} width={["80%", "60%", "40%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
+                    <HStack justifyContent={"space-between"} padding={"10px"} alignItems="center">
+                        <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
+                        <Button bg={"#d11243"} color={"white"} size='sm' >Join Now</Button>
+                    </HStack>
+                    <hr color={"black"} />
+                    <Text padding={"10px"} fontSize={"13px"} lineHeight={"13px"}>Join MEATOPIA to get free delivery on all orders with cart value more than Rs.99.</Text>
+                </Box>
+                <br />
+                <Box margin={"auto"} width={["95%", "80%", "60%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
+                    <Accordion allowMultiple  >
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3>
+                                <AccordionButton>
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        Order History
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <Text>No Orders yet.</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3>
+                                <AccordionButton>
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        Saved Address
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <VStack padding={"10px"} height={"250px"} overflowY={"scroll"} border={"1px solid red"} justifyContent={"flex-start"} alignItems={"flex-start"}>
+                                    <Button alignSelf={"end"} bg={"#d11243"} size={"sm"} color={"white"} onClick={AddAddress}>Add New Address</Button>
+                                    <Text>Saved Address</Text>
+                                    {/* {Address.address_List.map((item) => {
                                             <Address_card key={item._id} item={item} />
-                                        })}
-                                    </VStack>
-                                </AccordionPanel>
-                            </AccordionItem>
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3>
-                                    <AccordionButton>
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            D'Licious Wallet
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <Text>No wallet Added yet.</Text>
-                                </AccordionPanel>
-                            </AccordionItem>
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3>
-                                    <AccordionButton>
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            My Reviews
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <Text>No Reviews yet.</Text>
-                                </AccordionPanel>
-                            </AccordionItem>
-                            <AccordionItem borderRadius={"5px"}>
-                                <h3>
-                                    <AccordionButton>
-                                        <Box color='#d11243' flex='1' textAlign='left'>
-                                            Refer a Friend
-                                        </Box>
-                                        <AccordionIcon color={"#d11243"} />
-                                    </AccordionButton>
-                                </h3>
-                                <AccordionPanel pb={4}>
-                                    <VStack width={"100%"} justifyContent={"center"} alignItems={"center"} padding={"5px"}>
-                                        <Center>
-                                            <Image src='https://d2407na1z3fc0t.cloudfront.net/Banner/rebranding_v2_referAndEarn.svg' alt="refer-a-friend" />
-                                        </Center>
-                                        <Text>Your friends are our friends too!</Text>
-                                        <Text padding={"10px"} border={"1px dashed black"} bg={"#dedede"}>LA7{Math.floor(Math.random(200) * 2)}XWNDR</Text>
-                                        <Text>Tell a friend they get Rs. 200 discount on min order value of Rs.500. You get Rs. 200 Licious cash</Text>
-                                    </VStack>
-                                </AccordionPanel>
-                            </AccordionItem>
-                        </Accordion>
-                    </Box>
-                </Box >
+                                        })} */}
+                                </VStack>
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3>
+                                <AccordionButton>
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        D'Licious Wallet
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <Text>No wallet Added yet.</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3>
+                                <AccordionButton>
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        My Reviews
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <Text>No Reviews yet.</Text>
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem borderRadius={"5px"}>
+                            <h3>
+                                <AccordionButton>
+                                    <Box color='#d11243' flex='1' textAlign='left'>
+                                        Refer a Friend
+                                    </Box>
+                                    <AccordionIcon color={"#d11243"} />
+                                </AccordionButton>
+                            </h3>
+                            <AccordionPanel pb={4}>
+                                <VStack width={"100%"} justifyContent={"center"} alignItems={"center"} padding={"5px"}>
+                                    <Center>
+                                        <Image src='https://d2407na1z3fc0t.cloudfront.net/Banner/rebranding_v2_referAndEarn.svg' alt="refer-a-friend" />
+                                    </Center>
+                                    <Text>Your friends are our friends too!</Text>
+                                    <Text padding={"10px"} border={"1px dashed black"} bg={"#dedede"}>LA7{Math.floor(Math.random(200) * 2)}XWNDR</Text>
+                                    <Text>Tell a friend they get Rs. 200 discount on min order value of Rs.500. You get Rs. 200 Licious cash</Text>
+                                </VStack>
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+                </Box>
+
             </Box>
             {/* Address modal */}
             {

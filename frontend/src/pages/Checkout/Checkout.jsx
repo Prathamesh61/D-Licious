@@ -208,7 +208,6 @@ export default function Checkout() {
     console.log(cart);
 
     useEffect(() => {
-
         dispatch(getCartData());
     }, [])
 
