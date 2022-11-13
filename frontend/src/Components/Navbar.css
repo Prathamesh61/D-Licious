@@ -38,7 +38,6 @@
 width: 100%;
 margin: auto;
 height:60px ;
-/* border: 1px solid green; */
 align-items: center;
 padding: 1%;
 display: flex;
@@ -47,16 +46,7 @@ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 }
 
-.cart-box{
-    border: 1px solid #D11243;
-    width: 120px;
-    border-radius: 6%;
-    display: flex;
-}
-
-
 .Navbar-Main{
-    
     top:0;
     z-index: 1000;
     position: fixed;

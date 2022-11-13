@@ -36,8 +36,27 @@ const Cart = () => {
     let totalOfItems = 0;
     return (
         <>
-            <Button ref={btnRef} colorScheme='teal' onClick={onOpen}>
-                Open
+            <Button ref={btnRef} variant="outline" onClick={onOpen}>
+                {/* <Box>
+                    <Image
+                    width="30px"
+                    src="https://www.licious.in/img/rebranding/cart_icon.svg"
+                    />
+                </Box>
+                <Box>
+                    <Text color="gray"> Cart</Text>
+                    <Text fontWeight="bold">{}</Text>
+                </Box> */}
+                <HStack padding={"10px"} justify={"center"} align={"center"} position={"relative"}>
+                    <Image
+                        width="20px"
+                        src="https://www.licious.in/img/rebranding/cart_icon.svg"
+                    />
+                    <Text position={"absolute"} top={0} left={3.0} fontWeight={700} color={"#d11243"}>{cart?.length}
+                    </Text>
+                    <Text color="gray"> Cart</Text>
+                </HStack>
+              
             </Button>
             <Drawer
                 isOpen={isOpen}

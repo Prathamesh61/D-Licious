@@ -1,6 +1,6 @@
-@import "react-slideshow-image/dist/styles.css";
+/* @import "react-slideshow-image/dist/styles.css"; */
 
-.productDetails-main{
+/* .productDetails-main{
     margin-top: 10%;
     background-color: #F7F6F6;
 }
@@ -12,17 +12,13 @@
 .img-desc{
     background-color: white;
     padding: 2%; 
-    /* display: flex;   */
     display: grid;
     grid-template-columns: repeat(2,1fr);
     
     margin: auto;
-}
+} */
 
-
-
-
-.slide-img{
+/* .slide-img{
     border-top-left-radius:5% ;
     border-top-right-radius: 5%;
     width: 650px;
@@ -31,7 +27,7 @@
 .desc-main{
    
     padding-left: 4%;
-}
+} */
 
 .quantity{
     display: grid;
@@ -46,8 +42,7 @@
 .price-addtwocard-main{
     display: flex;
   align-items: center;
-  justify-content: space-between;
-    /* border: 1px solid red; */  
+  justify-content: space-between; 
 }
 
 .sourcing-whtUget{

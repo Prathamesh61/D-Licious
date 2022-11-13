@@ -20,10 +20,11 @@ ProfileRouter.get("/getUser", async (req, res) => {
 ProfileRouter.patch("/updateuser", async (req, res) => {
     const { email, name, mobile } = req.body;
     // console.log(email, name, mobile);
-    const updated_user = await UserModel.findOneAndUpdate({ email }, { name, mobile });
-    res.send({ msg: "Details Updated Successfully.", updated_user: updated_user })
-})
+    await UserModel.findOneAndUpdate({ email }, { name, mobile });
 
+    const user = await UserModel.find({ email });
+    res.send({ msg: "Details Updated Successfully.", updated_user: user })
+})
 // ----------------------------------------------------------------------------------------
 
 //Address Routes

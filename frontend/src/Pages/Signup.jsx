@@ -1,4 +1,4 @@
-import { Box, Button, Input, useToast } from "@chakra-ui/react";
+import { Box, Button, Input, useDisclosure, useToast } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -109,7 +109,7 @@ const Signup = () => {
                 type: LOGIN_SUCCESS,
                 payload: res.data,
               });
-              navigate("/profile");
+              navigate("/home");
             } else if (status === 500) {
               toastAlert(toast, res.data.msg, "error");
             }
@@ -187,6 +187,7 @@ const Signup = () => {
             <div className="para"> <p>Go to Signup page ?</p> </div> 
             <div className="para_link"> <p onClick={hanleRender}>Signup</p> </div>
           </div>
+          <a href="" target="_blank">For D'LICIOUS</a>
         </div>
       )}
     </div>

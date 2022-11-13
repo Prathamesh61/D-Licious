@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
-import { Box, Image, Heading, Text, Divider, Button, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Image, Text, Divider, Button, Flex, Spacer } from "@chakra-ui/react";
 import liciousImg from './Images/licious.PNG'
 import yes from './Images/yes.png'
 import { Slide } from "react-slideshow-image";
 import YoutubeVideoPlayer from "./YoutubePlayes";
-import no from './Images/no.png'
-import './slider.css'
-import imgGirl from './Images/yes.png'
-
-
-
-
+import no from './Images/no.png';
+import './slider.css';
+import imgGirl from './Images/yes.png';
 import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css'
-// import 'slick-carousel/slick/slick-theme.css'
-
-// import { DigitalBestSeller } from './data';
-
-// style was imported in index.css
-// import "react-slideshow-image/dist/styles.css";
+import 'slick-carousel/slick/slick.css';
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const zoomOutProperties = {
@@ -31,11 +23,12 @@ const zoomOutProperties = {
   arrows: true,
 };
 
-const Slideshow = () => {
-  const images = [
-    "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/a9115623-36e0-7a11-4c65-0f7a097c2d27/original/WhatsApp_Image_2022-06-10_at_12.37.50_PM_(1).jpeg?format=webp",
-    "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/d49aac35-6784-73e1-93ff-ac738c240f15/original/Chicken-Breast-Boneless-(3-4-Pieces)-Hero-Shot_(1).jpg?format=webp",
-  ];
+const Slideshow = ({img1,img2}) => {
+  // const images = [
+  //   "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/a9115623-36e0-7a11-4c65-0f7a097c2d27/original/WhatsApp_Image_2022-06-10_at_12.37.50_PM_(1).jpeg?format=webp",
+  //   "https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/d49aac35-6784-73e1-93ff-ac738c240f15/original/Chicken-Breast-Boneless-(3-4-Pieces)-Hero-Shot_(1).jpg?format=webp",
+  // ];
+  const images=[img1,img2];
   return (
     <div className="slide-container">
       <Slide className=".slide-img" {...zoomOutProperties}>
@@ -44,7 +37,6 @@ const Slideshow = () => {
             key={index}
             style={{
               width: "100%",
-              // border:"1px solid red",
               borderTopLeftRadius: "4%",
               borderTopRightRadius: "4%",
             }}
@@ -56,53 +48,58 @@ const Slideshow = () => {
   );
 };
 
-
+// Add to cart button
 const ADDTOCARTBUTTON=()=>{
   const [check,setcheck]=useState(0)
 
-  return(<>
-    { (check<1 &&  <Button onClick={()=>setcheck(1)}
-    style={{backgroundColor:"#D11243",
-    color:"white"}}>ADD TO CART</Button>)
-    ||(
-     check>=1 && <Box style={{display:"flex"}}>
-      <Button style={{backgroundColor:"white",fontSize:"40px",
-    color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
-      <Button style={{backgroundColor:"white",fontSize:"25px",
-    }}  >{check}</Button>
-      <Button style={{backgroundColor:"white",fontSize:"40px",
-    color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
-     </Box>
-    )}</>)
+    return(<>
+      { (check<1 &&  <Button onClick={()=>setcheck(1)}
+      style={{backgroundColor:"#D11243",
+      color:"white"}}>ADD TO CART</Button>)
+      ||(
+      check>=1 && <Box style={{display:"flex"}}>
+        <Button style={{backgroundColor:"white",fontSize:"40px",
+      color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
+        <Button style={{backgroundColor:"white",fontSize:"25px",
+      }}  >{check}</Button>
+        <Button style={{backgroundColor:"white",fontSize:"40px",
+      color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
+      </Box>
+      )}</>)
 }
+//************ * 
 
-
-
-
-
-
-
-
-
-
+// Carosul  ***************
 const ProductDetails = () => {
+  const [currentProduct, setCurrentProduct] = useState({});
   const [datamap, setdatamap] = useState([]);
-const getdata1 = async () => {
+  const {id} = useParams();
+  const products = useSelector((state) => state.ProductReducer.products.data);
+  const dispatch = useDispatch();
+console.log(products,"products")
+  const getdata1 = async () => {
   try {
     let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
     let data = await res.json();
     setdatamap(data.data);
-   console.log(datamap)
+    // console.log(datamap)
   } catch (err) {
-    console.log("err", err);
+      console.log("err", err);
   }
 };
+// ****************
 
 useEffect(() => {
+  if(id){
+    // const products = data.ProductReducer.products;
+    const productById = products?.filter(
+      (product) => product._id == id
+    );
+    productById && setCurrentProduct(productById[0]);
+  }
   getdata1();
- }, []);
-
-
+ },[id]);
+ console.log(currentProduct, "detail")
 
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
@@ -159,13 +156,13 @@ useEffect(() => {
 
       <Box className="img-desc">
         <Box className="slide-img">
-          <Slideshow />
+          <Slideshow img1={currentProduct.imgUrl} img2 ={currentProduct.imgUrl2}/>
         </Box>
         <Box className="desc-main">
           <Box>
   <Text fontSize={["xl","2xl","3xl"]} fontWeight="500" style={{ textAlign: "left" }}>
               {" "}
-              Chicken Breast - Boneless
+             {currentProduct.name}
             </Text>
           </Box>
 
@@ -177,9 +174,12 @@ useEffect(() => {
               paddingTop: "3%",
             }}
           >
-            <Box>Boneless</Box>
+            {/* <Box>Boneless</Box>
             <Box>|</Box>
-            <Box>Fillet</Box>
+            <Box>Fillet</Box> */}
+            <Box>
+            {currentProduct.tags}
+            </Box>
           </Box>
 
           <Divider borderColor="silver" />
@@ -187,9 +187,7 @@ useEffect(() => {
           <Box fontSize={['sm','md',"lg"]}  
           style={{ textAlign: "justify", color: "#5A5A5A" }}>
             <Text  style={{ paddingTop: "3%" }}>
-              Easy-to-cook, versatile and cut from the most tender parts of a
-              chicken, we've got special nakhras for everyone's favourite —
-              Chicken Breast Boneless.
+             {currentProduct.desc}
             </Text>
             <Text  style={{ paddingTop: "3%" }}>
               Cut from the breast bone, including chicken tenders, this cut is
@@ -231,7 +229,7 @@ useEffect(() => {
                 width="30px"
                 src="https://d2407na1z3fc0t.cloudfront.net/Banner/Pieces.png"
               />
-              <Text style={{paddingLeft:"4%"}}>No. of Pieces 3-4</Text>
+              <Text style={{paddingLeft:"4%"}}>No. of Pieces {currentProduct.qty}</Text>
             </Box>
             <Box style={{
                 display: "flex",
@@ -241,7 +239,7 @@ useEffect(() => {
                 width="30px"
                 src="https://d2407na1z3fc0t.cloudfront.net/Banner/Serves.png"
               />
-              <Text style={{paddingLeft:"4%"}}>Serves 4</Text>
+              <Text style={{paddingLeft:"4%"}}>Serves {Math.floor(Math.random()*8+1)}</Text>
             </Box>
            
             <Box style={{
@@ -252,7 +250,7 @@ useEffect(() => {
               <Image
                 width="30px"
                 src="https://d2407na1z3fc0t.cloudfront.net/Banner/Netwt.png"/>
-              <Text style={{paddingLeft:"4%"}}>450gms</Text>
+            <Text style={{paddingLeft:"4%"}}>{currentProduct.net}</Text>
             </Box>
           </Box>
 
@@ -263,7 +261,7 @@ useEffect(() => {
 <Flex style={{alignItems:"center"}}>
     
 <Text color='#D11243' fontSize={['15px','15px',"25px"]} fontWeight='500'>MRP:</Text>
-<Text color='#D11243' fontSize={['20px','20px',"40px"]} fontWeight='500'>₹269</Text>
+<Text color='#D11243' fontSize={['20px','20px',"40px"]} fontWeight='500'>₹ {currentProduct.price}</Text>
 </Flex>
 
 <Box style={{marginLeft:"30%"}}>

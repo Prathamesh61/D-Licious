@@ -82,7 +82,7 @@ const Form2 = () => {
             <br />
             <Box padding={"2"} height={"180px"} overflowY={"auto"} borderRadius={"5px"}>
                 {cart?.length > 0 && cart?.map((item) => {
-                    totalPrice += +item.price
+                    totalPrice += Number(item.price)
                     return <Checkout_cart_prod_card key={item._id} id={item._id} imgUrl={item.imgUrl} name={item.name} net={item.net} qty={item.qty} price={item.price} />
                 })}
             </Box>
@@ -263,7 +263,6 @@ const NET = () => {
                 </VStack>
             </RadioGroup>
             <br />
-            <Button alignContent={"center"} bg="#d11243" color={"white"} >Pay ₹ {totalPrice}  </Button>
         </Box>
     )
 }
@@ -311,14 +310,14 @@ export default function Checkout() {
 
     return (
         <>
-            <Box width={"80%"} margin={"auto"} mb={"100px"} mt={"50px"}>
+            <Box width={"90%"} margin={"auto"} mb={"100px"} mt={"10%"}>
                 <Flex width={"100%"} flexWrap={"wrap"} margin="auto" mt={"10px"} justifyContent={'flex-start'} alignItems="center">
                     <Box
                         height={'400px' || 'fit-content'}
                         borderWidth="1px"
                         rounded="lg"
                         boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
-                        width={"50%"}
+                        width={"55%"}
                         position={"relative"}
                         p={6}
                         as="form">
@@ -374,7 +373,7 @@ export default function Checkout() {
                     <Box
                         // border={"1px solid red"}
                         padding="10px" position={"relative"}
-                        width={"40%"}>
+                        width={"45%"}>
                         <Slider
                             // border={"1px solid red"}
                             paddingY={"110px"}

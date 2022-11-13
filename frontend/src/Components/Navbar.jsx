@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  MenuDivider,
   useDisclosure,
 } from "@chakra-ui/react";
 import Signup from "../Pages/Signup";
@@ -24,9 +25,12 @@ import {
   MenuList,
   MenuItem,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LICIOUS from "./D'LICIOUS.jpeg";
 import axios from "axios";
+import { MdOutlineAccountCircle } from 'react-icons/md'
+import { IconButton } from '@chakra-ui/react'
+import Cart from "../Pages/Cart";
 
 const Categories = [
   {
@@ -153,6 +157,7 @@ const MiddleNavbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Api_start = `https://api.openweathermap.org/data/2.5/weather?`;
   const Api_key = `566cee1b29349fab7cfc8dfe8ff9e2fc`;
+  const navigate = useNavigate()
 
   const [Latitude, setLatitude] = useState("");
   const [Longitude, setLongitude] = useState("");
@@ -173,6 +178,12 @@ const MiddleNavbar = () => {
       setCity(res.data.name);
     });
    }, [Latitude, Longitude]);
+
+
+   let handleLogout = () => {
+    localStorage.removeItem("token");
+    return navigate("/")
+   };
 
 
   return (
@@ -202,7 +213,7 @@ const MiddleNavbar = () => {
                   {
                     <Flex>
                       <Image src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
-                      <Text _hover={{ color: "#D11243" }}>Categories</Text>
+                      <Text padding="5px" _hover={{ color: "#D11243" }}>Categories</Text>
                     </Flex>
                   }
                 </MenuButton>
@@ -348,21 +359,46 @@ const MiddleNavbar = () => {
         <Box>
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
-            <Text _hover={{ color: "#D11243" }}> <Button onClick={onOpen}>Login</Button></Text>
+            <Text _hover={{ color: "#D11243" }}> {
+                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link" onClick={onOpen}>Login</Button>
+                : <Menu>
+              <MenuButton
+                    aria-label="Options"
+                    icon={<MdOutlineAccountCircle size={"50px"} />}
+                    variant=""
+               >Profile</MenuButton>
+                <MenuList>
+                  <Link to="/profile">
+                    <MenuItem icon={""}>
+                          Profile
+                     </MenuItem>
+                  </Link>
+                     
+                     <MenuItem icon={""} >
+                          App Support
+                     </MenuItem>
+                     <MenuDivider />
+                     <MenuItem onClick={handleLogout} icon={""}>
+                          Logout
+                     </MenuItem>
+                </MenuList>
+              </Menu>
+            }</Text>
           </Flex>
         </Box>
         <Box className="cart-box">
-          <Box>
+          {/* <Box>
             <Image
               width="30px"
               src="https://www.licious.in/img/rebranding/cart_icon.svg"
             />
-          </Box>
+          </Box> */}
 
-          <Box>
+          {/* <Box>
             <Text color="gray"> Cart</Text>
             <Text fontWeight="bold">₹24457{}</Text>
-          </Box>
+          </Box> */}
+          <Cart />
         </Box>
       </Flex>
 
