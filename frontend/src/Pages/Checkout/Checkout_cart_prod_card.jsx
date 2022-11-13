@@ -32,7 +32,7 @@ const Checkout_cart_prod_card = ({ id, name, imgUrl, net, price, qty }) => {
             </VStack>
             <MdClose cursor={"pointer"} color='black' size={"16px"} onClick={() => deleteFromCart(id, name)} />
         </HStack>
-    )
-}
+    );
+};
 
-export default Checkout_cart_prod_card
+export default Checkout_cart_prod_card;

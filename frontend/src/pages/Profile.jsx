@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Image, Img, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderTrack, Stack, Text, UnorderedList, useDisclosure, useToast, VStack, Wrap } from '@chakra-ui/react';
 import { useEffect } from 'react';
@@ -20,6 +21,7 @@ let userInitial = {
 
 }
 const Profile = () => {
+
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = React.useRef();
@@ -354,4 +356,5 @@ const Profile = () => {
 }
 
 export default Profile
+
 

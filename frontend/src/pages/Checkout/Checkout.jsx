@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
+
     Box,
     ButtonGroup,
     Button,
@@ -90,17 +91,66 @@ const Form2 = () => {
 };
 
 const Form3 = () => {
-    const [PaymentMethod, setPaymentMethod] = useState("")
+    const [PaymentMethod, setPaymentMethod] = useState("");
     return (
         <>
             <HStack justifyContent={"flex-start"} alignItems={"flex-start"}>
-                <VStack spacing={"0px"} gap={"-5px"} margin={"0"} borderRadius={"0"} width={"40%"}>
-                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("UPI")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Pay Using UPI</Box>
-                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("CARD")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Credit/Debit Cards</Box>
-                    <Box cursor={"pointer"} width={"100%"} textAlign="start" color="#d4224f" onClick={() => setPaymentMethod("NET")} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"0"} padding={"5px 10px"} >Netbanking</Box>
+                <VStack
+                    spacing={"0px"}
+                    gap={"-5px"}
+                    margin={"0"}
+                    borderRadius={"0"}
+                    width={"40%"}
+                >
+                    <Box
+                        cursor={"pointer"}
+                        width={"100%"}
+                        textAlign="start"
+                        color="#d4224f"
+                        onClick={() => setPaymentMethod("UPI")}
+                        boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                        borderRadius={"0"}
+                        padding={"5px 10px"}
+                    >
+                        Pay Using UPI
+                    </Box>
+                    <Box
+                        cursor={"pointer"}
+                        width={"100%"}
+                        textAlign="start"
+                        color="#d4224f"
+                        onClick={() => setPaymentMethod("CARD")}
+                        boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                        borderRadius={"0"}
+                        padding={"5px 10px"}
+                    >
+                        Credit/Debit Cards
+                    </Box>
+                    <Box
+                        cursor={"pointer"}
+                        width={"100%"}
+                        textAlign="start"
+                        color="#d4224f"
+                        onClick={() => setPaymentMethod("NET")}
+                        boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                        borderRadius={"0"}
+                        padding={"5px 10px"}
+                    >
+                        Netbanking
+                    </Box>
                 </VStack>
-                <Box boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} width={"100%"}>
-                    {PaymentMethod == "CARD" ? <CARD /> : PaymentMethod == "NET" ? <NET /> : <UPI />}
+                <Box
+                    boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                    borderRadius={"5px"}
+                    width={"100%"}
+                >
+                    {PaymentMethod == "CARD" ? (
+                        <CARD />
+                    ) : PaymentMethod == "NET" ? (
+                        <NET />
+                    ) : (
+                        <UPI />
+                    )}
                 </Box>
             </HStack>
         </>
@@ -120,8 +170,8 @@ const UPI = () => {
             </Flex>
             <br />
         </Box>
-    )
-}
+    );
+};
 const Stats = () => {
     return (< Box padding={"15px"} width={["90%", "70%", "50%"]}
         borderWidth="1px"
@@ -218,6 +268,7 @@ const NET = () => {
     )
 }
 export default function Checkout() {
+
     const [sliderValue, setSliderValue] = React.useState(0)
     const toast = useToast();
     const [show, setShow] = useState(false);

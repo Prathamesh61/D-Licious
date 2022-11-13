@@ -1,6 +1,12 @@
-.Divvv{
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  } */
+/* .Divvv{
     border: 1px solid black;
-}
+} */
 .mainDiv{
     /* border: 1px solid black ; */
     height: auto;
@@ -244,7 +250,9 @@
 }
 .smallDiv{
     /* border: 1px solid red; */
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    /* gap: 10px; */
 }
 .slider_Card{
     width: 365px;
@@ -297,61 +305,61 @@
     margin-right: 10px;
     margin-bottom: 15px;
  }
+.blogDiv {
+  /* border: 1px solid red; */
+  width: 74%;
+  max-width: 1150px;
+  margin: auto;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+.divv {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  color: #4a4a4a;
+  margin-bottom: 7px;
+}
+.para2 {
+  /* border: 1px solid black; */
+  color: #e1003e;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 10px;
+}
+.textDiv {
+  font-size: 24px;
+  font-weight: 500;
+}
+.checkoutdiv {
+  /* border: 1px solid crimson; */
+  display: flex;
+  width: 100%;
+  gap: 8px;
+}
+.checkoutdivinner {
+  /* border: 1px solid green; */
+  width: 33%;
+}
+.checkoutdiv > div > img {
+  height: 350px;
+  width: 100%;
+  border-radius: 10px;
+}
+.checkoutdiv > div > h5 {
+  line-height: 35px;
+  color: #4a4a4a;
+  /* border: 1px solid green; */
+  font-size: 18px;
+  font-weight: 500;
+}
 
-.blogDiv{
-    /* border: 1px solid red; */
-    width: 74%;
-    max-width: 1150px ;
-    margin: auto;
-    margin-top: 70px;
-    margin-bottom: 20px;
- }
- .divv{
-    /* border: 1px solid black; */
-    display: flex;
-    justify-content: space-between;
-    color: #4a4a4a;
-    margin-bottom: 7px;
- }
- .para2{
-    /* border: 1px solid black; */
-    color: #e1003e;
-    cursor: pointer;
-    font-size: 12px;
-    margin-top: 10px;
- }
- .textDiv{
-    font-size: 24px;
-    font-weight: 500;
- }
-.checkoutdiv{
-    /* border: 1px solid crimson; */
-    display: flex;
-    width: 100%;
-    gap: 8px;
-}
-.checkoutdivinner{
-    /* border: 1px solid green; */
-    width: 33%;
-}
-.checkoutdiv>div>img{
-    height: 350px;
-    width: 100%;
-    border-radius: 10px;
-}
-.checkoutdiv>div>h5{
-    line-height: 35px;
-    color: #4a4a4a;
-    /* border: 1px solid green; */
-    font-size: 18px;
-    font-weight: 500;
+.add {
+  /* border: 1px solid black; */
+  width: 74%;
+  margin: auto;
 }
 
-.add{
-    /* border: 1px solid black; */
-    width: 74%;
-    margin: auto;
-}
 
 .fifthDiv{
     /* border: 1px solid red; */
@@ -390,4 +398,112 @@
    /* margin-top:15px */
    font-weight: 500;
 }
- 
+
+/* IPhone SE */
+@media all and (min-width:200px) and (max-width:380px){
+    .inner{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+    .luccdiv{
+        width: 300px;
+    }
+    #pic{
+        width: 90%;
+        margin-left: -243px;
+    }
+    .inner1{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+    .premiumdiv{
+        width: 100%;
+    }
+    .premiumdiv p{
+        text-align: center;
+        font-size: 12px;
+        margin-top: 16px;
+    }
+    .rewarddiv{
+        width: 80%;
+    }
+    .rewarddiv>div{
+        /* border: 1px solid crimson; */
+        display:flex;
+        gap: 80px;
+    }
+    .rewarddiv>div>a{
+        color:#e1003e;
+        font-weight: 500;
+        font-size: 11px;
+    }
+    .rewarddiv p{
+        /* border: 1px solid red; */
+        font-size: 12px;
+        width: 150%;
+    }
+    /* .smallDiv{
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 10px;
+    } */
+}
+
+
+
+/* IPad Air */
+@media all and (min-width:500px) and (max-width:900px){
+    .inner{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px;
+    }
+    .luccdiv{
+        width: 500px;
+    }
+    #pic{
+        width: 80%;
+        margin-left: -180px;
+    }
+    .inner1{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 10px;
+    }
+    .premiumdiv{
+        width: 80%;
+    }
+    .premiumdiv p{
+        text-align: center;
+        font-size: 12px;
+        margin-top: 16px;
+    }
+    /* .smallDiv{
+        border: 1px solid red;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    } */
+    .rewarddiv{
+        width: 60%;
+    }
+    .rewarddiv>div{
+        /* border: 1px solid crimson; */
+        display:flex;
+        gap: 80px;
+    }
+    .rewarddiv>div>a{
+        color:#e1003e;
+        font-weight: 500;
+        font-size: 11px;
+    }
+    .rewarddiv p{
+        /* border: 1px solid red; */
+        font-size: 12px;
+        width: 150%;
+    }
+}
+

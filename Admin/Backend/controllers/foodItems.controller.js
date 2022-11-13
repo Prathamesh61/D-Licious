@@ -1,5 +1,5 @@
 const { FoodItemModel } = require("../models/foodItem.model");
-
+const jwt = require("jsonwebtoken");
 const foodItemsController = {
      getFoodById:async (req,res)=>{
           console.log(req.params)
@@ -11,6 +11,19 @@ const foodItemsController = {
           }catch(err){
                res.send({ status: 500, msg: "server error" })
           }
+     },
+     addFood:async(req,res)=>{
+        try{
+            let data = req.body.formData;
+            // console.log(data)
+            const newData = new FoodItemModel(data)
+            newData.save();
+            res.send({status:200,msg:"success"})
+
+        }catch(err){
+            res.send({status:500,msg:"something went wrong"})
+        }
+        
      },
     getFoodItems: async (req, res) => {
         try {
