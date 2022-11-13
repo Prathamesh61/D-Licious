@@ -148,16 +148,17 @@ const Signup = () => {
             type={"password"}
             placeholder="Enter Password"
           />
-          <Button
+          <button
             onClick={handleSubmit}
-            colorScheme="red"
             className="submit_btn"
           >
             {" "}
             Sign Up{" "}
-          </Button>
-          <p>Allready have an acount </p>
-          <span onClick={hanleRender}>Login</span>
+          </button>
+          <div className="para_page">
+            <div className="para"> <p>Allready have an acount ?</p> </div> 
+            <div className="para_link"> <p onClick={hanleRender}>Sign In</p> </div>
+          </div>
         </div>
       ) : (
         <div className="input_wrapper">
@@ -175,16 +176,17 @@ const Signup = () => {
             type={"password"}
             placeholder="Enter Password"
           />
-          <Button
+          <button
             onClick={handleSubmit}
-            colorScheme="red"
             className="submit_btn"
           >
             {" "}
-            Login Up{" "}
-          </Button>
-          <p>Allready have an acount </p>
-          <span onClick={hanleRender}>Signup</span>
+            Sign In{" "}
+          </button>
+          <div className="para_page">
+            <div className="para"> <p>Go to Signup page ?</p> </div> 
+            <div className="para_link"> <p onClick={hanleRender}>Signup</p> </div>
+          </div>
         </div>
       )}
     </div>
