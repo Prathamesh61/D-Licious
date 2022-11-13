@@ -19,12 +19,12 @@ ProfileRouter.get("/getUser", async (req, res) => {
 
 ProfileRouter.patch("/updateuser", async (req, res) => {
     const { email, name, mobile } = req.body;
-    console.log(email, name, mobile);
+    // console.log(email, name, mobile);
     const updated_user = await UserModel.findOneAndUpdate({ email }, { name, mobile });
     res.send({ msg: "Details Updated Successfully.", updated_user: updated_user })
 })
-// ----------------------------------------------------------------------------------------
 
+// ----------------------------------------------------------------------------------------
 
 //Address Routes
 
@@ -118,8 +118,8 @@ ProfileRouter.delete("/deletecartprod/:id", async (req, res) => {
     const { email } = req.body;
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
-
     const cart = user.cart.id(id);
+    // console.log(cart);
     cart.remove();
     await user.save();
     console.log(user);
@@ -146,7 +146,7 @@ ProfileRouter.post("/createmyorderprod", async (req, res) => {
     })
 
     await updated_myorder.save();
-    myOrders.push(cart);
+    // myOrders.push(cart);
     await user.save();
     console.log(user);
     res.send({ msg: `Check My Orders.` });
@@ -158,9 +158,9 @@ ProfileRouter.post("/createmyorderprod", async (req, res) => {
 //get my order
 ProfileRouter.get("/getmyorderprod", async (req, res) => {
     const { email } = req.body;
-    const user = await UserModel.findOne({ email });
-    const myorders = user.myorders;
-    console.log(myorders);
-    res.send({ myorders: myorders });
+    const orders = await MyOrderMOdel.findOne({ email });
+    // const myorders = user.myorders;
+    // console.log(orders);
+    res.send({ orders: orders });
 })
 module.exports = { ProfileRouter };
