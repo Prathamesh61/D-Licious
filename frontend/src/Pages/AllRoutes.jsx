@@ -12,11 +12,11 @@ import Signup from './Signup';
 
 import AboutDelicious from "./AboutDelicious";
 import Certificate from "./Certificate";
-import Checkout from "./Checkout/Checkout";
-import Home from "./Home";
-import Product from "./Product";
-import Profile from "./Profile";
-import Signup from "./Signup";
+// // import Checkout from "./Checkout/Checkout";
+// import Home from "./Home";
+// import Product from "./Product";
+// import Profile from "./Profile";
+// import Signup from "./Signup";
 
 
 const AllRoutes = () => {
