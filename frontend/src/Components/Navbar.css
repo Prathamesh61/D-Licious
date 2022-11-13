@@ -1,4 +1,4 @@
-.aboveNavbar{
+.aboveNavbar {
     background-color: #f1eded;
     height: 20px;
     /* position: fixed;
@@ -9,9 +9,11 @@
     font-family: sans-serif;
     align-items: center;
     margin: auto;
+    padding: 1%;
     color: #727272;
 }
-.aboveNavbar-inner{
+
+.aboveNavbar-inner {
     width: 80%;
     height: 100%;
     margin: auto;
@@ -21,40 +23,40 @@
     /* border: 1px solid red; */
     justify-content: space-between;
 }
-.contact-about{
+
+.contact-about {
     width: 30%;
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap:0.5%;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5%;
 }
-.apple-playStore{
+
+.apple-playStore {
     display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap:1%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1%;
 }
 
 /* for Middle Navbar-main */
-.MiddleNavbar-main{
-width: 90%;
-margin: auto;
-height:60px ;
-align-items: center;
-padding: 1%;
-display: flex;
-justify-content: space-between;
-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.MiddleNavbar-main {
+    width: 100%;
+    margin: auto;
+    height: 60px;
+    align-items: center;
+    padding: 2.5%;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
 }
 
-.Navbar-Main{
-    top:0;
+.Navbar-Main {
+    top: 0;
+    border: 1px solid red;
     z-index: 1000;
     position: fixed;
     width: 100%;
     background-color: white;
 
-    
+
 }
-
-
-

@@ -31,7 +31,7 @@ import axios from 'axios';
 import { emptyBasket, getAddressData, getCartData, postMyOrdersData } from '../../Redux/ProfileRedux/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 let totalPrice = 0;
 const Form1 = () => {
     const [show, setShow] = React.useState(false);
@@ -66,6 +66,7 @@ const Form2 = () => {
     let converted = (current_time > 12 ? current_time - 12 : current_time);
     // const location = useLocation();
     const dispatch = useDispatch();
+    totalPrice = 0;
     useEffect(() => {
         dispatch(getCartData());
     }, [])
@@ -273,6 +274,7 @@ export default function Checkout() {
     const [show, setShow] = useState(false);
     const [step, setStep] = useState(1);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     // console.log(show)
 
     useEffect(() => {
@@ -299,15 +301,16 @@ export default function Checkout() {
         }).catch(err => {
             console.log(err)
         })
+        navigate("/");
         toast({
-            title: 'Account created.',
-            description: "We've created your account for you.",
+            title: 'Order Placed Successfully.',
+            description: "Check My orders.",
             status: 'success',
+            position: 'top',
             duration: 3000,
             isClosable: true,
         });
     }
-
     return (
         <>
             <Box width={"90%"} margin={"auto"} mb={"100px"} mt={"10%"}>

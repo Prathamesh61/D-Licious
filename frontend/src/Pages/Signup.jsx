@@ -159,6 +159,7 @@ const Signup = () => {
             <div className="para"> <p>Allready have an acount ?</p> </div> 
             <div className="para_link"> <p onClick={hanleRender}>Sign In</p> </div>
           </div>
+          <a href="https://dilicious-admin.vercel.app/login" target="_blank">For D'LICIOUS</a>
         </div>
       ) : (
         <div className="input_wrapper">
@@ -187,7 +188,7 @@ const Signup = () => {
             <div className="para"> <p>Go to Signup page ?</p> </div> 
             <div className="para_link"> <p onClick={hanleRender}>Signup</p> </div>
           </div>
-          <a href="" target="_blank">For D'LICIOUS</a>
+          <a href="https://dilicious-admin.vercel.app/login" target="_blank">For D'LICIOUS</a>
         </div>
       )}
     </div>
