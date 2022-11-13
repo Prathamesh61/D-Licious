@@ -41,7 +41,7 @@ export const patchProfileData = (payload) => (dispatch) => {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             }
         }).then((r) => {
-            console.log(r.data, "post successfull");
+            console.log(r.data, "patch successfull");
             dispatch(profileSuccess(r.data));
             dispatch(getProfileData());
         }).catch((e) => {
@@ -188,6 +188,29 @@ export const deleteCartData = (id) => (dispatch) => {
     });
 };
 
+export const emptyBasket = (basket) => (dispatch) => {
+    console.log(basket, "basket")
+    dispatch(cartRequest());
+    {
+        basket.map((item) => {
+            axios
+                .delete(`http://localhost:8080/profile/deletecartprod/${item._id}`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    }
+                })
+                .then((res) => {
+                    dispatch(getCartData());
+                    console.log(res, "res");
+                })
+                .catch((e) => {
+                    dispatch(cartFailure(e));
+                });
+        })
+    }
+
+};
 
 //----------------------------------------------------MyOrder
 export const myOrdersRequest = () => {
@@ -211,7 +234,7 @@ export const getMyOrdersData = () => (dispatch) => {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         }
     }).then((r) => {
-        console.log("r", r.data)
+        console.log("ordersData", r.data)
         dispatch(myOrdersSuccess(r.data));
     }).catch((e) => {
         dispatch(myOrdersFailure());

@@ -1,32 +1,43 @@
 import React, { useState } from 'react'
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Image, Img, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderTrack, Stack, Text, UnorderedList, useDisclosure, VStack, Wrap } from '@chakra-ui/react';
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Center, Divider, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, FormLabel, HStack, Image, Img, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Slider, SliderFilledTrack, SliderTrack, Stack, Text, UnorderedList, useDisclosure, useToast, VStack, Wrap } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAddressData, getProfileData } from '../Redux/ProfileRedux/action';
+import { getAddressData, getMyOrdersData, getProfileData, patchProfileData, postAddressData } from '../Redux/ProfileRedux/action';
 import { useLocation } from 'react-router-dom';
 import Address_card from './Address_card';
+import Checkout_cart_prod_card from './Checkout/Checkout_cart_prod_card';
+import MyOrders_Card from './MyOrders_Card';
 
-let initial = {
-    email: "",
-    password: ""
+let addressInitial = {
+    bldgno: "",
+    locality: "",
+    landmark: "",
+    city: ""
+}
+let userInitial = {
+    name: "",
+    mobile: "",
+
 }
 const Profile = () => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = React.useRef();
-    const [userDetail, setuserDetail] = useState({});
-    const [userAdd, setuserAdd] = useState({});
+    const [userDetail, setuserDetail] = useState(userInitial);
+    const [userAdd, setuserAdd] = useState(addressInitial);
     const dispatch = useDispatch();
-    const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
-
-    const Address = useSelector((state) => state.ProfileReducer.address) || null
-
-    console.log(Profile, Address, "Address");
+    const toast = useToast();
     useEffect(() => {
         dispatch(getProfileData());
         dispatch(getAddressData());
+        dispatch(getMyOrdersData());
     }, [])
     // console.log(Profile)
+
+    const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
+    const MyOrder = useSelector((state) => state.ProfileReducer.myOrders?.orders?.products) || null;
+    const Address = useSelector((state) => state.ProfileReducer.address.address_List) || null
+    console.log(MyOrder, "MyOrder");
 
     const AddAddress = () => {
         setIsModalVisible(true);
@@ -42,6 +53,26 @@ const Profile = () => {
             [name]: value
         })
     }
+
+    const submitUserDetails = () => {
+        let data = {
+            email: userDetail,
+            mobile: userDetail
+        }
+        console.log(data, "data")
+        dispatch(patchProfileData(data));
+        dispatch(getProfileData());
+        toast({
+            position: 'top',
+            title: 'Updated Successfully.',
+            description: `User Details Updated.`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        })
+    }
+
+
     const handleUserAddDetail = (event) => {
         // event.preventDefault();
         const { name, value } = event.target
@@ -50,9 +81,29 @@ const Profile = () => {
             [name]: value
         })
     }
-    // console.log(userDetail);
+    // console.log(userAdd);
+    const submitUserAdd = () => {
+        let data = {
+            bldgno: userAdd.bldgno,
+            locality: userAdd.locality,
+            landmark: userAdd.landmark,
+            city: userAdd.city
+        }
+        console.log(data, "data")
+        dispatch(postAddressData(data));
+        dispatch(getAddressData());
+        toast({
+            position: 'top',
+            title: 'Added Successfully.',
+            description: `Address Added.`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        })
+    }
+    console.log(userDetail);
     return (
-        <Box width={["100%"]} height={"800px"}  >
+        <Box width={["100%"]} mb={"100px"}  >
             <Box position={'relative'}>
                 <Box height={"200px"} overflowY={"hidden"} >
                     <Image src="https://www.licious.in/img/default/licious-b-1.jpg" filter={"blur(1.5px)"} width="100%" alt=" bannerImage" />
@@ -97,7 +148,6 @@ const Profile = () => {
                         </AccordionItem>
                     </Accordion>
                 </Box>
-
                 <Box margin={"auto"} bg={"#ffdc93"} width={["80%", "60%", "40%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
                     <HStack justifyContent={"space-between"} padding={"10px"} alignItems="center">
                         <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
@@ -113,13 +163,17 @@ const Profile = () => {
                             <h3>
                                 <AccordionButton>
                                     <Box color='#d11243' flex='1' textAlign='left'>
-                                        Order History
+                                        My Orders
                                     </Box>
                                     <AccordionIcon color={"#d11243"} />
                                 </AccordionButton>
                             </h3>
                             <AccordionPanel pb={4}>
-                                <Text>No Orders yet.</Text>
+                                <Box color='#d11243' flex='1' textAlign='left'>
+                                    {MyOrder?.length > 0 && MyOrder?.map((item) => {
+                                        return <MyOrders_Card key={item._id} name={item.name} imgUrl={item.imgUrl} net={item.net} price={item.price} time={item.createdAt} qty={item.qty} />
+                                    })}
+                                </Box>
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem borderRadius={"5px"}>
@@ -133,11 +187,13 @@ const Profile = () => {
                             </h3>
                             <AccordionPanel pb={4}>
                                 <VStack padding={"10px"} height={"250px"} overflowY={"scroll"} border={"1px solid red"} justifyContent={"flex-start"} alignItems={"flex-start"}>
-                                    <Button alignSelf={"end"} bg={"#d11243"} size={"sm"} color={"white"} onClick={AddAddress}>Add New Address</Button>
-                                    <Text>Saved Address</Text>
-                                    {/* {Address.address_List.map((item) => {
-                                            <Address_card key={item._id} item={item} />
-                                        })} */}
+                                    <HStack width={"100%"} justifyContent={'space-between'}>
+                                        <Text>Saved Address</Text>
+                                        <Button alignSelf={"end"} bg={"#d11243"} size={"md"} padding={"8px"} color={"white"} onClick={AddAddress}>Add New Address</Button>
+                                    </HStack>
+                                    {Address?.length > 0 && Address?.map((item) => {
+                                        return <Address_card key={item._id} id={item._id} bldgno={item.bldgno} locality={item.locality} landmark={item.landmark} city={item.city} />
+                                    })}
                                 </VStack>
                             </AccordionPanel>
                         </AccordionItem>
@@ -201,14 +257,17 @@ const Profile = () => {
                             <ModalCloseButton />
                             <ModalBody>
                                 <VStack gap={3}>
-                                    <Input name='bldgno' placeholder='Flat no. / Building Name / Street no.' _placeholder={{ color: '#d11243' }} />
-                                    <Input name='locality' placeholder='Enter Your Locality' _placeholder={{ color: '#d11243' }} />
-                                    <Input name='landmark' placeholder='landmark ' _placeholder={{ color: '#d11243' }} />
-                                    <Input name='city' placeholder='city' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='bldgno' placeholder='Flat no. / Building Name / Street no.' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='locality' placeholder='Enter Your Locality' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='landmark' placeholder='landmark ' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='city' placeholder='city' _placeholder={{ color: '#d11243' }} />
                                 </VStack>
                             </ModalBody>
                             <ModalFooter>
-                                <Button bg={"#d11243"} color='#ffffff' mr={3} onClick={onCloseModal}>
+                                <Button bg={"#d11243"} color='#ffffff' mr={3} onClick={() => {
+                                    submitUserAdd()
+                                    onCloseModal()
+                                }}>
                                     Save
                                 </Button>
                                 <Button bg={"#d11243"} color='#ffffff' mr={3} onClick={onCloseModal}>
@@ -250,10 +309,10 @@ const Profile = () => {
                             <Box>
                                 <FormLabel fontSize={"13px"} htmlFor='Full Name'>Full name</FormLabel>
                                 <Input name="name" onChange={handleUserDetail}
-                                    value={Profile?.user?.name}
                                     type={"text"}
                                     ref={firstField}
                                     id='name'
+                                    value={Profile?.user?.name}
                                     placeholder='Please enter Full Name'
                                 />
                             </Box>
@@ -276,12 +335,12 @@ const Profile = () => {
                                     ref={firstField}
                                     id='phone'
                                     value={Profile?.user?.mobile}
-                                    placeholder='Please enter Phone No'
-                                />
+                                    placeholder='Please enter Phone No' />
                             </Box>
                             <Box>
                                 <Button onClick={() => {
                                     onClose();
+                                    submitUserDetails();
                                 }} width={"100%"} bg={"#d11243"} color='#ffffff'>
                                     Submit
                                 </Button>
