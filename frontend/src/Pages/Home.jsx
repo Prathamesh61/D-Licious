@@ -5,6 +5,7 @@ import Slider from "./BestSeller_Slider";
 import Slider2 from "./Boneless_Slider";
 import { Box, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { Show, Hide } from '@chakra-ui/react'
 
 const Home = () => {
   const [datamap, setdatamap] = useState([]);
@@ -496,6 +497,7 @@ const Home = () => {
       {/* Explore by category */}
 
       {/* Special snacks */}
+      <Hide below='1000px'>
       <div className="fourthDiv">
         <Text className="category4">Breakfast & Snacking Specials</Text>
         <div className="smallDiv">
@@ -566,6 +568,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      </Hide>
       {/* Special snacks */}
 
       {/* Checkout blog */}
