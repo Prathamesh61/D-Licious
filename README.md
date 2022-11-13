@@ -9,3 +9,5 @@ Team Members :-
 
 
 
+Here are some Screenshots of the Cloned Website
+![image](https://user-images.githubusercontent.com/50316091/201520851-e95299a0-c828-4bd2-9001-51e69ebdd9ee.png)
