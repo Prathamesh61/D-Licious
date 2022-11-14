@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-
+    Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay,
     Box,
     ButtonGroup,
     Button,
@@ -22,31 +22,77 @@ import {
     Image,
     RadioGroup,
     Stat,
+    useDisclosure,
 } from '@chakra-ui/react';
 import { MdCheckCircle } from 'react-icons/md'
 import { useToast } from '@chakra-ui/react';
 import Checkout_cart_prod_card from './Checkout_cart_prod_card';
 import Address_card from '../Address_card';
 import axios from 'axios';
-import { emptyBasket, getAddressData, getCartData, postMyOrdersData } from '../../Redux/ProfileRedux/action';
+import { emptyBasket, getAddressData, getCartData, postAddressData, postMyOrdersData } from '../../Redux/ProfileRedux/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 let totalPrice = 0;
+let addressInitial = {
+    bldgno: "",
+    locality: "",
+    landmark: "",
+    city: ""
+}
 const Form1 = () => {
     const [show, setShow] = React.useState(false);
     const handleClick = () => setShow(!show);
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const onCloseModal = () => {
+        setIsModalVisible(false);
+    };
+    const AddAddress = () => {
+        setIsModalVisible(true);
+    }
+    const toast = useToast();
+    const [isModalVisible, setIsModalVisible] = useState(false);
+
     const location = useLocation();
+    const [userAdd, setuserAdd] = useState(addressInitial);
+
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAddressData());
     }, [location.search])
     const address = useSelector((state) => state.ProfileReducer.address.address_List) || [];
     console.log(address);
-
+    const handleUserAddDetail = (event) => {
+        // event.preventDefault();
+        const { name, value } = event.target
+        setuserAdd({
+            ...userAdd,
+            [name]: value
+        })
+    }
+    // console.log(userAdd);
+    const submitUserAdd = () => {
+        let data = {
+            bldgno: userAdd.bldgno,
+            locality: userAdd.locality,
+            landmark: userAdd.landmark,
+            city: userAdd.city
+        }
+        console.log(data, "data")
+        dispatch(postAddressData(data));
+        dispatch(getAddressData());
+        toast({
+            position: 'top',
+            title: 'Added Successfully.',
+            description: `Address Added.`,
+            status: 'success',
+            duration: 3000,
+            isClosable: true,
+        })
+    }
     return (
         <>
-            <Button variant='outline' width={["100%", "80%", "60%"]} colorScheme={"red"} > + Add New Address</Button>
+            <Button variant='outline' width={["100%", "80%", "60%"]} colorScheme={"red"} onClick={AddAddress}> + Add New Address</Button>
             <Text fontWeight={"bold"} fontSize={"20px"} alignSelf={"start"}>Saved Addresses</Text>
             <Text fontSize={"16px"} alignSelf={"start"}>{address?.length} Saved Addresses</Text>
             <Text alignSelf={"start"}></Text>
@@ -57,6 +103,36 @@ const Form1 = () => {
                     })}
                 </VStack >
             </RadioGroup >
+            {
+                isModalVisible && <>
+                    <Modal isOpen={isModalVisible} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader color=''>Add New Address </ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                                <VStack gap={3}>
+                                    <Input onChange={handleUserAddDetail} name='bldgno' placeholder='Flat no. / Building Name / Street no.' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='locality' placeholder='Enter Your Locality' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='landmark' placeholder='landmark ' _placeholder={{ color: '#d11243' }} />
+                                    <Input onChange={handleUserAddDetail} name='city' placeholder='city' _placeholder={{ color: '#d11243' }} />
+                                </VStack>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button bg={"#d11243"} color='#ffffff' mr={3} onClick={() => {
+                                    submitUserAdd()
+                                    onCloseModal()
+                                }}>
+                                    Save
+                                </Button>
+                                <Button bg={"#d11243"} color='#ffffff' mr={3} onClick={onCloseModal}>
+                                    cancel
+                                </Button>
+                            </ModalFooter>
+                        </ModalContent>
+                    </Modal>
+                </>
+            }
         </>
     );
 };
@@ -418,6 +494,7 @@ export default function Checkout() {
                 </Flex>
                 <br />
                 <Stats />
+
             </Box>
         </>
     );

@@ -58,8 +58,8 @@ const Profile = () => {
 
     const submitUserDetails = () => {
         let data = {
-            email: userDetail,
-            mobile: userDetail
+            name: userDetail.name,
+            mobile: userDetail.mobile
         }
         console.log(data, "data")
         dispatch(patchProfileData(data));
@@ -314,7 +314,7 @@ const Profile = () => {
                                     type={"text"}
                                     ref={firstField}
                                     id='name'
-                                    value={Profile?.user?.name}
+                            
                                     placeholder='Please enter Full Name'
                                 />
                             </Box>
@@ -336,7 +336,7 @@ const Profile = () => {
                                     type={"tel"}
                                     ref={firstField}
                                     id='phone'
-                                    value={Profile?.user?.mobile}
+                                    
                                     placeholder='Please enter Phone No' />
                             </Box>
                             <Box>

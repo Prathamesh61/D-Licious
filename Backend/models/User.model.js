@@ -23,6 +23,7 @@ const cartProductSchema = mongoose.Schema({
 
 const myOrderSchema = mongoose.Schema({
     user_id: { type: String },
+    email: { type: String },
     products: { type: Array },
     // [
     //     {product_id,

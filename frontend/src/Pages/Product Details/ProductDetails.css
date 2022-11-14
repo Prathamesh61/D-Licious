@@ -16,7 +16,7 @@
     padding: 2%;
     display: grid;
     grid-template-columns: repeat(2, 45% 55%);
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     margin: auto;
 }

@@ -142,6 +142,7 @@ ProfileRouter.post("/createmyorderprod", async (req, res) => {
     // myOrders.products = cart
     // console.log(myOrders)
     const updated_myorder = new MyOrderMOdel({
+        email,
         user_id,
         products: cart
     })
