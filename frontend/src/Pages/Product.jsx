@@ -14,28 +14,27 @@ const Product = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [category, setCategory] = useState([]);
   const [currCatProductsId, setCurrCatProductsId] = useState("");
-
+  const url = process.env.REACT_APP_PRODUCTS_URL;
   useEffect(() => {
     dispatch(getProducts());
-
-    console.log("first");
+    // console.log("first");
     axios
-      .get("https://dilicious-adm-api.onrender.com/category/getcategory")
+      .get(`${url}/category/getcategory`)
       .then((res) => {
         setCategory(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
 
     axios
-      .get(`https://dilicious-adm-api.onrender.com/subcat/get`)
+      .get(`${url}/subcat/get`)
       .then((res) => {
         setSubCategory(res.data);
         // console.log(res.data)
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
       });
   }, [currCatProductsId]);
   //  console.log(subCategory,"subCategory")
@@ -103,17 +102,17 @@ const Product = () => {
         <div className="body_wrapper">
           {currCatProductsId != ""
             ? products.length > 0 &&
-              products.map((d) => {
-                return (
-                  d.sub_cate == currCatProductsId && (
-                    <ProductCard key={d.id} item={d} />
-                  )
-                );
-              })
+            products.map((d) => {
+              return (
+                d.sub_cate == currCatProductsId && (
+                  <ProductCard key={d.id} item={d} />
+                )
+              );
+            })
             : products.length > 0 &&
-              products.map((d) => {
-                return <ProductCard key={d.id} item={d} />;
-              })}
+            products.map((d) => {
+              return <ProductCard key={d.id} item={d} />;
+            })}
         </div>
       </div>
     </div>

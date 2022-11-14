@@ -171,10 +171,10 @@ const MiddleNavbar = () => {
       setLongitude(position.coords.longitude);
     });
     let finalApi_EndPoint = `${Api_start}lat=${Latitude}&lon=${Longitude}&appid=${Api_key}`;
-    console.log(finalApi_EndPoint);
+    // console.log(finalApi_EndPoint);
 
     axios.get(finalApi_EndPoint).then((res) => {
-      console.log(res.data.name);
+      // console.log(res.data.name);
       setCity(res.data.name);
     });
    }, [Latitude, Longitude]);

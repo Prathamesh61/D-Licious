@@ -78,7 +78,7 @@ const ProductDetails = () => {
   const products = useSelector((state) => state.ProductReducer.products.data);
   const dispatch = useDispatch();
   const toast = useToast();
-  console.log(products, "products")
+  // console.log(products, "products")
   const getdata1 = async () => {
     try {
       let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
@@ -86,7 +86,7 @@ const ProductDetails = () => {
       setdatamap(data.data);
       // console.log(datamap)
     } catch (err) {
-      console.log("err", err);
+      // console.log("err", err);
     }
   };
   // ****************
@@ -112,7 +112,7 @@ const ProductDetails = () => {
     }
     getdata1();
   }, [id]);
-  console.log(currentProduct, "detail")
+  // console.log(currentProduct, "detail")
 
   const [defaultImage, setDefaultImage] = useState({});
   const settings = {
@@ -286,7 +286,6 @@ const ProductDetails = () => {
                 </Button>
                 {/* <ADDTOCARTBUTTON/> */}
               </Box>
-
             </Box>
             <Divider borderColor="silver" />
 

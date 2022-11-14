@@ -32,7 +32,7 @@ const Cart = () => {
     useEffect(() => {
         dispatch(getCartData());
     }, [])
-    console.log(cart, "cart");
+    // console.log(cart, "cart");
     let totalOfItems = 0;
     return (
         <>
@@ -77,12 +77,14 @@ const Cart = () => {
                     <DrawerBody backgroundColor={"#f2f2f2"} overflowY={"auto"}>
                         <Text fontWeight={'600'} fontSize={'13px'} padding={"5px"} color={"white"} textAlign={"center"} backgroundColor={'#417505'} width={"100%"}>Congratulations, Your delivery charge is waived off!!!</Text>
                         <br />
-                        <Box padding={"5px"} backgroundColor="white" borderRadius={"5px"} >
-                            {cart.length > 0 && cart.map((item) => {
-                                totalOfItems += Number(item.price);
-                                return <Cart_prod_card key={item._id} id={item._id} name={item.name} net={item.net} price={item.price} />
-                            })}
-                        </Box>
+                        {cart.length <= 0 ? <Text>No Products Into the cart</Text> :
+                            <Box padding={"5px"} backgroundColor="white" borderRadius={"5px"} >
+                                {cart.length > 0 && cart.map((item) => {
+                                    totalOfItems += Number(item.price);
+                                    return <Cart_prod_card key={item._id} id={item._id} name={item.name} net={item.net} price={item.price} />
+                                })}
+                            </Box>
+                        }
                         <br />
                         <Text fontWeight={'600'} fontSize={'16px'} padding={"5px"}>Stop paying delivery charges. Join Meatopia today!</Text>
                         <HStack borderRadius={"5px"} backgroundColor={"#ffdc93"} justifyContent={"space-between"} padding={"10px"} alignItems="center">
@@ -117,10 +119,14 @@ const Cart = () => {
                             </HStack>
                             <HStack width={"100%"} padding={"5px"} justifyContent={"space-evenly"}>
                                 <Text fontWeight={"600"} fontSize={"20px"}>Total : {totalOfItems}</Text>
-                                <Button colorScheme={"red"} onClick={() => {
+                                {cart.length <= 0 ? <Button isDisabled colorScheme={"red"} onClick={() => {
                                     navigate("/checkout")
                                     onClose()
-                                }}>Proceed To Checkout</Button>
+                                }}>Proceed To Checkout</Button> :
+                                    <Button colorScheme={"red"} onClick={() => {
+                                        navigate("/checkout")
+                                        onClose()
+                                    }}>Proceed To Checkout</Button>}
                             </HStack>
                         </VStack>
                     </DrawerFooter>
