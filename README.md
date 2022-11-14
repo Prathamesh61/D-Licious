@@ -10,4 +10,10 @@ Team Members :-
 
 
 Here are some Screenshots of the Cloned Website
+Homepage
 ![image](https://user-images.githubusercontent.com/50316091/201520851-e95299a0-c828-4bd2-9001-51e69ebdd9ee.png)
+Profile Page
+![image](https://user-images.githubusercontent.com/50316091/201757785-81f40877-6e56-492e-8a13-59d62f8e6c58.png)
+Products Page
+![image](https://user-images.githubusercontent.com/50316091/201758115-aba4f0f1-3674-42c2-ba96-acbb217656fc.png)
+
