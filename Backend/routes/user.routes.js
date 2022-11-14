@@ -52,8 +52,8 @@ userController.post("/login", async(req, res) => {
     const {email, password} = req.body.data;
     console.log(req.body)
     const user = await UserModel.findOne({email});
-    const hash = user.password
     if(user){
+        const hash = user.password
         bcrypt.compare(password, hash, function(err, result) {
            if(result) {
               const token = jwt.sign({ email }, process.env.JWT_SECRET);

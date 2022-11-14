@@ -6,49 +6,60 @@ import { useDispatch } from 'react-redux';
 import { getCartData, postCartData } from '../Redux/ProfileRedux/action';
 import { Link } from "react-router-dom";
 
-const ProductCard = ({item}) => {
+const ProductCard = ({ item }) => {
   const toast = useToast();
   const dispatch = useDispatch();
-  const addToCart = (item,name) => {
+  const addToCart = (item, name) => {
+    if (localStorage.getItem("token") == undefined) {
+      toast({
+        position: 'top',
+        title: `Not Logged in.`,
+        description: `Login first to add item into cart`,
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      })
+    }else{
       dispatch(postCartData(item))
       dispatch(getCartData());
       toast({
-          position: 'top',
-          title: `${name} added Successfully.`,
-          description: `Check your cart`,
-          status: 'success',
-          duration: 3000,
-          isClosable: true,
+        position: 'top',
+        title: `${name} added Successfully.`,
+        description: `Check your cart`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
       })
+    }
   };
-  
+
   return (
     <>
-    <div className='product_card_wrapper'>
-      <Link to={`/productdetails/${item._id}`} >
-        <div className='img_wrapper'>
-          <img src={item.imgUrl} />
-        </div>
-      </Link>
+      <div className='product_card_wrapper'>
+        <Link to={`/productdetails/${item._id}`} >
+          <div className='img_wrapper'>
+            <img src={item.imgUrl} />
+          </div>
+        </Link>
         <div className='name_wrapper'>
-           <h2>{item.name}</h2>
+          <h2>{item.name}</h2>
         </div>
         <div className='desc_wrapper'>
-            <p>{item.short_desc}</p>
+          <p>{item.short_desc}</p>
         </div>
         <div className='weight_wrapper'>
-            <h3>{item.net}</h3>
+          <h3>{item.net}</h3>
         </div>
         <div className='mrp_cart_wrapper'>
-            <div className='mrp'>
-               <h2>MRP: ₹{item.price}</h2>
-            </div>
-            <div>
-              <button onClick={() => addToCart(item,item.name)} className='cart_btn'>ADD TO CART</button>
-            </div>
+          <div className='mrp'>
+            <h2>MRP: ₹{item.price}</h2>
+          </div>
+          <div>
+            <button onClick={() => addToCart(item, item.name)} className='cart_btn'>ADD TO CART</button>
+          </div>
 
         </div>
-      
+
       </div>
     </>
   )

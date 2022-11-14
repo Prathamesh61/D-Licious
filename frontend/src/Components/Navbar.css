@@ -5,11 +5,11 @@
     top: 0; */
     overflow: hidden;
     width: 100%;
-    font-size: 15px;
+    font-size: 13px;
     font-family: sans-serif;
     align-items: center;
     margin: auto;
-    padding: 1%;
+    padding: 0.5%;
     color: #727272;
 }
 
@@ -52,7 +52,7 @@
 
 .Navbar-Main {
     top: 0;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     z-index: 1000;
     position: fixed;
     width: 100%;
