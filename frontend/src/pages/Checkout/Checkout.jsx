@@ -61,7 +61,7 @@ const Form1 = () => {
         dispatch(getAddressData());
     }, [location.search])
     const address = useSelector((state) => state.ProfileReducer.address.address_List) || [];
-    console.log(address);
+    // console.log(address);
     const handleUserAddDetail = (event) => {
         // event.preventDefault();
         const { name, value } = event.target
@@ -78,7 +78,7 @@ const Form1 = () => {
             landmark: userAdd.landmark,
             city: userAdd.city
         }
-        console.log(data, "data")
+        // console.log(data, "data")
         dispatch(postAddressData(data));
         dispatch(getAddressData());
         toast({
@@ -147,7 +147,7 @@ const Form2 = () => {
         dispatch(getCartData());
     }, [])
     const cart = useSelector((state) => state.ProfileReducer.cart.cart) || [];
-    console.log(cart);
+    // console.log(cart);
     return (
         <>
             <Text>{cart.length} Item Delivered Today in </Text>
@@ -359,24 +359,24 @@ export default function Checkout() {
     }, [])
 
     const cart = useSelector((state) => state.ProfileReducer.cart.cart);
-
+    const URL_MAIN = process.env.REACT_APP_MAIN_URL
     // console.log(cart);
-    console.log(cart);
+    // console.log(cart);
     const handleSubmit = () => {
         dispatch(postMyOrdersData(cart));
         dispatch(emptyBasket(cart));
-        console.log(cart)
-        console.log(localStorage.getItem("token"))
-        axios.post("http://localhost:8080/profile/createmyorderprod", {
-            data: cart, headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-            }
-        }).then((res) => {
-            console.log(res)
-        }).catch(err => {
-            console.log(err)
-        })
+        // console.log(cart,"remaining Products in cart")
+        // console.log(localStorage.getItem("token"))
+        // axios.post(URL_MAIN + "/profile/createmyorderprod", {
+        //     data: cart, headers: {
+        //         "Content-Type": "application/json",
+        //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+        //     }
+        // }).then((res) => {
+        //     console.log(res)
+        // }).catch(err => {
+        //     console.log(err)
+        // })
         navigate("/");
         toast({
             title: 'Order Placed Successfully.',

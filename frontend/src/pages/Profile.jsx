@@ -37,9 +37,9 @@ const Profile = () => {
     // console.log(Profile)
 
     const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
-    const MyOrder = useSelector((state) => state.ProfileReducer.myOrders?.orders?.products) || null;
+    const MyOrder = useSelector((state) => state.ProfileReducer.myOrders?.orders) || null;
     const Address = useSelector((state) => state.ProfileReducer.address.address_List) || null
-    console.log(MyOrder, "MyOrder");
+    // console.log(MyOrder, "MyOrder");
 
     const AddAddress = () => {
         setIsModalVisible(true);
@@ -61,7 +61,7 @@ const Profile = () => {
             name: userDetail.name,
             mobile: userDetail.mobile
         }
-        console.log(data, "data")
+        // console.log(data, "data")
         dispatch(patchProfileData(data));
         dispatch(getProfileData());
         toast({
@@ -91,7 +91,7 @@ const Profile = () => {
             landmark: userAdd.landmark,
             city: userAdd.city
         }
-        console.log(data, "data")
+        // console.log(data, "data")
         dispatch(postAddressData(data));
         dispatch(getAddressData());
         toast({
@@ -103,7 +103,7 @@ const Profile = () => {
             isClosable: true,
         })
     }
-    console.log(userDetail);
+    // console.log(userDetail);
     return (
         <Box width={["100%"]} mb={"100px"}  >
             <Box position={'relative'}>
@@ -173,7 +173,11 @@ const Profile = () => {
                             <AccordionPanel pb={4}>
                                 <Box color='#d11243' flex='1' textAlign='left'>
                                     {MyOrder?.length > 0 && MyOrder?.map((item) => {
-                                        return <MyOrders_Card key={item._id} name={item.name} imgUrl={item.imgUrl} net={item.net} price={item.price} time={item.createdAt} qty={item.qty} />
+                                        // console.log(item)
+                                        // item.products.map((el) => {
+                                        //     return <MyOrders_Card key={el._id} name={el} time={item.createdAt} />
+                                        // })
+                                        return <MyOrders_Card key={item._id} data={item.products} time={item.createdAt} />
                                     })}
                                 </Box>
                             </AccordionPanel>
@@ -314,7 +318,7 @@ const Profile = () => {
                                     type={"text"}
                                     ref={firstField}
                                     id='name'
-                            
+
                                     placeholder='Please enter Full Name'
                                 />
                             </Box>
@@ -336,7 +340,7 @@ const Profile = () => {
                                     type={"tel"}
                                     ref={firstField}
                                     id='phone'
-                                    
+
                                     placeholder='Please enter Phone No' />
                             </Box>
                             <Box>

@@ -22,7 +22,6 @@ const cartProductSchema = mongoose.Schema({
 // 1 a b c 
 
 const myOrderSchema = mongoose.Schema({
-    user_id: { type: String },
     email: { type: String },
     products: { type: Array },
     // [

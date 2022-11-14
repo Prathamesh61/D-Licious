@@ -8,7 +8,7 @@ app.use(express.json());
 require('dotenv').config();
 const cors = require('cors');
 const { authentication } = require('./middlewares/Authentication');
-const { MyOrderMOdel } = require('./models/User.model');
+const { MyOrderMOdel, UserModel } = require('./models/User.model');
 app.use(cors());
 
 app.get("/", (req, res) => {
@@ -18,10 +18,16 @@ app.get("/", (req, res) => {
 app.use("/user", userController);
 app.use("/profile", authentication, ProfileRouter);
 app.get("/admin/orders", async (req, res) => {
-    const orders = await MyOrderMOdel.findOne({});
+    const orders = await MyOrderMOdel.find();
     // const myorders = user.myorders;
     // console.log(orders);
     res.send({ orders: orders });
+})
+app.get("/admin/users", async (req, res) => {
+    const users = await UserModel.find();
+    // const myorders = user.myorders;
+    // console.log(orders);
+    res.send({ users: users });
 })
 
 app.listen(process.env.PORT, async () => {

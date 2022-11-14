@@ -3,8 +3,10 @@ import axios from "axios";
 
 const getProducts = (payload) => (dispatch) => {
   dispatch({ type: types.GET_PRODUCTS_REQUEST });
+  const url = process.env.REACT_APP_PRODUCTS_URL + "/fooditems/get"
+  // console.log(url)
   return axios
-    .get(`https://dilicious-adm-api.onrender.com/fooditems/get`, payload)
+    .get(url, payload)
     .then((r) => {
       return dispatch({
         type: types.GET_PRODUCTS_SUCCESS,

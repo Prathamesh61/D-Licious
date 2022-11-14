@@ -25,11 +25,13 @@ let loginForMData = {
 };
 
 const Signup = () => {
+  const { onClose } = useDisclosure()
   const [isSignupForm, setIsSignupForm] = useState(false);
   const [data, setData] = useState(formData); // for signup
   const [loginData, setLoginData] = useState(loginForMData); // for login
   const navigate = useNavigate();
   const toast = useToast();
+  const URL_MAIN = process.env.REACT_APP_MAIN_URL;
   let dispatch = useDispatch();
   const Rstate = useSelector((state) => state.AuthSignupReducer);
 
@@ -38,7 +40,7 @@ const Signup = () => {
     setIsSignupForm(!isSignupForm);
   };
 
-  useEffect(() => {}, [isSignupForm]);
+  useEffect(() => { }, [isSignupForm]);
 
   // **************
 
@@ -49,14 +51,14 @@ const Signup = () => {
         ...data,
         [name]: value,
       });
-      console.log(data);
+      // console.log(data);
     } else {
       const { name, value } = e.target;
       setLoginData({
         ...loginData,
         [name]: value,
       });
-      console.log(loginData);
+      // console.log(loginData);
     }
   };
 
@@ -65,9 +67,9 @@ const Signup = () => {
       const { email, mobile, password } = data;
       if (email && mobile && password) {
         axios
-          .post("http://localhost:8080/user/signup", { body: data })
+          .post(URL_MAIN + "/user/signup", { body: data })
           .then((res) => {
-            console.log(res);
+            // console.log(res);
             if (res.data.status === 404) {
               toastAlert(toast, res.data.msg, "error");
               return dispatch({
@@ -95,13 +97,13 @@ const Signup = () => {
       const { email, password } = loginData;
       if (email && password) {
         axios
-          .post("http://localhost:8080/user/login", {
+          .post(URL_MAIN + "/user/login", {
             data: loginData,
           })
           .then((res) => {
             // console.log(res)
             let status = res.data.status;
-            console.log(status);
+            // console.log(status);
             if (status === 200) {
               toastAlert(toast, "Login Successful", "success");
               localStorage.setItem("token", res.data.token);
@@ -115,12 +117,13 @@ const Signup = () => {
             }
           })
           .catch((err) => {
-            console.log(err);
+            // console.log(err);
           });
       } else {
         toastAlert(toast, "All fields are required", "warning");
       }
     }
+    onClose();
   };
 
   return (
@@ -156,7 +159,7 @@ const Signup = () => {
             Sign Up{" "}
           </button>
           <div className="para_page">
-            <div className="para"> <p>Allready have an acount ?</p> </div> 
+            <div className="para"> <p>Allready have an acount ?</p> </div>
             <div className="para_link"> <p onClick={hanleRender}>Sign In</p> </div>
           </div>
           <a href="https://dilicious-admin.vercel.app/login" target="_blank">For D'LICIOUS</a>
@@ -185,7 +188,7 @@ const Signup = () => {
             Sign In{" "}
           </button>
           <div className="para_page">
-            <div className="para"> <p>Go to Signup page ?</p> </div> 
+            <div className="para"> <p>Go to Signup page ?</p> </div>
             <div className="para_link"> <p onClick={hanleRender}>Signup</p> </div>
           </div>
           <a href="https://dilicious-admin.vercel.app/login" target="_blank">For D'LICIOUS</a>

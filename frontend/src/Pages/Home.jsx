@@ -16,7 +16,7 @@ const Home = () => {
       setdatamap(data);
       // console.log("Data",data);
     } catch (err) {
-      console.log("err", err);
+      // console.log("err", err);
     }
   };
 

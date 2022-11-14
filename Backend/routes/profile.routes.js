@@ -120,7 +120,7 @@ ProfileRouter.delete("/deletecartprod/:id", async (req, res) => {
     const { id } = req.params;
     const user = await UserModel.findOne({ email });
     const cart = user.cart.id(id);
-    // console.log(cart);
+    console.log(cart);
     cart.remove();
     await user.save();
     console.log(user);
@@ -160,7 +160,7 @@ ProfileRouter.post("/createmyorderprod", async (req, res) => {
 //get my order
 ProfileRouter.get("/getmyorderprod", async (req, res) => {
     const { email } = req.body;
-    const orders = await MyOrderMOdel.findOne({ email });
+    const orders = await UserModel.find({ email });
     // const myorders = user.myorders;
     // console.log(orders);
     res.send({ orders: orders });

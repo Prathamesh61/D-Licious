@@ -12,7 +12,7 @@ const Slider2 = ({ props }) => {
       setData(res.data);
     });
   }, []);
-  console.log(data);
+  // console.log(data);
 
   const slideLeft1 = () => {
     var slider1 = document.getElementById("slider1");
