@@ -107,8 +107,9 @@ const Home = () => {
 
       {/* Shop category */}
       <div className="firstDiv">
-        <Text className="category">Shop by categories</Text>
-        <p className="para">Freshest meats just for you</p>
+          <Text fontWeight='400' fontSize='3xl'>Shop by categories</Text> 
+       <p className="para">Freshest meats just for you</p>
+        <hr style={{marginBottom:"3%",color:"red"}} />
         <div className="inner">
           <Link to="/product">
             <div>
