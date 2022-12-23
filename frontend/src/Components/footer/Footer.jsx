@@ -1,3 +1,4 @@
+import { Box, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 import styled from "./footer.module.css";
 import Footer1 from "./Footer1.jpg";
@@ -91,7 +92,7 @@ const Footer = () => {
       {/* useful links footer */}
 
 
-      <br />
+      <hr style={{margin:"3%"}}/>
       {/* social media div */}
       <div className={styled.fmiddiv}>
         <span>KEEP IN TOUCH</span>
@@ -101,145 +102,153 @@ const Footer = () => {
       </div>
       {/* social media div */}
 
+      <hr style={{margin:"3%"}}/>
 
-      <div className={styled.endFooter}>
+{/*   <div className={styled.endFooter}>
         <img src={Footer1} alt="" />
         <img src={Footer2} alt="" />
-      </div>
+      </div> */}
 
 
-      {/* <br /> */}
+      <br />
       {/* more no of listed div */}
-      {/* <div className={styled.citidiv}>
-        <ul>CITIES WE SERVE</ul>
-        <hr />
-      </div> */}
+      <div className={styled.citidiv}>
+        <Text fontWeight='600'>CITIES WE SERVE</Text> 
+        <Box className={styled.cities}>  
+          <Text>
+            Bangaluru 
+          </Text>
 
-      {/* <div className={styled.fddiv}>
-        <div>
-          <li>
-            Bangaluru <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            NCR 
+          </Text>
 
-          <li>
-            NCR <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Hydrabad 
+          </Text>
 
-          <li>
-            Hydrabad <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Chandigarh 
+          </Text>
 
-          <li>
-            Chandigarh <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Panchkula 
+          </Text>
 
-          <li>
-            Panchkula <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            MohaText 
+          </Text>
 
-          <li>
-            Mohali <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Mumbai 
+          </Text>
 
-          <li>
-            Mumbai <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Pune 
+          </Text>
 
-          <li>
-            Pune <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            chennai 
+          </Text>
 
-          <li>
-            chennai <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Coimbatore 
+          </Text>
 
-          <li>
-            Coimbatore <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>
+            Jaipur 
+          </Text>
 
-          <li>
-            Jaipur <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+          <Text>Cochin</Text>
+       
+        
+          <Text>
+            Visakhapatnam 
+          </Text>
 
-          <li>Cochin</li>
+          <Text>
+            Pondicherry 
+          </Text>
+
+          <Text>
+            Kolkata 
+          </Text>
+
+          <Text>
+            Trichy 
+          </Text>
+
+          <Text>
+            Lucknow 
+          </Text>
+
+          <Text>
+            Kanpur 
+          </Text>
+
+          <Text>
+            Agra 
+          </Text>
+
+          <Text>
+            Thrissur 
+          </Text>
+
+          <Text>
+            Nagpur 
+          </Text>
+
+          <Text>
+            Bhilai 
+          </Text>
+
+          <Text>
+            Nashik 
+          </Text>
+
+          <Text>Palakkad</Text>
+          </Box> 
         </div>
-        <div>
-          <li>
-            Visakhapatnam <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+     
 
-          <li>
-            Pondicherry <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+      <hr style={{margin:"3%"}}/>
 
-          <li>
-            Kolkata <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+<Box  style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+  <Text fontWeight="700">We will sell only the meat that we would eat ourselves.</Text>
+  <Text color='#4a4a4a'>At Licious, we’re big meat-lovers. And by big, we mean huge. So when it comes to the meat we put on your plate, we’re extremely picky. Every single product is handpicked by a team with years of experience.</Text>
+</Box>
 
-          <li>
-            Trichy <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+<Box style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+  <Text fontWeight="700">If it’s not fresh, we won’t sell it</Text>
+  <Text color='#4a4a4a'>For meat to stay fresh and retain its natural juices, it needs to be stored at a temperature between 0° and 5°C. We maintain this temperature from the time we procure the product to cleaning, cutting and storing it, until it leaves for delivery. And even when it’s out for delivery, we keep it chilled right up to your doorstep.Did we mention that we’re obsessed?</Text>
+</Box>
 
-          <li>
-            Lucknow <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+<Box style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+  <Text fontWeight="700">We will charge only for what you buy</Text>
+  <Text color='#4a4a4a'>Doesn’t everyone do this? Not really. Most other places first weigh the meat, then cut up the pieces, and throw out the parts which aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you still pay based on the original weight even though what you finally get is 10% to 30% less</Text>
+</Box>
 
-          <li>
-            Kanpur <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
+<hr style={{margin:"3%"}}/>
 
-          <li>
-            Agra <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
-
-          <li>
-            Thrissur <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
-
-          <li>
-            Nagpur <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
-
-          <li>
-            Bhilai <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
-
-          <li>
-            Nashik <span style={{ marginLeft: "20px" }}>|</span>
-          </li>
-
-          <li>Palakkad</li>
-        </div>
-      </div> */}
-
-      {/* <hr /> */}
-
-      {/* <p style={{ textAlign: "center", fontSize: "14px", color: "#333a3f" }}>
-        @ 2022
-        <span>
-          <b>Delightful Gourmet Pvt Ltd. All Rights Reserved.</b>
-        </span>
-      </p> */}
-      {/* <p
-        style={{
-          fontFamily: "Lato",
-          fontSize: "14px",
-          fontWeight: "400",
-          lineHeight: "19.5px",
-          color: "#585858",
-        }}
-      >
-        Licious is your one-stop fresh meat delivery shop. In here, you get
+      <p style={{ textAlign: "center", fontSize: "12px", color: "#333a3f" }}>
+       
+       
+          <b> @2022 Delicious. All Rights Reserved.</b>
+       
+      </p>
+      <Box style={{textAlign:"justify",alignItems:"center",fontSize:"12px",marginBottom:"2%"}}>
+  
+  <Text color='#4a4a4a'> Licious is your one-stop fresh meat delivery shop. In here, you get
         nothing but the freshest meat & seafood, delivered straight to your
         doorstep. Now you can buy meat online anytime at your convenience.
         Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish,
         Prawns, Crabs), Marinades & Cold Cuts. All our products are completely
         natural and healthy. Once you've experienced Licious, you'll
-        <br />
-        <span style={{ marginLeft: "410px" }}>
-          never go back to the old way of buying meat and seafood.
-        </span>
-      </p> */}
+       
+        
+          never go back to the old way of buying meat and seafood.</Text>
+</Box>
+
     </div>
   );
 };

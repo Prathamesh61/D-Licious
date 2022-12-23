@@ -7,12 +7,26 @@ import { Box, Button } from "@chakra-ui/react";
 const Slider = ({ props }) => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    axios.get("https://liciousdata.herokuapp.com/Bestseller").then((res) => {
-      setData(res.data);
-    });
+
+ 
+
+
+
+  useEffect(async() => {
+    try {
+      let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
+      let data = await res.json();
+      let newdata=data.data
+      newdata=newdata.reverse()
+      setData(newdata);
+      // console.log(datamap)
+    } catch (err) {
+      // console.log("err", err);
+    }
+
   }, []);
-  // console.log(data);
+   console.log("bonelesscuts",data);
+
 
   const slideLeft = () => {
     var slider = document.getElementById("slider");
@@ -86,20 +100,20 @@ const Slider = ({ props }) => {
           return (
             <div className="slider_card">
               <div id="image">
-                <img src={slide.image} alt="image" />
+                <img src={slide.imgUrl} alt="image" />
               </div>
-              <div id="heading">
+              <div id="heading" style={{overflow:"hidden"}}>
                 <p>{slide.name}</p>
               </div>
-              <div id="para">
-                <p>{slide.des}</p>
+              <div id="para" style={{overflowX:"hidden"}}>
+                <p>{slide.desc}</p>
               </div>
               <div id="wt">
-                <p>{slide.weight}</p>
+                <p>{slide.net}</p>
               </div>
               <div id="blook">
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
-                  MRP: ₹{slide.markprice}
+                  MRP: ₹{slide.price}
                 </p>
                 <ADDTOCARTBUTTON />
               </div>
