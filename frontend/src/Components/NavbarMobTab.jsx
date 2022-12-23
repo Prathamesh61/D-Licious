@@ -11,7 +11,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import Signup from "../Pages/Signup";
-import "./Navbar.css";
+import "./NavbarMobTab.css";
 import {
   Box,
   Flex,
@@ -32,78 +32,11 @@ import axios from "axios";
 import { MdOutlineAccountCircle } from 'react-icons/md'
 import { IconButton } from '@chakra-ui/react'
 import Cart from "../Pages/Cart";
-import {NavbarMobTab} from "./NavbarMobTab";
 
 
-const AboveNavbar = () => {
-  return (
-    <Box className="aboveNavbar">
-      <Box className="aboveNavbar-inner">
-        <Box className="apple-playStore">
-          <Box>
-            <a href="https://www.licious.in/about-us">Why Delicious?</a>
-          </Box>
 
-          <Flex style={{ alignItems: "center" }}>
-            <Text>DownloadApp </Text>
-            <a
-              style={{ paddingLeft: "5%" }}
-              href="https://itunes.apple.com/in/app/buy-meat-online-licious/id1052440342?mt=8"
-            >
-              <Image
-                width="24px"
-                src="https://www.licious.in/img/rebranding/ios_app_icon.svg"
-              />
-            </a>
-            <a
-              style={{ paddingLeft: "5%" }}
-              href="https://play.google.com/store/apps/details?id=com.licious"
-            >
-              <Image
-                width="24px"
-                src="https://www.licious.in/img/rebranding/android_app_icon.svg"
-              />
-            </a>
-          </Flex>
-        </Box>
-        <Box className="contact-about">
-          <Text>
-            <Link to="/certificate">Certification</Link>
-          </Text>
-          <Text>
-            <Link to='/aboutDelicious'>About</Link>
-          </Text>
-          <Text>
-            <a href="">Careers</a>
-          </Text>
-          <Text>
-            <Menu>
-              {({ isOpen }) => (
-                <>
-                  <MenuButton isActive={isOpen}>
-                    {isOpen ? "Contact" : "Contact"}
-                  </MenuButton>
-                  <MenuList>
-                    <MenuItem>
-                      <a href="tel:1800-4190-786">1800-4190-786</a>
-                    </MenuItem>
-                    <MenuItem>
-                      <a href="mailto:talktous@licious.com">
-                        talktous@licious.com#
-                      </a>
-                    </MenuItem>
-                  </MenuList>
-                </>
-              )}
-            </Menu>
-          </Text>
-        </Box>
-      </Box>
-    </Box>
-  );
-};
 
-const MiddleNavbar = () => {
+const NavbarMobTab = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const Api_start = `https://api.openweathermap.org/data/2.5/weather?`;
   const Api_key = `566cee1b29349fab7cfc8dfe8ff9e2fc`;
@@ -138,24 +71,22 @@ const MiddleNavbar = () => {
 
   return (
     <Box className="MiddleNavbar-main">
-      <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
-        <Box>
-          <Link to="/"> <Image width="150px" src={LICIOUS} /> </Link>
-        </Box>
-        <Box>
+      <Flex style={{ alignItems: "center",
+       justifyContent: "space-between",
+    //    border:"1px solid red"
+        }}>
+         <Box>
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/location_icon.svg" />
-            <Text>{city ? city : <Button>Choose City</Button>}</Text>
+            <Text>{city ? city : <Button>City</Button>}</Text>
           </Flex>
         </Box>
       </Flex>
 
-      <Box width="30%">
-        <Input borderColor="gray" variant="filled" size={["sm", "md", "lg"]}  placeholder="Search for any delicious product" />
-      </Box>
-
-      <Flex style={{ alignItems: "center",  justifyContent: "space-between",
-      gap: "12%",width: "30%"}}>
+<Flex style={{ alignItems: "center", 
+ justifyContent: "space-between",gap: "3%",
+//  border:"1px solid blue",
+width: "70%"}}>
         <Box>
           <Menu>
             {({ isOpen }) => (
@@ -164,7 +95,7 @@ const MiddleNavbar = () => {
                   {
                     <Flex>
                       <Image src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
-                      <Text padding="5px" _hover={{ color: "#D11243" }}>Categories</Text>
+                      <Text padding="5px" _hover={{ color: "#D11243" }}>Menu</Text>
                     </Flex>
                   }
                 </MenuButton>
@@ -311,7 +242,8 @@ const MiddleNavbar = () => {
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
             <Text _hover={{ color: "#D11243" }}> {
-                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link" onClick={onOpen}>Login</Button>
+                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link"
+                 onClick={onOpen}>Login</Button>
                 : <Menu>
               <MenuButton
                     aria-label="Options"
@@ -338,6 +270,7 @@ const MiddleNavbar = () => {
           </Flex>
         </Box>
         <Box className="cart-box">
+         
           <Cart />
         </Box>
       </Flex>
@@ -361,25 +294,8 @@ const MiddleNavbar = () => {
 };
 
 
-const Navbar = () => {
-  return (
-    <Box className="Navbar-Main">
-       <Show above='850px'>     
-        <AboveNavbar />
-        <MiddleNavbar />
-      </Show>
 
-      <Show below="850px">
-      <NavbarMobTab/>
-      </Show>
-     
-    </Box>
-  );
-};
-
-export default Navbar;
-
-
+export {NavbarMobTab}
 
 
 
