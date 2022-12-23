@@ -100,7 +100,7 @@ const Home = () => {
       <div className="mainDiv">
         <img
           src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e"
-          alt=""
+          alt="anil kapoor img"
         />
       </div>
       {/* Anil kapoor slider */}
@@ -248,6 +248,7 @@ const Home = () => {
       {/* Shop category */}
 
       {/* Licious offers */}
+      <Show above="850px">
       <div className="luccdiv">
         <div>
           <img
@@ -321,7 +322,9 @@ const Home = () => {
           src="https://dao54xqhg9jfa.cloudfront.net/OMS-StaticBanner/4c895baf-28fb-2833-8d19-37d05c51d39c/original/static-bank-units-Sep-web_(11).jpg?format=webp"
           alt=""
         />
+
       </div>
+      </Show>
       {/* Licious offers */}
 
       {/* Best seller */}
@@ -344,6 +347,7 @@ const Home = () => {
           src="https://www.licious.in/img/rebranding/rewards/rewards_icon.svg"
           alt="revardslogo"
         />
+        <Show above="850px">
         <div>
           <p>
             <b>My Rewards</b>
@@ -354,6 +358,7 @@ const Home = () => {
           </p>
           <a href="#">CLICK TO VIEW {">"}</a>
         </div>
+        </Show>
       </div>
       {/* rewards */}
 

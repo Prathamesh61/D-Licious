@@ -11,9 +11,11 @@
 }
 .fmdiv{
     /* border: 1px solid black; */
-    display:flex;
+    display:grid;
     gap:40px;
     margin-top: 25px;
+    grid-template-columns: repeat(5,1fr);
+    text-align: left;
 }
 .fmdiv>div li{
     /* border: 1px solid crimson; */
@@ -55,23 +57,27 @@
     /* margin-bottom: 8px; */
     margin-right: 15px;
 }
+
 .fmiddiv>a:hover{
     color:rgb(209, 51, 91)
 } 
+
 .citidiv{
-    display:flex;
-    border: 1px solid red;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+    margin: auto;
+    text-align: left;
+    /* border: 1px solid red; */
 }
-.citidiv>ul{
-    font-weight: 600;
-    font-style: bold;
-    color:hsl(0,0%,32%)
+.cities{
+    color: #4a4a4a;
+    font-size: 12px;
+    display: grid;
+    gap:3%;
+    grid-template-columns: repeat(8,1fr);
 }
-.citidiv>hr{
-    color:hsl(0,0%,58%);
-    width: 1000px; 
-    height: 0.5px
-}
+
 .fddiv>div>li{
     color: #4a4a4a;
     font-size: 14px;
@@ -93,4 +99,40 @@
     width: 100%;
     margin-right: 100px;
     cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+/* // for mobile screens */
+
+@media all and (min-width:80px) and (max-width:450px){
+    .fmdiv{
+        /* border: 1px solid black; */
+        display:grid;
+        gap:3%;
+        margin-top: 25px;
+        grid-template-columns: repeat(2,1fr);
+        text-align: left;
+    }
+
+
+}
+
+
+/* // for tablet screens */
+@media all and (min-width:451px) and (max-width:850px){
+    .fmdiv{
+        /* border: 1px solid black; */
+        display:grid;
+        gap:40px;
+        margin-top: 25px;
+        grid-template-columns: repeat(2,1fr);
+        text-align: left;
+    }
 }

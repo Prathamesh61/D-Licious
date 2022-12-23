@@ -327,13 +327,14 @@
 }
 .checkoutdiv {
   /* border: 1px solid crimson; */
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   width: 100%;
-  gap: 8px;
+  gap: 10px;
 }
 .checkoutdivinner {
   /* border: 1px solid green; */
-  width: 33%;
+  width:100%;
 }
 .checkoutdiv > div > img {
   height: 350px;
@@ -369,15 +370,17 @@
 }
 .newsdiv{
     /* border: 1px solid green; */
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
     width: 100%;
-    gap: 12px;
+    gap:3%;
+    text-align: justify;
     margin-top: 20px;
     margin-bottom: 50px;
 }
 .newsdivinner{
     /* border: 1px solid black; */
-    width: 27%;
+    /* width: 27%; */
     cursor: pointer;
     /* margin-top:20px; */
     /* margin-bottom:40px */
@@ -393,8 +396,8 @@
    font-weight: 500;
 }
 
-/* IPhone SE */
-@media all and (min-width:200px) and (max-width:380px){
+/* mobile  screen*/
+@media all and (min-width:80px) and (max-width:450px){
     .inner{
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -444,12 +447,26 @@
         grid-template-columns: repeat(1,1fr);
         gap: 10px;
     } */
+    .checkoutdiv{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .newsdiv{
+        /* border: 1px solid green; */
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        width: 100%;
+        gap:4%;
+        text-align: justify;
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
 }
 
 
 
 /* IPad Air */
-@media all and (min-width:500px) and (max-width:900px){
+@media all and (min-width:450px) and (max-width:850px){
     .inner{
         display: grid;
         grid-template-columns: repeat(3,1fr);
@@ -498,6 +515,21 @@
         /* border: 1px solid red; */
         font-size: 12px;
         width: 150%;
+    }
+
+    .checkoutdiv{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .newsdiv{
+        /* border: 1px solid green; */
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        width: 100%;
+        gap:3%;
+        text-align: justify;
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 }
 
