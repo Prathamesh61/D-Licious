@@ -24,7 +24,7 @@
 .slide-img {
     border-top-left-radius: 5%;
     border-top-right-radius: 5%;
-    width: 530px;
+    width: 450px;
     /* height: 700px; */
 }
 
@@ -147,14 +147,14 @@
 
 
     .slide-img {
-
+width: 650px;margin: auto;
         border-top-left-radius: 5%;
         border-top-right-radius: 5%;
 
     }
 
     .desc-main {
-        margin-top: -10%;
+        margin-top: 10%;
         padding-left: 4%;
     }
 
@@ -253,6 +253,10 @@
         /* border: 1px solid yellow; */
         grid-template-columns: repeat(3, 1fr);
     }
+    .Card-titleName{
+        height: 25px;
+        overflow: hidden;
+    }
 }
 
 
@@ -282,11 +286,11 @@
 
         border-top-left-radius: 5%;
         border-top-right-radius: 5%;
-        width: 400px;
+        width: 375px;
     }
 
     .desc-main {
-        margin-top: -95%;
+        margin-top: 25%;
         padding-left: 2%;
         padding-right: 2%;
 
@@ -388,5 +392,8 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-
+    .Card-titleName{
+        height: 25px;
+        overflow: hidden;
+    }
 }
