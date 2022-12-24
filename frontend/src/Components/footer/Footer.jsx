@@ -213,17 +213,17 @@ const Footer = () => {
 
       <hr style={{margin:"3%"}}/>
 
-<Box  style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
   <Text fontWeight="700">We will sell only the meat that we would eat ourselves.</Text>
   <Text color='#4a4a4a'>At Licious, we’re big meat-lovers. And by big, we mean huge. So when it comes to the meat we put on your plate, we’re extremely picky. Every single product is handpicked by a team with years of experience.</Text>
 </Box>
 
-<Box style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
   <Text fontWeight="700">If it’s not fresh, we won’t sell it</Text>
   <Text color='#4a4a4a'>For meat to stay fresh and retain its natural juices, it needs to be stored at a temperature between 0° and 5°C. We maintain this temperature from the time we procure the product to cleaning, cutting and storing it, until it leaves for delivery. And even when it’s out for delivery, we keep it chilled right up to your doorstep.Did we mention that we’re obsessed?</Text>
 </Box>
 
-<Box style={{textAlign:"justify",fontSize:"12px",marginBottom:"2%"}}>
+<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
   <Text fontWeight="700">We will charge only for what you buy</Text>
   <Text color='#4a4a4a'>Doesn’t everyone do this? Not really. Most other places first weigh the meat, then cut up the pieces, and throw out the parts which aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you still pay based on the original weight even though what you finally get is 10% to 30% less</Text>
 </Box>
@@ -238,7 +238,7 @@ const Footer = () => {
       </p>
       <Box style={{textAlign:"justify",alignItems:"center",fontSize:"12px",marginBottom:"2%"}}>
   
-  <Text color='#4a4a4a'> Licious is your one-stop fresh meat delivery shop. In here, you get
+  <Text fontSize={["14px","14px","12px"]} color='#4a4a4a'> Licious is your one-stop fresh meat delivery shop. In here, you get
         nothing but the freshest meat & seafood, delivered straight to your
         doorstep. Now you can buy meat online anytime at your convenience.
         Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish,
