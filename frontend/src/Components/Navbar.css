@@ -40,23 +40,22 @@
 /* for Middle Navbar-main */
 .MiddleNavbar-main {
     width: 100%;
-    margin: auto;
-    height: 60px;
+    margin: auto;  
     align-items: center;
-    padding: 2.5%;
+    padding: 2%;
     display: flex;
     justify-content: space-between;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+   
 
 }
 
 .Navbar-Main {
     top: 0;
     /* border: 1px solid red; */
-    z-index: 5000;
+    z-index: 1000;
     position: fixed;
     width: 100%;
     background-color: white;
-
-
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   
 }

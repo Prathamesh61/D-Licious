@@ -3,11 +3,15 @@
     height: auto;
     width: auto;
     cursor: pointer;
-    margin-top: 82px;
+    margin-top: 12%;
+}
+.second-mainbox{
+    width: 80%;
+    margin: auto;
 }
 .firstDiv{
   
-    width: 74%;
+  
     margin: 20px auto;
     margin-top: 30px;
     text-align: left;
@@ -50,7 +54,7 @@
 }
 .luccdiv{
     background: #ffdc93;
-    width:800px;
+    width:80%;
     margin:auto;
     margin-top:20px;
     border-radius: 10px;
@@ -91,7 +95,7 @@
 }
 .premiumdiv{
     display:flex;
-    width:74%;
+   
     height: 75px;
     margin:auto;
     border:1px solid palegoldenrod;
@@ -121,7 +125,7 @@
 .secondDiv{
     /* border: 1px solid chocolate; */
     border: none;
-    width: 74%;
+ 
     height: 470px;
     margin: auto;
     text-align: left;
@@ -137,7 +141,7 @@
 }
 .secondDiv2{
     border: none ;
-    width: 74%;
+   
     height: 470px;
     margin: auto;
     text-align: left;
@@ -156,7 +160,7 @@
     border: none;
     display:flex;
     gap:20px;
-    width:50%;
+   width: 70%;
     height: 80px;
     margin:auto;
     background: #fdeaed;
@@ -184,7 +188,7 @@
 }
 #thirdDiv{
     /* border: 1px solid chartreuse; */
-    width: 74%;
+   
     margin: auto;
     margin-top: 20px;
 }
@@ -226,7 +230,7 @@
 .fourthDiv{
     /* border: 1px solid crimson; */
     border: none ;
-    width: 75%;
+  
     height: 510px;
     margin: auto;
     text-align: left;
@@ -300,7 +304,7 @@
  }
 .blogDiv {
   /* border: 1px solid red; */
-  width: 74%;
+
   max-width: 1150px;
   margin: auto;
   margin-top: 70px;
@@ -357,7 +361,7 @@
 
 .fifthDiv{
     /* border: 1px solid red; */
-    width: 74%;
+   
     margin: auto;
     margin-top: 40px;
 }
@@ -397,6 +401,10 @@
 
 /* mobile  screen*/
 @media all and (min-width:80px) and (max-width:450px){
+    .second-mainbox{
+        width: 95%;
+        margin: auto;
+    }
     .inner{
         display: grid;
         grid-template-columns: repeat(2,1fr);
@@ -466,6 +474,10 @@
 
 /* IPad Air */
 @media all and (min-width:450px) and (max-width:850px){
+    .second-mainbox{
+        width: 90%;
+        margin: auto;
+    }
     .inner{
         display: grid;
         grid-template-columns: repeat(3,1fr);

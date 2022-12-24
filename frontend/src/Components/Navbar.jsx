@@ -33,7 +33,7 @@ import { MdOutlineAccountCircle } from 'react-icons/md'
 import { IconButton } from '@chakra-ui/react'
 import Cart from "../Pages/Cart";
 import {NavbarMobTab} from "./NavbarMobTab";
-
+import { CloseIcon } from '@chakra-ui/icons'
 
 const AboveNavbar = () => {
   return (
@@ -108,6 +108,7 @@ const MiddleNavbar = () => {
   const Api_start = `https://api.openweathermap.org/data/2.5/weather?`;
   const Api_key = `566cee1b29349fab7cfc8dfe8ff9e2fc`;
   const navigate = useNavigate()
+  const btnRef = React.useRef()
 
   const [Latitude, setLatitude] = useState("");
   const [Longitude, setLongitude] = useState("");
@@ -140,7 +141,7 @@ const MiddleNavbar = () => {
     <Box className="MiddleNavbar-main">
       <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
         <Box>
-          <Link to="/"> <Image width="150px" src={LICIOUS} /> </Link>
+          <Link to="/"> <Image width="100px" src={LICIOUS} /> </Link>
         </Box>
         <Box>
           <Flex>
@@ -311,7 +312,7 @@ const MiddleNavbar = () => {
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
             <Text _hover={{ color: "#D11243" }}> {
-                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link" onClick={onOpen}>Login</Button>
+                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link"  onClick={onOpen}>Login</Button>
                 : <Menu>
               <MenuButton
                     aria-label="Options"
@@ -343,14 +344,15 @@ const MiddleNavbar = () => {
       </Flex>
 
      {/* signup Drawer start */}
-      <Drawer size={"sm"} isOpen={isOpen} placement='right' onClose={onClose} >
-        <Box>
+      <Drawer  size={"sm"} finalFocusRef={btnRef} 
+      isOpen={isOpen} placement='right' onClose={onClose} >
+     <Box>
           <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
+          <DrawerContent >
+            <DrawerCloseButton size='lg'  /> 
             <DrawerHeader>Sign In/Sign Up</DrawerHeader>
             <DrawerBody>
-              <Signup />
+             <Signup />
             </DrawerBody>
           </DrawerContent>
         </Box>
