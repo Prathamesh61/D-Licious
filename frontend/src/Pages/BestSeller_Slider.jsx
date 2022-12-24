@@ -12,19 +12,18 @@ const Slider = ({ props }) => {
 
 
 
-  useEffect(async() => {
-    try {
-      let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
-      let data = await res.json();
-      let newdata=data.data
+  useEffect(() => {
+    axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
+      let newdata=res.data.data
       newdata=newdata.reverse()
-      setData(newdata);
-      // console.log(datamap)
-    } catch (err) {
-      // console.log("err", err);
-    }
-
+      setData(newdata)
+    })
+    
   }, []);
+
+
+
+
    console.log("bonelesscuts",data);
 
 
@@ -98,7 +97,7 @@ const Slider = ({ props }) => {
       <div id="slider">
         {data.map((slide) => {
           return (
-            <div className="slider_card">
+            <div key={slide._id} className="slider_card">
               <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div>

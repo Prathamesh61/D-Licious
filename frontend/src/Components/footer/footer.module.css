@@ -120,7 +120,13 @@
         grid-template-columns: repeat(2,1fr);
         text-align: left;
     }
-
+    .cities{
+        color: #4a4a4a;
+        font-size: 14px;
+        display: grid;
+        gap:3%;
+        grid-template-columns: repeat(4,1fr);
+    }
 
 }
 
@@ -134,5 +140,12 @@
         margin-top: 25px;
         grid-template-columns: repeat(2,1fr);
         text-align: left;
+    }
+    .cities{
+        color: #4a4a4a;
+        font-size: 14px;
+        display: grid;
+        gap:3%;
+        grid-template-columns: repeat(5,1fr);
     }
 }

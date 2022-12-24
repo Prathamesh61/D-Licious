@@ -8,17 +8,7 @@ import { Link } from "react-router-dom";
 import { Show, Hide } from '@chakra-ui/react'
 
 const Home = () => {
-  const [datamap, setdatamap] = useState([]);
-  const getdata1 = async () => {
-    try {
-      let res = await fetch("https://liciousdata.herokuapp.com/Bestseller");
-      let data = await res.json();
-      setdatamap(data);
-      // console.log("Data",data);
-    } catch (err) {
-      // console.log("err", err);
-    }
-  };
+  
 
 
   const ADDTOCARTBUTTON=()=>{
@@ -90,9 +80,7 @@ const Home = () => {
   //   );
   // };
 
-  useEffect(() => {
-    getdata1();
-  }, []);
+  
 
   return (
     <div className='Divvv'>

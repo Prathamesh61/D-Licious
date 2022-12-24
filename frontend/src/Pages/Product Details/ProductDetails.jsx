@@ -13,6 +13,7 @@ import 'slick-carousel/slick/slick.css';
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData, postCartData } from "../../Redux/ProfileRedux/action";
+import axios from "axios";
 
 
 const zoomOutProperties = {
@@ -80,14 +81,10 @@ const ProductDetails = () => {
   const toast = useToast();
   // console.log(products, "products")
   const getdata1 = async () => {
-    try {
-      let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
-      let data = await res.json();
-      setdatamap(data.data);
-      // console.log(datamap)
-    } catch (err) {
-      // console.log("err", err);
-    }
+    axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
+      let newdata=res.data.data
+      setdatamap(newdata)
+    })
   };
   // ****************
   const addToCart = (item, name) => {

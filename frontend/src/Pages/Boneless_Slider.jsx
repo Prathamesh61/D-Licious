@@ -7,16 +7,12 @@ import { Box, Button } from "@chakra-ui/react";
 const Slider2 = ({ props }) => {
   const [data, setData] = useState([]);
 
-  useEffect(async() => {
-    try {
-      let res = await fetch("https://dilicious-adm-api.onrender.com/fooditems/get");
-      let data = await res.json();
-      
-      setData(data.data);
-     
-    } catch (err) {
-     
-    }
+  useEffect(() => {
+    axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
+      let newdata=res.data.data
+      setData(newdata)
+    })
+    
   }, []);
   // console.log(data);
 
@@ -90,7 +86,7 @@ const Slider2 = ({ props }) => {
       <div id="slider1">
         {data.map((slide) => {
           return (
-            <div className="slider_card1">
+            <div key={slide._id} className="slider_card1">
               <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div>
