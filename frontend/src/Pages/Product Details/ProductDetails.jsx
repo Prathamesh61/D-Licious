@@ -10,14 +10,15 @@ import './slider.css';
 import imgGirl from './Images/yes.png';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData, postCartData } from "../../Redux/ProfileRedux/action";
 import axios from "axios";
+import CarousalProductDetails from "./CarousalProductDetails";
 
 
 const zoomOutProperties = {
-  duration: 2000,
+  duration: 1500,
   transitionDuration: 1000,
   infinite: true,
   indicators: true,
@@ -50,26 +51,6 @@ const Slideshow = ({ img1, img2 }) => {
   );
 };
 
-// Add to cart button
-// const ADDTOCARTBUTTON=()=>{
-//   const [check,setcheck]=useState(0)
-
-//     return(<>
-//       { (check<1 &&  <Button onClick={()=>setcheck(1)}
-//       style={{backgroundColor:"#D11243",
-//       color:"white"}}>ADD TO CART</Button>)
-//       ||(
-//       check>=1 && <Box style={{display:"flex"}}>
-//         <Button style={{backgroundColor:"white",fontSize:"40px",
-//       color:"#D11243"}}  onClick={()=>setcheck(check-1)}>-</Button>
-//         <Button style={{backgroundColor:"white",fontSize:"25px",
-//       }}  >{check}</Button>
-//         <Button style={{backgroundColor:"white",fontSize:"40px",
-//       color:"#D11243"}} onClick={()=>setcheck(check+1)}>+</Button>
-//       </Box>
-//       )}</>)
-// }
-//************ * 
 
 // Carosul  ***************
 const ProductDetails = () => {
@@ -87,18 +68,33 @@ const ProductDetails = () => {
     })
   };
   // ****************
+  //******** */ add to cart function from button addToCart
   const addToCart = (item, name) => {
-    dispatch(postCartData(item))
-    dispatch(getCartData());
-    toast({
-      position: 'top',
-      title: `${name} added Successfully.`,
-      description: `Check your cart`,
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    })
+    if (localStorage.getItem("token") == undefined) {
+      toast({
+        position: 'top',
+        title: `Not Logged in.`,
+        description: `Login first to add item into cart`,
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      })
+    }else{
+      dispatch(postCartData(item))
+      dispatch(getCartData());
+      toast({
+        position: 'top',
+        title: `${name} added Successfully.`,
+        description: `Check your cart`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
   };
+//********end add to cart function from button addToCart
+
+
   useEffect(() => {
     if (id) {
       // const products = data.ProductReducer.products;
@@ -111,49 +107,9 @@ const ProductDetails = () => {
   }, [id]);
   // console.log(currentProduct, "detail")
 
-  const [defaultImage, setDefaultImage] = useState({});
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
 
-  const handleErrorImage = (data) => {
-    setDefaultImage((prev) => ({
-      ...prev,
-      [data.target.alt]: data.target.alt,
-      linkDefault: imgGirl,
-    }));
-  };
+
+
 
 
 
@@ -278,7 +234,8 @@ const ProductDetails = () => {
 
               <Box style={{ marginLeft: "30%" }}>
 
-                <Button bg={"#D11243"} color="white" _hover={{ color: "black" }} paddingX={"8px"} onClick={() => addToCart(currentProduct, currentProduct.name)}>
+                <Button bg={"#D11243"} color="white" _hover={{ color: "black" }} 
+                paddingX={"8px"} onClick={() => addToCart(currentProduct, currentProduct.name)}>
                   ADD TO CART
                 </Button>
                 {/* <ADDTOCARTBUTTON/> */}
@@ -351,8 +308,8 @@ const ProductDetails = () => {
 
 
 
-
-
+{/* 
+the deliciousBox way box start */}
         <Box className="DLicious-way">
 
 
@@ -410,6 +367,8 @@ const ProductDetails = () => {
 
         </Box>
 
+{/* 
+the deliciousBox way box end */}
 
 
 
@@ -417,62 +376,19 @@ const ProductDetails = () => {
         <Box>
 
 
-
+           {/*carausal slider start */}
           <Box>
             <div className="App">
               <Text fontSize='3xl' style={{ textAlign: "left" }}>You may also like</Text>
-              <Slider {...settings}>
-                {datamap.map((item) => (
+             
+              <CarousalProductDetails/>
 
-                  <div className="card" key={item._id}>
-                    <div className="card-top">
-                      <img
-                        src={
-                          defaultImage[item.name] === item.name
-                            ? defaultImage.linkDefault
-                            : item.imgUrl
-                        }
-                        alt={item.name}
-                        onError={handleErrorImage}
-                      />
-                      <Text className="Card-titleName">{item.name}</Text>
-                    </div>
-                    <Box fontSize='md' className="Card-middle">{item.desc}</Box>
-                    <div className="card-bottom">
-                      <Flex style={{ marginTop: "4%" }}>
-                        <h3 >Pieces:&nbsp;{item.qty}&nbsp;&nbsp;&nbsp;&nbsp;</h3>
-                        <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{item.net} </h3>
-
-                      </Flex>
-
-                      <Flex style={{
-                        justifyContent: "space-between", alignItems: "center",
-                        marginTop: "3%"
-                      }}>
-                        <Box><Text fontSize='2xl' style={{ color: "#D11243" }}>
-                          MRP: ₹{item.price}</Text></Box>
-                        <Box>
-                          <Button color="white" bg={"#D11243"} paddingX={"8px"}>
-                            ADD TO CART
-                          </Button>
-                          {/* <ADDTOCARTBUTTON /> */}
-                        </Box>
-                      </Flex>
-
-                      <Flex style={{ textAlign: "center", alignItems: "center", margin: "auto", marginTop: "3%" }}>
-                        <Image width="30px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
-                        <Text fontSize="md" color='gray'>&nbsp;&nbsp;Today in &nbsp;</Text>
-                        <Text fontSize="md" style={{ color: "gray", fontWeight: "600" }}> 90 min</Text>
-
-                      </Flex>
-                    </div>
-                  </div>
-                ))}
-              </Slider>
             </div>
 
 
           </Box>
+  {/* slider end */}
+
 
 
         </Box>
