@@ -4,7 +4,7 @@ import "../Style/Product.css";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductsRedux/action";
-import { Menu, MenuButton, MenuList, MenuItem, Button } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Button, Show } from "@chakra-ui/react";
 import axios from "axios";
 
 const Product = () => {
@@ -47,7 +47,7 @@ const Product = () => {
   return (
     <div className="body">
       <div className="page_body">
-        <div id="wrapper">
+      <Show above="450px">    <div id="wrapper">
           <div className="static_nav_section">
             <div className="child-1">
               <h1>Chicken</h1>
@@ -67,12 +67,12 @@ const Product = () => {
               <h3>No Added Chemical , Antibiotic residue free.</h3>
             </div>
           </div>
-        </div>
+        </div></Show>
 
         {/* Filter section start */}
         <div className="filter_wrapper">
           <div className="filter_wrapper_box">
-            <div>Express Delivery</div>
+      <Show above="850px"><div>Express Delivery</div></Show> 
             {category.map((elem) => {
               return (
                 <div key={elem._id}>
