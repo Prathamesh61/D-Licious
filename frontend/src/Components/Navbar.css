@@ -53,7 +53,7 @@
 .Navbar-Main {
     top: 0;
     /* border: 1px solid red; */
-    z-index: 1000;
+    z-index: 5000;
     position: fixed;
     width: 100%;
     background-color: white;

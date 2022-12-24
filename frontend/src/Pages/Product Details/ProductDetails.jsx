@@ -194,7 +194,7 @@ const ProductDetails = () => {
 
             <Divider borderColor="silver" />
 
-            <Box fontSize={['13px', '13px', "15px"]}
+            <Box fontSize={['15px', '15px', "15px"]}
               style={{ textAlign: "justify", color: "#5A5A5A" }}>
               <Text style={{ paddingTop: "3%" }}>
                 {currentProduct.desc}
