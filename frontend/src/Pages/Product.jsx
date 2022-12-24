@@ -15,6 +15,7 @@ const Product = () => {
   const [category, setCategory] = useState([]);
   const [currCatProductsId, setCurrCatProductsId] = useState("");
   const url = process.env.REACT_APP_PRODUCTS_URL;
+  
   useEffect(() => {
     dispatch(getProducts());
     // console.log("first");
