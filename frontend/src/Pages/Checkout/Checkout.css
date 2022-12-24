@@ -1,0 +1,56 @@
+.mainbox{
+    margin-top: 60%;
+    margin: auto;
+    width: 85%;
+    padding: 1%;
+    /* border: 1px solid red; */
+}
+
+.secondbox{
+align-items: center;
+margin: auto;
+justify-content: flex-start;
+display: flex;
+/* border: 1px solid pink; */
+gap:5%
+}
+
+/* for mobile  */
+@media all and (min-width:80px)and (max-width:450px) {
+    .mainbox{
+        margin-top: 60%;
+        margin: auto;
+        width: 95%;
+        padding: 1%;
+        /* border: 1px solid red; */
+    }
+    
+    .secondbox{  
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    /* border: 1px solid pink; */
+    gap:2%
+    }   
+}
+
+
+
+/* for Tablet  */
+@media all and (min-width:450px)and (max-width:850px) {
+    .mainbox{
+        margin-top: 60%;
+        margin: auto;
+        width: 95%;
+        padding: 1%;
+        /* border: 1px solid red; */
+    }
+    
+    .secondbox{  
+    margin: auto;
+   display: grid;
+   grid-template-columns: repeat(1,1fr);
+    /* border: 1px solid pink; */
+    gap:1%
+    }   
+}

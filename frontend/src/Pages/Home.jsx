@@ -93,7 +93,7 @@ const Home = () => {
       </div>
       {/* Anil kapoor slider */}
 
-      {/* Shop category */}
+      {/* Shop category */} <div className="second-mainbox">
       <div className="firstDiv">
           <Text fontWeight='400' fontSize='3xl'>Shop by categories</Text> 
        <p className="para">Freshest meats just for you</p>
@@ -303,7 +303,7 @@ const Home = () => {
             marginTop: "10px",
             marginBottom: "20px",
             height: "110px",
-            marginLeft: "260px",
+           margin:"auto",
             cursor: "pointer",
             width: "1000px",
           }}
@@ -672,7 +672,7 @@ const Home = () => {
             </h6>
           </div>
         </div>
-      </div>
+      </div></div>
       {/* news */}
     </div>
   );

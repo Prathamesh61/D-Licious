@@ -1,5 +1,5 @@
 .maxWidth{
-    width: 74% ;
+    width: 80% ;
     margin:20px auto;
     /* border: 1px solid red; */
 }
@@ -112,7 +112,12 @@
 /* // for mobile screens */
 
 @media all and (min-width:80px) and (max-width:450px){
-    .fmdiv{
+   
+    .maxWidth{
+        width: 90% ;
+        margin:20px auto;
+        /* border: 1px solid red; */
+    } .fmdiv{
         /* border: 1px solid black; */
         display:grid;
         gap:3%;
@@ -133,6 +138,11 @@
 
 /* // for tablet screens */
 @media all and (min-width:451px) and (max-width:850px){
+    .maxWidth{
+        width: 90% ;
+        margin:20px auto;
+        /* border: 1px solid red; */
+    }
     .fmdiv{
         /* border: 1px solid black; */
         display:grid;
