@@ -120,3 +120,27 @@
   margin-right: 10px;
   margin-bottom: 15px;
 }
+
+/* //for mobile screen */
+@media all and (min-width: 80px) and (max-width: 450px) {
+
+  .slider_icon_left {
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.2;
+    left: 10px;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .slider_icon_right {
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.5;
+    right: 10px;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}

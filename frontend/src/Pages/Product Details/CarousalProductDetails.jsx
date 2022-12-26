@@ -7,30 +7,40 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCartData, postCartData } from "../../Redux/ProfileRedux/action";
 
-
-const CarousalProductDetails = ({ props }) => {
+const Slider = ({ props }) => {
   const [data, setData] = useState([]);
+
   const toast = useToast();
   const dispatch = useDispatch();
- 
+
+
+
+
   useEffect(() => {
     axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
-      let newdata=res.data.data
+      let newdata = res.data.data
+      newdata = newdata.reverse()
       setData(newdata)
     })
-    
+
   }, []);
-  // console.log(data);
 
-  const slideLeft1 = () => {
-    var slider1 = document.getElementById("slider1");
-    slider1.scrollLeft = slider1.scrollLeft - 600;
+
+
+
+  console.log("bonelesscuts", data);
+
+
+  const slideLeft = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft - 358;
   };
 
-  const slideRight1 = () => {
-    var slider1 = document.getElementById("slider1");
-    slider1.scrollLeft = slider1.scrollLeft + 600;
+  const slideRight = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft + 358;
   };
+
 
   const addToCart = (item, name) => {
     if (localStorage.getItem("token") == undefined) {
@@ -42,7 +52,7 @@ const CarousalProductDetails = ({ props }) => {
         duration: 3000,
         isClosable: true,
       })
-    }else{
+    } else {
       dispatch(postCartData(item))
       dispatch(getCartData());
       toast({
@@ -56,71 +66,70 @@ const CarousalProductDetails = ({ props }) => {
     }
   };
 
+
   return (
-    <div className="main_slider_container1">
+    <div className="main_slider_container">
       <MdKeyboardArrowLeft
         size={40}
-        className="slider_icon_left1"
-        onClick={slideLeft1}
+        className="slider_icon_left"
+        onClick={slideLeft}
       />
-      <div id="slider1">
+      <div id="slider" >
         {data.map((slide) => {
           return (
-            <div key={slide._id} className="slider_card1">
-            <Link to={`/productdetails/${slide._id}`} >  <div id="image">
+            <div key={slide._id} className="slider_card">
+              <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div></Link>
-              <div id="heading" style={{overflow:"hidden"}}>
+              <div id="heading" style={{ overflow: "hidden" }}>
                 <p>{slide.name}</p>
               </div>
-              <div id="para" style={{overflow:"hidden"}}>
+              <div id="para" style={{ overflowX: "hidden" }}>
                 <p>{slide.desc}</p>
               </div>
               <div id="wt">
                 <p>{slide.net}</p>
               </div>
               <div id="blook">
-                <p style={{ color: "#e1003e", fontWeight: "700",textAlign:"left" }}>
+                <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
-                </p><p style={{ color: "gray", textAlign:"left" }}>
-                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
                 </p>
-                <Button 
-                onClick={() => addToCart(slide, slide.name)}
-                 style={{
-        
-                  fontSize: "10px",
-                  fontWeight: "600",
-                  height: "30px",
-                  width: "100px",
-                }}
-                bg={"#D11243"} 
-                color="white"
-                _hover={{ color: "black" }}
+                <p style={{ color: "gray", textAlign: "left" }}>
+                  MRP: <s>₹{slide.price + Math.floor(slide.price * 0.13)}</s>
+                </p>
+                <Button onClick={() => addToCart(slide, slide.name)}
+                  style={{
+                    backgroundColor: "#D11243",
+                    color: "white",
+                    fontSize: "13px",
+                    fontWeight: "600",
+                    height: "30px",
+                    width: "100px",
+                  }}
+
                 >
                   ADD TO CART
-                  </Button>
+                </Button>
               </div>
-              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
-                      <div style={{display:"flex",margin: "auto",}}> <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
-                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in &nbsp;</Text>
-                        <Text fontSize="sm" style={{ color: "gray", fontWeight: "600" }}> 90 min</Text>
-                        </div>
-                      </Flex>
+              <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
+                <div style={{ display: "flex", margin: "auto", }}>
+                  <Image
+                    width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                  <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
+
+                </div>
+              </Flex>
             </div>
           );
         })}
       </div>
       <MdKeyboardArrowRight
         size={40}
-        className="slider_icon_right1"
-        onClick={slideRight1}
+        className="slider_icon_right"
+        onClick={slideRight}
       />
     </div>
   );
 };
 
-export default CarousalProductDetails;
-
-
-
+export default Slider;
