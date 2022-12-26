@@ -223,7 +223,7 @@ const ProductDetails = () => {
             </Box>
 
 
-
+<br />
             <Box className="price-addtwocard-main">
 
               <Flex style={{ alignItems: "center" }}>
@@ -241,6 +241,7 @@ const ProductDetails = () => {
                 {/* <ADDTOCARTBUTTON/> */}
               </Box>
             </Box>
+            <br />
             <Divider borderColor="silver" />
 
 

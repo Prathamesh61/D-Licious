@@ -111,7 +111,7 @@ const Profile = () => {
                     <Image src="https://www.licious.in/img/default/licious-b-1.jpg" filter={"blur(1.5px)"} width="100%" alt=" bannerImage" />
                 </Box>
                 <Box position={"absolute"} top="140" margin={"auto"} width={"100%"}>
-                    <Flex onClick={onOpen} gap={3} flexWrap={"wrap"} padding="10px" backgroundColor={"#ffffff"} margin={"auto"} width={["100%", "80%", "60%"]} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" alignItems={"center"}>
+                    <Flex borderRadius={"5px"} onClick={onOpen} gap={3} flexWrap={"wrap"} padding="10px" backgroundColor={"#ffffff"} margin={"auto"} width={["100%", "90%", "70%"]} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" alignItems={"center"}>
                         <Image src='https://www.licious.in/img/rebranding/profile_icon_2.svg' alt='profile' />
                         <VStack padding={"5px"} width={['60%', '60%', '30%']} justifyContent={"center"} alignItems="flex-start" lineHeight={"16px"}>
                             <Text textDecoration={"underline"} marginBottom={1.0}>{Profile?.user?.name}</Text>
@@ -132,7 +132,7 @@ const Profile = () => {
                     </Flex>
                 </Box>
                 <br />
-                <Box margin={"60px auto"} width={["70%", "50%", "30%"]} _hover={{ border: "1px solid #d11243" }} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
+                <Box margin={'auto'} marginBottom={"30px"} marginTop={["120px", "100px", "80px"]} width={["80%", "60%", "40%"]} _hover={{ border: "1px solid #d11243" }} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
                     <Accordion allowMultiple  >
                         <AccordionItem borderRadius={"5px"}>
                             <h3 >

@@ -38,7 +38,7 @@ const Cart = () => {
         <>
             {localStorage.getItem("token") == undefined ?
                 <Button ref={btnRef} variant="outline" onClick={onOpen} isDisabled>
-                    <HStack padding={"5px"} justify={"center"} align={"center"} position={"relative"}>
+                    <HStack fontSize={["13px", "15px", "18px"]} padding={["0px", "0px", "5px"]} justify={"center"} align={"center"} position={"relative"}>
                         <Image
                             width="20px"
                             src="https://www.licious.in/img/rebranding/cart_icon.svg"
@@ -50,7 +50,7 @@ const Cart = () => {
 
                 </Button> :
                 <Button ref={btnRef} variant="outline" onClick={onOpen}>
-                    <HStack padding={"10px"} justify={"center"} align={"center"} position={"relative"}>
+                    <HStack fontSize={["13px", "15px", "18px"]} padding={["0px", "0px", "5px"]} justify={"center"} align={"center"} position={"relative"}>
                         <Image
                             width="20px"
                             src="https://www.licious.in/img/rebranding/cart_icon.svg"

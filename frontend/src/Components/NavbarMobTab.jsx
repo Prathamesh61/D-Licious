@@ -6,6 +6,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  HStack,
   MenuDivider,
   Show,
   useDisclosure,
@@ -74,7 +75,7 @@ const NavbarMobTab = () => {
       <Box>
         <Link to="/"> <Image width="90px" src={LICIOUS} /> </Link>
       </Box>
-      <Box>
+      <HStack justifyContent={"center"} alignItems={"center"}>
         <Menu>
           {({ isOpen }) => (
             <>
@@ -82,7 +83,7 @@ const NavbarMobTab = () => {
                 {
                   <Flex>
                     <Image width={"30%"} src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
-                    <Text padding="5px" _hover={{ color: "#D11243" }}>Menu</Text>
+                    <Text fontSize={["13px", "15px", "18px"]} padding="5px" _hover={{ color: "#D11243" }}>Menu</Text>
                   </Flex>
                 }
               </MenuButton>
@@ -224,22 +225,23 @@ const NavbarMobTab = () => {
         </Menu>
 
 
-      </Box>
+      </HStack>
       <Box>
-        <Flex>
-
+        <Flex >
+          <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
           <Text _hover={{ color: "#D11243" }}> {
-            localStorage.getItem("token") == undefined ? <Button padding="5px" variant="link"
-              onClick={onOpen}><Image src="https://www.licious.in/img/rebranding/profile_icon.svg" /></Button>
+            localStorage.getItem("token") == undefined ? <Button padding="5px" variant="link" fontSize={["13px", "15px", "18px"]}
+              onClick={onOpen}>Login</Button>
               : <Menu>
                 <MenuButton
+                  fontSize={["13px", "15px", "18px"]}
                   aria-label="Options"
                   icon={<MdOutlineAccountCircle size={"50px"} />}
                   variant=""
-                ><Image src="https://www.licious.in/img/rebranding/profile_icon.svg" /></MenuButton>
+                >Profile</MenuButton>
                 <MenuList>
                   <Link to="/profile">
-                    <MenuItem icon={""}>
+                    <MenuItem icon={""} >
                       Profile
                     </MenuItem>
                   </Link>
@@ -274,7 +276,7 @@ const NavbarMobTab = () => {
           </DrawerContent>
         </Box>
       </Drawer>
-    </Box>
+    </Box >
 
   );
 };

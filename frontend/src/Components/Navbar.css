@@ -40,11 +40,11 @@
 /* for Middle Navbar-main */
 .MiddleNavbar-main {
     width: 100%;
-    margin: auto;  
+    margin: auto;
     align-items: center;
     padding: 1%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     /* border: 1px solid red; */
 
 }
@@ -57,5 +57,5 @@
     width: 100%;
     background-color: white;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-   
+
 }

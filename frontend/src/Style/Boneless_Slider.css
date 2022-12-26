@@ -137,3 +137,27 @@
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 }
+
+
+@media all and (min-width: 451px) and (max-width: 950px)  {
+  .slider_icon_left {
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.2;
+    left: 20px;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+  .slider_icon_right {
+    background-color: white;
+    border-radius: 100%;
+    position: absolute;
+    opacity: 0.5;
+    right: 20px;
+    cursor: pointer;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+
+}

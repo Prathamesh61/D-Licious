@@ -4,7 +4,7 @@ import "../Style/Product.css";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductsRedux/action";
-import { Menu, MenuButton, MenuList, MenuItem, Button, Show, Spinner, Image, Box, Stack, Text } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Button, Show, Spinner, Image, Box, Stack, Text, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
 import axios from "axios";
 
 const Product = () => {
@@ -72,32 +72,46 @@ const Product = () => {
 
         {/* Filter section start */}
         <div className="filter_wrapper">
-          <div className="filter_wrapper_box">
-            <Show above="850px"><div>Express Delivery</div></Show>
-            {category.map((elem) => {
-              return (
-                <div key={elem._id}>
-                  <Menu>
-                    <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                      {elem.cat_name}
-                    </MenuButton>
-                    <MenuList>
-                      {subCategory.map((el) => {
-                        return el.cat_id == elem._id ? (
-                          <MenuItem
-                            onClick={() => filterProduct(el._id)}
-                            key={el._id}
-                          >
-                            {el.sub_cat}
-                          </MenuItem>
-                        ) : null;
-                      })}
-                    </MenuList>
-                  </Menu>
+          <Accordion allowToggle width={"100%"} backgroundColor={"white"}>
+            <AccordionItem>
+              <h2>
+                <AccordionButton>
+                  <Box as="span" fontSize={"18px"} flex='1' textAlign='left'>
+                    Apply Filters You want
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </h2>
+              <AccordionPanel pb={4}>
+                <div className="filter_wrapper_box">
+                  {category.map((elem) => {
+                    return (
+                      <div key={elem._id}>
+                        <Menu>
+                          <MenuButton className="catMenu" as={Button} rightIcon={<ChevronDownIcon />}>
+                            {elem.cat_name}
+                          </MenuButton>
+                          <MenuList>
+                            {subCategory.map((el) => {
+                              return el.cat_id == elem._id ? (
+                                <MenuItem
+                                  onClick={() => filterProduct(el._id)}
+                                  key={el._id}
+                                >
+                                  {el.sub_cat}
+                                </MenuItem>
+                              ) : null;
+                            })}
+                          </MenuList>
+                        </Menu>
+                      </div>
+                    );
+                  })}
                 </div>
-              );
-            })}
-          </div>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
+
         </div>
 
         {/* body wrapper */}
@@ -131,7 +145,7 @@ const Product = () => {
           </div>
         }
       </div>
-    </div>
+    </div >
   );
 };
 

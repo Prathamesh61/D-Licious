@@ -268,7 +268,7 @@ const Home = () => {
           >
             Know the Licious way
           </h2>
-
+          <br />
           <div className="premiumdiv">
             <div>
               <p>Premium</p>
@@ -295,13 +295,14 @@ const Home = () => {
               <p>Cooking</p>
             </div>
           </div>
+          <br />
 
           <center>
             <select className="ssdiv">
               <option value="discover">Discover How</option>
             </select>
           </center>
-
+          <br />
           <div id='pic'>
             <img
               style={{
@@ -317,6 +318,7 @@ const Home = () => {
             />
 
           </div>
+          <br />
         </Show>
         {/* Licious offers */}
 
@@ -335,24 +337,23 @@ const Home = () => {
         {/* Boneless Cuts */}
 
         {/* rewards */}
-        <div className="rewarddiv">
+        <Box width={["100%", "80%", "80%"]} className="rewarddiv">
           <img
             src="https://www.licious.in/img/rebranding/rewards/rewards_icon.svg"
             alt="revardslogo"
           />
-          <Show above="850px">
-            <div>
-              <p>
-                <b>My Rewards</b>
-                <br />
-                <p style={{ fontSize: "13px", marginTop: "5px" }}>
-                  Place an order and win your next reward!
-                </p>
+          {/* <Show above="850px"> */}
+          <div>
+            <p>
+              <b>My Rewards</b>
+              <br />
+              <p style={{ fontSize: ["10px", "10px", "13px"], marginTop: "5px" }}>
+                Place an order and win your next reward!
               </p>
-              <a href="#">CLICK TO VIEW {">"}</a>
-            </div>
-          </Show>
-        </div>
+            </p>
+          </div>
+          {/* </Show> */}
+        </Box>
         {/* rewards */}
 
         {/* Explore by category */}
@@ -632,6 +633,7 @@ const Home = () => {
                 src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_629f29838e296"
                 alt=""
               />
+              <br />
               <h6 style={{ color: "#4a4a4a" }}>
                 Licious announces continuous liquidity of ESOPs
               </h6>
@@ -642,6 +644,8 @@ const Home = () => {
                 src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/27/inthenews_61a248a937ab5"
                 alt=""
               />
+              <br />
+
               <h6 style={{ color: "#4a4a4a" }}>
                 Why Licious wants to become the everything store
               </h6>
@@ -652,6 +656,7 @@ const Home = () => {
                 src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_61a250d471d48"
                 alt=""
               />
+              <br />
               <h6 style={{ color: "#4a4a4a" }}>
                 India’s Licious becomes unicorn with $52 million
               </h6>
@@ -662,6 +667,8 @@ const Home = () => {
                 src=" https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_629f2b2c49d88"
                 alt=""
               />
+              <br />
+
               <h6 style={{ color: "#4a4a4a" }}>
                 They slayed COVID, went on to build a unicorn: Meet
               </h6>
@@ -672,6 +679,8 @@ const Home = () => {
                 src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/30/inthenews_61a24b7143569"
                 alt=""
               />
+              <br />
+
               <h6 style={{ color: "#4a4a4a" }}>
                 Lucious Founder on building unicorn startup
               </h6>
