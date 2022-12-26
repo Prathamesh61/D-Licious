@@ -11,13 +11,13 @@ const Slider2 = ({ props }) => {
   const [data, setData] = useState([]);
   const toast = useToast();
   const dispatch = useDispatch();
- 
+
   useEffect(() => {
     axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
-      let newdata=res.data.data
+      let newdata = res.data.data
       setData(newdata)
     })
-    
+
   }, []);
   // console.log(data);
 
@@ -41,7 +41,7 @@ const Slider2 = ({ props }) => {
         duration: 3000,
         isClosable: true,
       })
-    }else{
+    } else {
       dispatch(postCartData(item))
       dispatch(getCartData());
       toast({
@@ -66,13 +66,13 @@ const Slider2 = ({ props }) => {
         {data.map((slide) => {
           return (
             <div key={slide._id} className="slider_card1">
-            <Link to={`/productdetails/${slide._id}`} >  <div id="image">
+              <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div></Link>
-              <div id="heading" style={{overflow:"hidden"}}>
+              <div id="heading" style={{ overflow: "hidden" }}>
                 <p>{slide.name}</p>
               </div>
-              <div id="para" style={{overflow:"hidden"}}>
+              <div id="para" style={{ overflow: "hidden" }}>
                 <p>{slide.desc}</p>
               </div>
               <div id="wt">
@@ -81,32 +81,32 @@ const Slider2 = ({ props }) => {
               <div id="blook">
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
-                </p><p style={{ color: "gray", textAlign:"left" }}>
-                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
-                  </p>
-                <Button 
-                onClick={() => addToCart(slide, slide.name)}
-                 style={{
-        
-                  fontSize: "13px",
-                  fontWeight: "600",
-                  height: "30px",
-                  width: "100px",
-                }}
-                bg={"#D11243"} 
-                color="white"
-                _hover={{ color: "black" }}
+                </p><p style={{ color: "gray", textAlign: "left" }}>
+                  MRP: <s>₹{slide.price + Math.floor(slide.price * 0.13)}</s>
+                </p>
+                <Button
+                  onClick={() => addToCart(slide, slide.name)}
+                  style={{
+
+                    fontSize: "13px",
+                    fontWeight: "600",
+                    height: "30px",
+                    width: "100px",
+                  }}
+                  bg={"#D11243"}
+                  color="white"
+                  _hover={{ color: "black" }}
                 >
                   ADD TO CART
-                  </Button>
+                </Button>
               </div>
-              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
-                      <div style={{display:"flex",margin: "auto",}}> 
-                      <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
-                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
-                        
-                        </div>
-                      </Flex>
+              <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
+                <div style={{ display: "flex", margin: "auto", }}>
+                  <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                  <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
+
+                </div>
+              </Flex>
             </div>
           );
         })}

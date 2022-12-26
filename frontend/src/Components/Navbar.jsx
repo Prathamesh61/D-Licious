@@ -32,7 +32,7 @@ import axios from "axios";
 import { MdOutlineAccountCircle } from 'react-icons/md'
 import { IconButton } from '@chakra-ui/react'
 import Cart from "../Pages/Cart";
-import {NavbarMobTab} from "./NavbarMobTab";
+import { NavbarMobTab } from "./NavbarMobTab";
 import { CloseIcon } from '@chakra-ui/icons'
 
 const AboveNavbar = () => {
@@ -128,20 +128,20 @@ const MiddleNavbar = () => {
       // console.log(res.data.name);
       setCity(res.data.name);
     });
-   }, [Latitude, Longitude]);
+  }, [Latitude, Longitude]);
 
 
-   let handleLogout = () => {
+  let handleLogout = () => {
     localStorage.removeItem("token");
     return navigate("/")
-   };
+  };
 
 
   return (
     <Box className="MiddleNavbar-main">
-      <Flex style={{ alignItems: "center", justifyContent: "space-between" }}>
+      <Flex style={{ gap: "20px", alignItems: "center", justifyContent: "space-between" }}>
         <Box>
-          <Link to="/"> <Image width="100px" src={LICIOUS} /> </Link>
+          <Link to="/"> <Image width="120px" src={LICIOUS} /> </Link>
         </Box>
         <Box>
           <Flex>
@@ -152,11 +152,13 @@ const MiddleNavbar = () => {
       </Flex>
 
       <Box width="30%">
-        <Input borderColor="gray" variant="filled" size={["sm", "md", "lg"]}  placeholder="Search for any delicious product" />
+        <Input borderColor="gray" variant="filled" size={["sm", "md", "lg"]} placeholder="Search for any delicious product" />
       </Box>
 
-      <Flex style={{ alignItems: "center",  justifyContent: "space-between",
-      gap: "12%",width: "30%"}}>
+      <Flex style={{
+        alignItems: "center", justifyContent: "space-between",
+        gap: "12%", width: "30%"
+      }}>
         <Box>
           <Menu>
             {({ isOpen }) => (
@@ -172,13 +174,13 @@ const MiddleNavbar = () => {
                 <MenuList style={{ padding: "5%" }}>
                   <MenuItem>
                     <Link to="/product" style={{ display: "flex", alignItems: "center" }}>
-                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/d52759ea-ba5a-0f5b-3dc1-d28875335a3f/original/Todays_Deal_1.png"/>
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/d52759ea-ba5a-0f5b-3dc1-d28875335a3f/original/Todays_Deal_1.png" />
                       <Text>&nbsp;Today's Deals</Text>
                     </Link>{" "}
                   </MenuItem>
 
                   <MenuItem>
-                    <Link to="/product"  style={{ display: "flex", alignItems: "center" }} >
+                    <Link to="/product" style={{ display: "flex", alignItems: "center" }} >
                       <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/ad04872e-60af-387c-533c-efa7dc6eb565/original/Chicken_(1).png" />
                       <Text>&nbsp;Chicken</Text>
                     </Link>{" "}
@@ -186,14 +188,14 @@ const MiddleNavbar = () => {
 
                   <MenuItem>
                     <Link to="/product" style={{ display: "flex", alignItems: "center" }}>
-                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/eb162d28-5f88-a381-1d45-7f2f66d2c776/original/FIsh.png"/>
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/eb162d28-5f88-a381-1d45-7f2f66d2c776/original/FIsh.png" />
                       <Text>&nbsp;Fish & Seafood</Text>
                     </Link>{" "}
                   </MenuItem>
 
                   <MenuItem>
-                    <Link  to="/product"  style={{ display: "flex", alignItems: "center" }}>
-                      <Image  width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/7113e792-7025-9e6f-6057-7174edf30856/original/Mu.png" />
+                    <Link to="/product" style={{ display: "flex", alignItems: "center" }}>
+                      <Image width="35px" src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/7113e792-7025-9e6f-6057-7174edf30856/original/Mu.png" />
                       <Text>&nbsp;Mutton</Text>
                     </Link>{" "}
                   </MenuItem>
@@ -306,35 +308,35 @@ const MiddleNavbar = () => {
             )}
           </Menu>
 
-       
+
         </Box>
         <Box>
           <Flex>
             <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
             <Text _hover={{ color: "#D11243" }}> {
-                localStorage.getItem("token")==undefined ? <Button padding="5px" variant="link"  onClick={onOpen}>Login</Button>
+              localStorage.getItem("token") == undefined ? <Button padding="5px" variant="link" onClick={onOpen}>Login</Button>
                 : <Menu>
-              <MenuButton
+                  <MenuButton
                     aria-label="Options"
                     icon={<MdOutlineAccountCircle size={"50px"} />}
                     variant=""
-               >Profile</MenuButton>
-                <MenuList>
-                  <Link to="/profile">
-                    <MenuItem icon={""}>
-                          Profile
-                     </MenuItem>
-                  </Link>
-                     
-                     <MenuItem icon={""} >
-                          App Support
-                     </MenuItem>
-                     <MenuDivider />
-                     <MenuItem onClick={handleLogout} icon={""}>
-                          Logout
-                     </MenuItem>
-                </MenuList>
-              </Menu>
+                  >Profile</MenuButton>
+                  <MenuList>
+                    <Link to="/profile">
+                      <MenuItem icon={""}>
+                        Profile
+                      </MenuItem>
+                    </Link>
+
+                    <MenuItem icon={""} >
+                      App Support
+                    </MenuItem>
+                    <MenuDivider />
+                    <MenuItem onClick={handleLogout} icon={""}>
+                      Logout
+                    </MenuItem>
+                  </MenuList>
+                </Menu>
             }</Text>
           </Flex>
         </Box>
@@ -343,16 +345,16 @@ const MiddleNavbar = () => {
         </Box>
       </Flex>
 
-     {/* signup Drawer start */}
-      <Drawer  size={"sm"} finalFocusRef={btnRef} 
-      isOpen={isOpen} placement='right' onClose={onClose} >
-     <Box>
+      {/* signup Drawer start */}
+      <Drawer size={"sm"} finalFocusRef={btnRef}
+        isOpen={isOpen} placement='right' onClose={onClose} >
+        <Box>
           <DrawerOverlay />
           <DrawerContent >
-            <DrawerCloseButton size='lg'  /> 
+            <DrawerCloseButton size='lg' />
             <DrawerHeader>Sign In/Sign Up</DrawerHeader>
             <DrawerBody>
-             <Signup />
+              <Signup />
             </DrawerBody>
           </DrawerContent>
         </Box>
@@ -366,15 +368,15 @@ const MiddleNavbar = () => {
 const Navbar = () => {
   return (
     <Box className="Navbar-Main">
-       <Show above='850px'>     
+      <Show above='850px'>
         <AboveNavbar />
         <MiddleNavbar />
       </Show>
 
       <Show below="850px">
-      <NavbarMobTab/>
+        <NavbarMobTab />
       </Show>
-     
+
     </Box>
   );
 };

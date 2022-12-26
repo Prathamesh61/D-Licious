@@ -1,68 +1,77 @@
-.maxWidth{
-    width: 80% ;
-    margin:20px auto;
+.maxWidth {
+    width: 80%;
+    margin: 2% auto;
     /* border: 1px solid red; */
 }
-.firstimg{
+
+.firstimg {
     /* border: 1px solid red; */
     width: 120px;
-    height: 50px; 
+    height: 50px;
     margin-bottom: 15px;
 }
-.fmdiv{
+
+.fmdiv {
     /* border: 1px solid black; */
-    display:grid;
-    gap:40px;
+    display: grid;
+    gap: 40px;
     margin-top: 25px;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(5, 1fr);
     text-align: left;
 }
-.fmdiv>div li{
+
+.fmdiv>div li {
     /* border: 1px solid crimson; */
-    list-style:none;
+    list-style: none;
     color: #4a4a4a;
     font-size: 14px;
     line-height: 1.8;
 }
-.firli{
+
+.firli {
     /* border: 1px solid green; */
-    font-weight: 600px; 
+    font-weight: 600px;
     color: rgb(100 100 100);
 }
-.logos{
-    font-weight: 600px; 
+
+.logos {
+    font-weight: 600px;
     color: rgb(100 100 100);
 }
-.apps{
+
+.apps {
     /* border: 1px solid red; */
     display: flex;
 }
-.fmiddiv{
+
+.fmiddiv {
     /* border: 1px solid aqua; */
-    margin-left:150px
+    margin-left: 150px
 }
-.fmiddiv>a{
+
+.fmiddiv>a {
     /* border: 1px solid blueviolet; */
-    font-size:22px;
-    margin-left:15px;
+    font-size: 22px;
+    margin-left: 15px;
     /* margin-top: 8px; */
-    color:hsl(0,0%,32%);
-    cursor:pointer
+    color: hsl(0, 0%, 32%);
+    cursor: pointer
 }
-.fmiddiv>span{
+
+.fmiddiv>span {
     /* border: 1px solid blueviolet; */
     font-weight: 600;
     font-style: bold;
-    color:hsl(0,0%,32%);
+    color: hsl(0, 0%, 32%);
     /* margin-bottom: 8px; */
     margin-right: 15px;
 }
 
-.fmiddiv>a:hover{
-    color:rgb(209, 51, 91)
-} 
+.fmiddiv>a:hover {
+    color: rgb(209, 51, 91)
+}
 
-.citidiv{
+.citidiv {
     margin-top: 2%;
     margin-bottom: 2%;
     width: 100%;
@@ -70,30 +79,33 @@
     text-align: left;
     /* border: 1px solid red; */
 }
-.cities{
+
+.cities {
     color: #4a4a4a;
     font-size: 12px;
     display: grid;
-    gap:3%;
-    grid-template-columns: repeat(8,1fr);
+    gap: 3%;
+    grid-template-columns: repeat(8, 1fr);
 }
 
-.fddiv>div>li{
+.fddiv>div>li {
     color: #4a4a4a;
     font-size: 14px;
     line-height: 1.8;
 }
-.fddiv{
-    display:flex;
+
+.fddiv {
+    display: flex;
     flex-direction: column;
 }
-.fddiv>div{
-    display:flex;
-    gap:20px
+
+.fddiv>div {
+    display: flex;
+    gap: 20px
 }
 
 
-.endFooter{
+.endFooter {
     /* border: 1px solid indigo; */
     margin-top: 25px;
     width: 100%;
@@ -111,51 +123,56 @@
 
 /* // for mobile screens */
 
-@media all and (min-width:80px) and (max-width:450px){
-   
-    .maxWidth{
-        width: 90% ;
-        margin:20px auto;
+@media all and (min-width:80px) and (max-width:450px) {
+
+    .maxWidth {
+        width: 90%;
+        margin: 20px auto;
         /* border: 1px solid red; */
-    } .fmdiv{
+    }
+
+    .fmdiv {
         /* border: 1px solid black; */
-        display:grid;
-        gap:3%;
+        display: grid;
+        gap: 3%;
         margin-top: 25px;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         text-align: left;
     }
-    .cities{
+
+    .cities {
         color: #4a4a4a;
         font-size: 14px;
         display: grid;
-        gap:3%;
-        grid-template-columns: repeat(4,1fr);
+        gap: 3%;
+        grid-template-columns: repeat(4, 1fr);
     }
 
 }
 
 
 /* // for tablet screens */
-@media all and (min-width:451px) and (max-width:850px){
-    .maxWidth{
-        width: 90% ;
-        margin:20px auto;
+@media all and (min-width:451px) and (max-width:850px) {
+    .maxWidth {
+        width: 90%;
+        margin: 20px auto;
         /* border: 1px solid red; */
     }
-    .fmdiv{
+
+    .fmdiv {
         /* border: 1px solid black; */
-        display:grid;
-        gap:40px;
+        display: grid;
+        gap: 40px;
         margin-top: 25px;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         text-align: left;
     }
-    .cities{
+
+    .cities {
         color: #4a4a4a;
         font-size: 14px;
         display: grid;
-        gap:3%;
-        grid-template-columns: repeat(5,1fr);
+        gap: 3%;
+        grid-template-columns: repeat(5, 1fr);
     }
 }

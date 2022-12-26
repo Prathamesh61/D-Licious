@@ -38,14 +38,14 @@ const Cart = () => {
         <>
             {localStorage.getItem("token") == undefined ?
                 <Button ref={btnRef} variant="outline" onClick={onOpen} isDisabled>
-                    <HStack padding={"10px"} justify={"center"} align={"center"} position={"relative"}>
+                    <HStack padding={"5px"} justify={"center"} align={"center"} position={"relative"}>
                         <Image
                             width="20px"
                             src="https://www.licious.in/img/rebranding/cart_icon.svg"
                         />
                         <Text position={"absolute"} top={0} left={3.0} fontWeight={700} color={"#d11243"}>{cart?.length}
                         </Text>
-                        <Text color="gray"> Cart</Text>
+                        <Text color="gray">Cart</Text>
                     </HStack>
 
                 </Button> :
@@ -67,17 +67,17 @@ const Cart = () => {
                 onClose={onClose}
                 size={"sm"}
                 finalFocusRef={btnRef}
-                style={{overflow:"scroll"}}
+                style={{ overflow: "scroll" }}
             >
                 <DrawerOverlay />
-                <DrawerContent style={{overflow:"scroll"}}>
+                <DrawerContent style={{ overflow: "scroll" }}>
                     <DrawerCloseButton />
                     <DrawerHeader>
                         <Text fontSize={'22px'}> Order Sumamry</Text>
                     </DrawerHeader>
                     <DrawerBody backgroundColor={"#f2f2f2"} overflowY={"auto"}>
-                        <Text fontWeight={'600'} fontSize={'13px'} padding={"5px"} color={"white"} 
-                        textAlign={"center"} backgroundColor={'#417505'} width={"100%"}>
+                        <Text fontWeight={'600'} fontSize={'13px'} padding={"5px"} color={"white"}
+                            textAlign={"center"} backgroundColor={'#417505'} width={"100%"}>
                             Congratulations, Your delivery charge is waived off!!!</Text>
                         <br />
                         {cart.length <= 0 ? <Text>No Products Into the cart</Text> :
@@ -91,8 +91,8 @@ const Cart = () => {
                         <br />
                         <Text fontWeight={'600'} fontSize={'16px'} padding={"5px"}>
                             Stop paying delivery charges. Join Meatopia today!</Text>
-                        <HStack borderRadius={"5px"} backgroundColor={"#ffdc93"} 
-                        justifyContent={"space-between"} padding={"10px"} alignItems="center">
+                        <HStack borderRadius={"5px"} backgroundColor={"#ffdc93"}
+                            justifyContent={"space-between"} padding={"10px"} alignItems="center">
                             <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
                             <Button bg={"#d11243"} color={"white"} size='xs' >Join Now</Button>
                         </HStack>
@@ -107,8 +107,8 @@ const Cart = () => {
                                 <HStack width={"100%"} lineHeight={"14px"} justifyContent={"space-between"} alignItems={"center"}><Text>Delivery Charge</Text> <Text>0</Text> </HStack>
                                 <Box border={"0.1px solid black"} width={"100%"}></Box>
                                 <HStack fontSize={"l"} width={"100%"}
-                                 lineHeight={"14px"} justifyContent={"space-between"} 
-                                 alignItems={"center"}>
+                                    lineHeight={"14px"} justifyContent={"space-between"}
+                                    alignItems={"center"}>
                                     <Text>Total</Text> <Text>{totalOfItems}</Text> </HStack>
                             </VStack>
                             <br />
@@ -116,8 +116,8 @@ const Cart = () => {
                     </DrawerBody>
                     <DrawerFooter>
                         <VStack width={"100%"}>
-                            <HStack width={"100%"} padding={"5px"} 
-                            justifyContent={"space-between"} borderBottom={"0.5px solid black"}>
+                            <HStack width={"100%"} padding={"5px"}
+                                justifyContent={"space-between"} borderBottom={"0.5px solid black"}>
                                 <HStack >
                                     <Image width={"27px"} src='https://www.licious.in/img/rebranding/map-icon.png' />
                                     <Text fontWeight={"600"} fontSize={"20px"}>

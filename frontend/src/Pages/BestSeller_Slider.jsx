@@ -12,23 +12,23 @@ const Slider = ({ props }) => {
 
   const toast = useToast();
   const dispatch = useDispatch();
- 
+
 
 
 
   useEffect(() => {
     axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
-      let newdata=res.data.data
-      newdata=newdata.reverse()
+      let newdata = res.data.data
+      newdata = newdata.reverse()
       setData(newdata)
     })
-    
+
   }, []);
 
 
 
 
-   console.log("bonelesscuts",data);
+  console.log("bonelesscuts", data);
 
 
   const slideLeft = () => {
@@ -41,7 +41,7 @@ const Slider = ({ props }) => {
     slider.scrollLeft = slider.scrollLeft + 400;
   };
 
- 
+
   const addToCart = (item, name) => {
     if (localStorage.getItem("token") == undefined) {
       toast({
@@ -52,7 +52,7 @@ const Slider = ({ props }) => {
         duration: 3000,
         isClosable: true,
       })
-    }else{
+    } else {
       dispatch(postCartData(item))
       dispatch(getCartData());
       toast({
@@ -65,7 +65,7 @@ const Slider = ({ props }) => {
       })
     }
   };
-  
+
 
   return (
     <div className="main_slider_container">
@@ -74,17 +74,17 @@ const Slider = ({ props }) => {
         className="slider_icon_left"
         onClick={slideLeft}
       />
-      <div id="slider">
+      <div id="slider" >
         {data.map((slide) => {
           return (
             <div key={slide._id} className="slider_card">
-            <Link to={`/productdetails/${slide._id}`} >  <div id="image">
+              <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div></Link>
-              <div id="heading" style={{overflow:"hidden"}}>
+              <div id="heading" style={{ overflow: "hidden" }}>
                 <p>{slide.name}</p>
               </div>
-              <div id="para" style={{overflowX:"hidden"}}>
+              <div id="para" style={{ overflowX: "hidden" }}>
                 <p>{slide.desc}</p>
               </div>
               <div id="wt">
@@ -94,31 +94,31 @@ const Slider = ({ props }) => {
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
                 </p>
-                <p style={{ color: "gray", textAlign:"left" }}>
-                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
-                  </p>
+                <p style={{ color: "gray", textAlign: "left" }}>
+                  MRP: <s>₹{slide.price + Math.floor(slide.price * 0.13)}</s>
+                </p>
                 <Button onClick={() => addToCart(slide, slide.name)}
-                 style={{
-                  backgroundColor: "#D11243",
-                  color: "white",
-                  fontSize: "13px",
-                  fontWeight: "600",
-                  height: "30px",
-                  width: "100px",
-                }}
-                
+                  style={{
+                    backgroundColor: "#D11243",
+                    color: "white",
+                    fontSize: "13px",
+                    fontWeight: "600",
+                    height: "30px",
+                    width: "100px",
+                  }}
+
                 >
                   ADD TO CART
-                  </Button>
+                </Button>
               </div>
-              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
-                      <div style={{display:"flex",margin: "auto",}}> 
-                      <Image
-                       width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
-                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
-                       
-                        </div>
-                      </Flex>
+              <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
+                <div style={{ display: "flex", margin: "auto", }}>
+                  <Image
+                    width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                  <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
+
+                </div>
+              </Flex>
             </div>
           );
         })}

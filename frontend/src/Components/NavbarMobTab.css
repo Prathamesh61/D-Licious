@@ -1,15 +1,15 @@
 
 
 /* for Middle Navbar-main */
-.MiddleNavbar-main {
+.MiddleNavbar-main2 {
     width: 100%;
     margin: auto;
     height: 6%;
     align-items: center;
-    padding: 2.5%;
+    padding: 1%;
     display: flex;
  /* border: 1px solid green; */
-    /* justify-content: space-between; */
+    justify-content: space-between;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 top: 0;
 }

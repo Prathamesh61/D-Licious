@@ -42,17 +42,17 @@
     width: 100%;
     margin: auto;  
     align-items: center;
-    padding: 2%;
+    padding: 1%;
     display: flex;
     justify-content: space-between;
-   
+    /* border: 1px solid red; */
 
 }
 
 .Navbar-Main {
     top: 0;
     /* border: 1px solid red; */
-    z-index: 5000;
+    z-index: 1000;
     position: fixed;
     width: 100%;
     background-color: white;
