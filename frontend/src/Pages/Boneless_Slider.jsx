@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import "../Style/BestSeller_Slider.css";
 import "../Style/Boneless_Slider.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
@@ -21,14 +22,14 @@ const Slider2 = ({ props }) => {
   }, []);
   // console.log(data);
 
-  const slideLeft1 = () => {
+  const slideLeft = () => {
     var slider1 = document.getElementById("slider1");
-    slider1.scrollLeft = slider1.scrollLeft - 400;
+    slider1.scrollLeft = slider1.scrollLeft - 358;
   };
 
-  const slideRight1 = () => {
+  const slideRight = () => {
     var slider1 = document.getElementById("slider1");
-    slider1.scrollLeft = slider1.scrollLeft + 400;
+    slider1.scrollLeft = slider1.scrollLeft + 358;
   };
 
   const addToCart = (item, name) => {
@@ -59,20 +60,20 @@ const Slider2 = ({ props }) => {
     <div className="main_slider_container1">
       <MdKeyboardArrowLeft
         size={40}
-        className="slider_icon_left1"
-        onClick={slideLeft1}
+        className="slider_icon_left"
+        onClick={slideLeft}
       />
       <div id="slider1">
         {data.map((slide) => {
           return (
-            <div key={slide._id} className="slider_card1">
+            <div key={slide._id} className="slider_card">
               <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                 <img src={slide.imgUrl} alt="image" />
               </div></Link>
               <div id="heading" style={{ overflow: "hidden" }}>
                 <p>{slide.name}</p>
               </div>
-              <div id="para" style={{ overflow: "hidden" }}>
+              <div id="para" style={{ overflowX: "hidden" }}>
                 <p>{slide.desc}</p>
               </div>
               <div id="wt">
@@ -81,28 +82,28 @@ const Slider2 = ({ props }) => {
               <div id="blook">
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
-                </p><p style={{ color: "gray", textAlign: "left" }}>
+                </p>
+                <p style={{ color: "gray", textAlign: "left" }}>
                   MRP: <s>₹{slide.price + Math.floor(slide.price * 0.13)}</s>
                 </p>
-                <Button
-                  onClick={() => addToCart(slide, slide.name)}
+                <Button onClick={() => addToCart(slide, slide.name)}
                   style={{
-
+                    backgroundColor: "#D11243",
+                    color: "white",
                     fontSize: "13px",
                     fontWeight: "600",
                     height: "30px",
                     width: "100px",
                   }}
-                  bg={"#D11243"}
-                  color="white"
-                  _hover={{ color: "black" }}
+
                 >
                   ADD TO CART
                 </Button>
               </div>
               <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
                 <div style={{ display: "flex", margin: "auto", }}>
-                  <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                  <Image
+                    width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
                   <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
 
                 </div>
@@ -113,8 +114,8 @@ const Slider2 = ({ props }) => {
       </div>
       <MdKeyboardArrowRight
         size={40}
-        className="slider_icon_right1"
-        onClick={slideRight1}
+        className="slider_icon_right"
+        onClick={slideRight}
       />
     </div>
   );

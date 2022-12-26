@@ -1,4 +1,4 @@
-import { Box, Button, Input, useDisclosure, useToast } from "@chakra-ui/react";
+import { Box, Button, Image, Input, Spinner, Stack, Text, useDisclosure, useToast } from "@chakra-ui/react";
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -34,6 +34,7 @@ const Signup = () => {
   const URL_MAIN = process.env.REACT_APP_MAIN_URL;
   let dispatch = useDispatch();
   const Rstate = useSelector((state) => state.AuthSignupReducer);
+  const [load, setLoad] = useState(false);
 
   // *********************
   const hanleRender = () => {
@@ -66,6 +67,7 @@ const Signup = () => {
     if (isSignupForm) {
       const { email, mobile, password } = data;
       if (email && mobile && password) {
+        setLoad(true)
         axios
           .post(URL_MAIN + "/user/signup", { body: data })
           .then((res) => {
@@ -78,9 +80,14 @@ const Signup = () => {
               });
             } else if (res.data.status === 200) {
               toastAlert(toast, res.data.msg, "success");
+              setLoad(false);
               setTimeout(() => {
                 // return navigate("/login");
               }, 2000);
+              console.log(dispatch({
+                type: SIGNUP_SUCCESS,
+                payload: res.data,
+              }));
               return dispatch({
                 type: SIGNUP_SUCCESS,
                 payload: res.data,
@@ -88,6 +95,7 @@ const Signup = () => {
             }
           })
           .catch((err) => {
+            setLoad(false)
             toastAlert(toast, "Somthing went wrong", "error");
           });
       } else {
@@ -96,6 +104,7 @@ const Signup = () => {
     } else {
       const { email, password } = loginData;
       if (email && password) {
+        setLoad(true)
         axios
           .post(URL_MAIN + "/user/login", {
             data: loginData,
@@ -105,6 +114,8 @@ const Signup = () => {
             let status = res.data.status;
             // console.log(status);
             if (status === 200) {
+              setLoad(false)
+
               toastAlert(toast, "Login Successful", "success");
               localStorage.setItem("token", res.data.token);
               dispatch({
@@ -113,11 +124,13 @@ const Signup = () => {
               });
               navigate("/home");
             } else if (status === 500) {
+              setLoad(false);
               toastAlert(toast, res.data.msg, "error");
             }
           })
           .catch((err) => {
             // console.log(err);
+            setLoad(false);
           });
       } else {
         toastAlert(toast, "All fields are required", "warning");
@@ -125,7 +138,12 @@ const Signup = () => {
     }
     onClose();
   };
-
+  if (load) return (
+    <Stack className="signup_wrapper" style={{ width: "100%", justifyContent: "center", alignItems: "center", padding: "20px" }}>
+      <Image width={"20%"} style={{ alignSelf: "center" }} src="https://acegif.com/wp-content/uploads/loading-29.gif" alt={"loading"} />
+      <Text style={{ fontSize: "20px", fontWeight: 500, color: "#d11243", textAlign: "center" }}> Loading...</Text>
+    </Stack>
+  )
   return (
     <div className="signup_wrapper">
       {isSignupForm ? (

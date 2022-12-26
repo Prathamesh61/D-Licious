@@ -71,13 +71,9 @@ const NavbarMobTab = () => {
 
   return (
     <Box className="MiddleNavbar-main2">
-
       <Box>
-
-        <Link to="/"> <Image width="70px" src={LICIOUS} /> </Link>
-
+        <Link to="/"> <Image width="90px" src={LICIOUS} /> </Link>
       </Box>
-
       <Box>
         <Menu>
           {({ isOpen }) => (
@@ -85,7 +81,7 @@ const NavbarMobTab = () => {
               <MenuButton isActive={isOpen}>
                 {
                   <Flex>
-                    <Image src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
+                    <Image width={"30%"} src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
                     <Text padding="5px" _hover={{ color: "#D11243" }}>Menu</Text>
                   </Flex>
                 }
@@ -231,16 +227,16 @@ const NavbarMobTab = () => {
       </Box>
       <Box>
         <Flex>
-          <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
+
           <Text _hover={{ color: "#D11243" }}> {
             localStorage.getItem("token") == undefined ? <Button padding="5px" variant="link"
-              onClick={onOpen}>Login</Button>
+              onClick={onOpen}><Image src="https://www.licious.in/img/rebranding/profile_icon.svg" /></Button>
               : <Menu>
                 <MenuButton
                   aria-label="Options"
                   icon={<MdOutlineAccountCircle size={"50px"} />}
                   variant=""
-                >Profile</MenuButton>
+                ><Image src="https://www.licious.in/img/rebranding/profile_icon.svg" /></MenuButton>
                 <MenuList>
                   <Link to="/profile">
                     <MenuItem icon={""}>
@@ -261,7 +257,6 @@ const NavbarMobTab = () => {
         </Flex>
       </Box>
       <Box className="cart-box">
-
         <Cart />
       </Box>
 

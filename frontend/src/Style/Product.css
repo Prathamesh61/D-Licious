@@ -1,7 +1,8 @@
 .body {
   width: 100%;
   height: auto;
-  margin-top: 7%;
+  margin-top: 6.7%;
+  padding: 5px;
   margin-bottom: 20px;
   background-color: whitesmoke;
 }
@@ -73,23 +74,27 @@
 /* ********** filter ************/
 .filter_wrapper {
   width: 100%;
-  height: 60px;
+  height: fit-content;
   display: flex;
   margin-top: 1%;
+  margin-bottom: 5px;
+  /* border: 1px solid red; */
   background-color: white;
+  border-top: 1px solid gray;
   border-bottom: 1px solid gray;
 }
 
 .filter_wrapper_box {
   width: 100%;
   height: 70%;
-  margin-top: 1%;
+  margin-top: 5px;
   display: flex;
   justify-content: center;
 }
 
 .filter_wrapper_box>div {
   border-radius: 5px;
+  /* border: 1px solid red; */
   /* background-color: white; */
   margin: auto;
   width: auto;
@@ -101,6 +106,7 @@
 .body_wrapper {
   width: 100%;
   height: auto;
+  padding-bottom: 100px;
   margin-top: 1%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -117,6 +123,13 @@
     margin-top: 14%;
   }
 
+  .page_body {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background-color: whitesmoke;
+  }
+
   .static_nav_section>div {
     width: 250px;
     height: 80%;
@@ -125,7 +138,7 @@
 
   .filter_wrapper {
     width: 100%;
-    height: 30px;
+    height: fit-content;
     display: flex;
     margin-top: 1%;
     background-color: white;
@@ -134,10 +147,11 @@
   }
 
   .filter_wrapper_box {
-    width: 100%;
+    width: 80%;
     height: 90%;
+    margin: auto;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 190px);
   }
 
   .filter_wrapper_box>div {
@@ -151,11 +165,13 @@
 
   .body_wrapper {
     width: 100%;
+    border: 1px solid red;
     height: auto;
     margin-top: 1%;
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+
   }
 }
 
@@ -163,13 +179,20 @@
 @media all and (min-width: 80px) and (max-width: 450px) {
   .filter_wrapper {
     width: 100%;
-    height: 30px;
+    height: fit-content;
     display: flex;
     margin-top: 1%;
     background-color: white;
     border-bottom: 1px solid gray;
-    margin-bottom: 45%;
-    margin-top: 5%;
+    /* margin-bottom: 45%; */
+    /* margin-top: 5%; */
+  }
+
+  .page_body {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    background-color: whitesmoke;
   }
 
   .filter_wrapper_box {
@@ -177,14 +200,15 @@
     height: 98%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 
   }
 
   .body_wrapper {
     width: 100%;
     height: auto;
-    margin-top: 1%;
+    /* margin-top: 1%; */
+    margin: auto;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 20px;

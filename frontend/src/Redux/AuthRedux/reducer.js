@@ -6,20 +6,25 @@ const initalState = {
     isAuth: false,
 }
 
-const AuthSignupReducer = ( state=initalState, action ) => {
-    const {type, payload} = action;
-    switch(type) {
+const AuthSignupReducer = (state = initalState, action) => {
+    const { type, payload } = action;
+    switch (type) {
         case types.SIGNUP_REQUEST:
-            return { ...state, isLoading: true, isError: false}
+            return { ...state, isLoading: true, isError: false }
         case types.SIGNUP_SUCCESS:
-            return {...state, isLoading:false, isError: false }
-        case types.SIGNUP_FAILURE: 
-            return {...state, isError:true, isLoading: false }
+            return { ...state, isLoading: false, isError: false }
+        case types.SIGNUP_FAILURE:
+            return { ...state, isError: true, isLoading: false }
+
+        case types.LOGIN_REQUEST:
+            return { ...state, isError: false, isLoading: true, isAuth: false, }
         case types.LOGIN_SUCCESS:
-            return { ...state, isError: false, isLoading: false,  isAuth: true,}
-        default: 
+            return { ...state, isError: false, isLoading: false, isAuth: true, }
+        case types.LOGIN_FAILURE:
+            return { ...state, isError: true, isLoading: false, isAuth: false, }
+        default:
             return state;
     }
 }
 
-export {AuthSignupReducer}
+export { AuthSignupReducer }
