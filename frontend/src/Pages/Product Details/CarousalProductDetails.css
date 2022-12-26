@@ -8,6 +8,7 @@
     height: 100%;
     position: relative;
     display: flex;
+    text-align: left;
     align-items: center;
   }
   #slider1 {
@@ -45,8 +46,8 @@
     opacity: 1;
   }
   .slider_card1 {
-    width: 365px;
-    height: 430px;
+    width: 350px;
+    height: 435px;
     background-color: white;
     border-radius: 10px;
     display: inline-block;
@@ -69,7 +70,7 @@
     /* border: 1px solid red; */
     width: 90%;
     margin: auto;
-    font-weight: 500;
+    font-weight: 600;
     margin-top: 20px;
     margin-left: 15px;
     margin-bottom: 20px;

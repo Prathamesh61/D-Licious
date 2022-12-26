@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./CarousalProductDetails.css"
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
-import { Box, Button, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCartData, postCartData } from "../../Redux/ProfileRedux/action";
@@ -80,14 +80,16 @@ const CarousalProductDetails = ({ props }) => {
                 <p>{slide.net}</p>
               </div>
               <div id="blook">
-                <p style={{ color: "#e1003e", fontWeight: "700" }}>
+                <p style={{ color: "#e1003e", fontWeight: "700",textAlign:"left" }}>
                   MRP: ₹{slide.price}
+                </p><p style={{ color: "gray", textAlign:"left" }}>
+                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
                 </p>
                 <Button 
                 onClick={() => addToCart(slide, slide.name)}
                  style={{
         
-                  fontSize: "13px",
+                  fontSize: "10px",
                   fontWeight: "600",
                   height: "30px",
                   width: "100px",
@@ -99,6 +101,12 @@ const CarousalProductDetails = ({ props }) => {
                   ADD TO CART
                   </Button>
               </div>
+              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
+                      <div style={{display:"flex",margin: "auto",}}> <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in &nbsp;</Text>
+                        <Text fontSize="sm" style={{ color: "gray", fontWeight: "600" }}> 90 min</Text>
+                        </div>
+                      </Flex>
             </div>
           );
         })}

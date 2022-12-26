@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Style/BestSeller_Slider.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
-import { Box, Button, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCartData, postCartData } from "../Redux/ProfileRedux/action";
@@ -94,6 +94,9 @@ const Slider = ({ props }) => {
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
                 </p>
+                <p style={{ color: "gray", textAlign:"left" }}>
+                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
+                  </p>
                 <Button onClick={() => addToCart(slide, slide.name)}
                  style={{
                   backgroundColor: "#D11243",
@@ -108,6 +111,14 @@ const Slider = ({ props }) => {
                   ADD TO CART
                   </Button>
               </div>
+              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
+                      <div style={{display:"flex",margin: "auto",}}> 
+                      <Image
+                       width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
+                       
+                        </div>
+                      </Flex>
             </div>
           );
         })}
