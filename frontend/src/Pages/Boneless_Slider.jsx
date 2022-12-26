@@ -2,11 +2,16 @@ import React, { useEffect, useState } from "react";
 import "../Style/Boneless_Slider.css";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
-import { Box, Button } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useToast } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getCartData, postCartData } from "../Redux/ProfileRedux/action";
 
 const Slider2 = ({ props }) => {
   const [data, setData] = useState([]);
-
+  const toast = useToast();
+  const dispatch = useDispatch();
+ 
   useEffect(() => {
     axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
       let newdata=res.data.data
@@ -26,54 +31,28 @@ const Slider2 = ({ props }) => {
     slider1.scrollLeft = slider1.scrollLeft + 400;
   };
 
-  const ADDTOCARTBUTTON = () => {
-    const [check, setcheck] = useState(0);
-    return (
-      <>
-        {(check < 1 && (
-          <Button
-            onClick={() => setcheck(1)}
-            style={{
-              backgroundColor: "#D11243",
-              color: "white",
-              fontSize: "13px",
-              fontWeight: "600",
-              height: "30px",
-              width: "100px",
-            }}
-          >
-            ADD TO CART
-          </Button>
-        )) ||
-          (check >= 1 && (
-            <Box>
-              <Button
-                style={{
-                  backgroundColor: "white",
-                  fontSize: "30px",
-                  color: "#D11243",
-                }}
-                onClick={() => setcheck(check - 1)}
-              >
-                -
-              </Button>
-              <Button style={{ backgroundColor: "white", fontSize: "20px" }}>
-                {check}
-              </Button>
-              <Button
-                style={{
-                  backgroundColor: "white",
-                  fontSize: "30px",
-                  color: "#D11243",
-                }}
-                onClick={() => setcheck(check + 1)}
-              >
-                +
-              </Button>
-            </Box>
-          ))}
-      </>
-    );
+  const addToCart = (item, name) => {
+    if (localStorage.getItem("token") == undefined) {
+      toast({
+        position: 'top',
+        title: `Not Logged in.`,
+        description: `Login first to add item into cart`,
+        status: 'warning',
+        duration: 3000,
+        isClosable: true,
+      })
+    }else{
+      dispatch(postCartData(item))
+      dispatch(getCartData());
+      toast({
+        position: 'top',
+        title: `${name} added Successfully.`,
+        description: `Check your cart`,
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      })
+    }
   };
 
   return (
@@ -87,9 +66,9 @@ const Slider2 = ({ props }) => {
         {data.map((slide) => {
           return (
             <div key={slide._id} className="slider_card1">
-              <div id="image">
+            <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                 <img src={slide.imgUrl} alt="image" />
-              </div>
+              </div></Link>
               <div id="heading" style={{overflow:"hidden"}}>
                 <p>{slide.name}</p>
               </div>
@@ -102,9 +81,32 @@ const Slider2 = ({ props }) => {
               <div id="blook">
                 <p style={{ color: "#e1003e", fontWeight: "700" }}>
                   MRP: ₹{slide.price}
-                </p>
-                <ADDTOCARTBUTTON />
+                </p><p style={{ color: "gray", textAlign:"left" }}>
+                  MRP: <s>₹{slide.price+Math.floor(slide.price*0.13)}</s>
+                  </p>
+                <Button 
+                onClick={() => addToCart(slide, slide.name)}
+                 style={{
+        
+                  fontSize: "13px",
+                  fontWeight: "600",
+                  height: "30px",
+                  width: "100px",
+                }}
+                bg={"#D11243"} 
+                color="white"
+                _hover={{ color: "black" }}
+                >
+                  ADD TO CART
+                  </Button>
               </div>
+              <Flex style={{ textAlign: "center", alignItems: "center",  marginTop: "1%" }}>
+                      <div style={{display:"flex",margin: "auto",}}> 
+                      <Image width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                        <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
+                        
+                        </div>
+                      </Flex>
             </div>
           );
         })}

@@ -106,13 +106,13 @@ const Product = () => {
             products.map((d) => {
               return (
                 d.sub_cate == currCatProductsId && (
-                  <ProductCard key={d.id} item={d} />
+                  <ProductCard key={d._id} item={d} />
                 )
               );
             })
             : products.length > 0 &&
             products.map((d) => {
-              return <ProductCard key={d.id} item={d} />;
+              return <ProductCard key={d._id} item={d} />;
             })}
         </div>
       </div>
