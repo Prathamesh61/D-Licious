@@ -1,7 +1,7 @@
 # coherent-laborer-2044
 
 <h1>Live</h1>
- <li><a href="https://timely-muffin-20c1ce.netlify.app/">https://timely-muffin-20c1ce.netlify.app/</a></l1>
+ <li><a href="frontend-pi-lovat.vercel.app/">frontend-pi-lovat.vercel.app/</a></l1>
 
 
 Team Members :-
