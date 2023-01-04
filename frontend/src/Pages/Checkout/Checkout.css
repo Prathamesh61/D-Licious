@@ -10,7 +10,7 @@
 align-items: center;
 margin: auto;
 justify-content: flex-start;
-display: flex;
+/* display: flex; */
 /* border: 1px solid pink; */
 gap:5%
 }

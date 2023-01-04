@@ -190,7 +190,7 @@
 }
 
 /* //for mobile screen */
-@media all and (min-width: 80px) and (max-width: 450px) {
+@media all and (min-width: 80px) and (max-width: 500px) {
   .filter_wrapper {
     width: 100%;
     height: fit-content;
@@ -223,11 +223,11 @@
   }
 
   .body_wrapper {
-    width: 100%;
+    width: 85%;
     height: auto;
     /* margin-top: 1%; */
-    margin: auto;
     margin-top: 10px;
+    margin: auto;
     display: grid;
     justify-content: center;
     align-items: center;

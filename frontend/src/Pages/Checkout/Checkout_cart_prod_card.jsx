@@ -1,4 +1,4 @@
-import { HStack, Image, Text, Tooltip, useToast, VStack } from '@chakra-ui/react'
+import { Box, Flex, HStack, Image, Text, Tooltip, useToast, VStack } from '@chakra-ui/react'
 import React from 'react'
 import { MdClose } from 'react-icons/md'
 import { useDispatch } from 'react-redux';
@@ -19,19 +19,30 @@ const Checkout_cart_prod_card = ({ id, name, imgUrl, net, price, qty }) => {
         })
     };
     return (
-        <HStack width={"100%"} padding={"5px"} gap={"3"}>
-            <Image borderRadius={"5px"} width={"20%"} src={imgUrl} alt='prdoImg' />
-            <VStack>
-                <Text alignSelf={"start"}>{name}</Text>
-                <HStack gap={"2"}>
-                    <Text fontSize={"14px"}  >{net}</Text>
-                    <Text fontSize={"14px"} color={"#d11243"} >₹ {price}</Text>
+        <Flex position={"relative"} flexWrap={'wrap'} width={"100%"} borderRadius={"5px"} padding={"5px"} gap={"3"} boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px">
+            <Image borderRadius={"5px"} width={["100%", "50%", '150px']} src={imgUrl} alt='prdoImg' />
+            <VStack >
+                <Text alignSelf={"start"} fontSize={"18px"} fontWeight="600">{name}</Text>
+                <HStack gap={"2"} flexWrap={'wrap'} padding={["10px", "0px"]}>
+                    <Text fontSize={"14px"} ><b>Net :</b> {net}</Text>
+                    <Text fontSize={"14px"} color={"#d11243"} > <b>Price :</b> ₹ {price}</Text>
                     <Text fontSize={"13px"} textDecoration={"line-through"} >₹ {+price + 50}</Text>
-                    <Text fontSize={"14px"}  >qty: {qty}</Text>
+                    <Text fontSize={"14px"} ><b>Quantity :</b> {qty}</Text>
                 </HStack>
             </VStack>
-            <MdClose cursor={"pointer"} color='black' size={"16px"} onClick={() => deleteFromCart(id, name)} />
-        </HStack>
+            <Box
+                boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
+                alignSelf={"right"}
+                borderRadius={2}
+                color="black"
+                as={MdClose}
+                position="absolute"
+                top={3}
+                right={3}
+                cursor={"pointer"}
+                onClick={() => deleteFromCart(id, name)}
+            />
+        </Flex >
     );
 };
 

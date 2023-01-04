@@ -29,6 +29,13 @@ import {
   RadioGroup,
   Stat,
   useDisclosure,
+  Tab,
+  TabList,
+  Tabs,
+  TabPanel,
+  TabPanels,
+  Stack,
+  Show,
 } from "@chakra-ui/react";
 import "./Checkout.css";
 import { MdCheckCircle } from "react-icons/md";
@@ -228,7 +235,8 @@ const Form2 = () => {
   const cart = useSelector((state) => state.ProfileReducer.cart.cart) || [];
   // console.log(cart);
   return (
-    <>
+    <Box
+      height={["460px", "280px", "280px"]}>
       <Text>{cart.length} Item Delivered Today in </Text>
       <Select
         cursor={"pointer"}
@@ -253,8 +261,8 @@ const Form2 = () => {
       </Select>
       <br />
       <Box
-        padding={"2"}
-        height={"180px"}
+        padding={"3"}
+        height={["350px", "180px", "180px"]}
         overflowY={"auto"}
         borderRadius={"5px"}
       >
@@ -274,7 +282,7 @@ const Form2 = () => {
             );
           })}
       </Box>
-    </>
+    </Box>
   );
 };
 
@@ -282,7 +290,25 @@ const Form3 = () => {
   const [PaymentMethod, setPaymentMethod] = useState("");
   return (
     <>
-      <HStack justifyContent={"flex-start"} alignItems={"flex-start"}>
+      <Tabs isFitted>
+        <TabList>
+          <Tab fontSize={["16px", "15px", "18px"]}>UPI</Tab>
+          <Tab fontSize={["16px", "15px", "18px"]}>Credit/Debit</Tab>
+          <Tab fontSize={["16px", "15px", "18px"]}>Netbanking</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel p={4} >
+            <UPI />
+          </TabPanel>
+          <TabPanel p={4} >
+            <CARD />
+          </TabPanel>
+          <TabPanel p={4} >
+            <NET />
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+      {/* <HStack justifyContent={"flex-start"} alignItems={"flex-start"}>
         <VStack
           spacing={"0px"}
           gap={"-5px"}
@@ -340,7 +366,7 @@ const Form3 = () => {
             <UPI />
           )}
         </Box>
-      </HStack>
+      </HStack> */}
     </>
   );
 };
@@ -406,9 +432,10 @@ const Stats = () => {
   return (
     <Box
       padding={"15px"}
-      width={["90%", "70%", "50%"]}
+      width={["95%", "70%", "50%"]}
       borderWidth="1px"
       rounded="lg"
+      margin={"auto"}
       boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
     >
       <Text
@@ -427,7 +454,7 @@ const Stats = () => {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Text>Sub Total</Text> <Text>{totalPrice}</Text>{" "}
+          <Text>Sub Total</Text> <Text> ₹ {totalPrice}</Text>{" "}
         </HStack>
         <HStack
           width={"100%"}
@@ -435,7 +462,7 @@ const Stats = () => {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Text>Discount</Text> <Text>0</Text>{" "}
+          <Text>Discount</Text> <Text>₹ 0</Text>{" "}
         </HStack>
         <HStack
           width={"100%"}
@@ -443,7 +470,7 @@ const Stats = () => {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Text>Delivery Charge</Text> <Text>0</Text>{" "}
+          <Text>Delivery Charge</Text> <Text>₹ 0</Text>{" "}
         </HStack>
         <Box border={"0.1px solid black"} width={"100%"}></Box>
         <HStack
@@ -453,7 +480,7 @@ const Stats = () => {
           justifyContent={"space-between"}
           alignItems={"center"}
         >
-          <Text>Total</Text> <Text>{totalPrice}</Text>{" "}
+          <Text>Total</Text> <Text>₹ {totalPrice}</Text>{" "}
         </HStack>
       </VStack>
       <br />
@@ -574,7 +601,6 @@ const NET = () => {
 export default function Checkout() {
   const [sliderValue, setSliderValue] = React.useState(0);
   const toast = useToast();
-  const [show, setShow] = useState(false);
   const [step, setStep] = useState(1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -615,25 +641,68 @@ export default function Checkout() {
   };
   return (
     <>
-      <Box className="mainbox"  margin={"auto"} mb={"100px"} mt={"10%"}>
-        <Box className="secondbox"
-        //   width={"100%"}
-        //   flexWrap={"wrap"}
-        //   margin="auto"
-        //   mt={"10px"}
-        //   justifyContent={"flex-start"}
-        //   alignItems="center"
-        >
+      <Box className="mainbox" margin={"auto"} mb={"100px"} mt={"10%"}>
+        <VStack margin={'auto'}>
           <Box
-            height={"400px" || "fit-content"}
+            paddingY="10px"
+            position={"relative"}
+            width={['85%', "80%", "80%", "65%"]}>
+            <Slider aria-label='slider-ex-2' colorScheme='red' id="slider"
+              width={"100%"}
+              defaultValue={0}
+              min={0}
+              max={100}
+              // isDisabled
+              value={sliderValue}>
+              <Show above='850px'>
+                <SliderMark
+                  value={-5}
+                  fontSize="sm">
+                  <Text fontWeight={"bold"} fontSize={["10px", "16px", "20px"]}>
+                    Address{" "}
+                  </Text>
+                  Delivery address
+                </SliderMark>
+                <SliderMark
+                  value={42}
+                  fontSize="sm">
+                  <Text fontWeight={"bold"} fontSize={["10px", "16px", "20px"]}>
+                    Summary{" "}
+                  </Text>
+                  {cart?.length} item in 1 shipments
+                </SliderMark>
+                <SliderMark
+                  value={95}
+                  fontSize="sm">
+                  <Text fontWeight={"bold"} fontSize={["13px", "16px", "20px"]}>
+                    Payment{" "}
+                  </Text>
+                </SliderMark>
+              </Show>
+              <SliderTrack dir="ltr"
+                position={"absolute"}
+                bottom={"0px"}>
+                <SliderFilledTrack />
+              </SliderTrack>
+              <SliderThumb boxSize={6} padding={0}>
+                <Box
+                  color="green.800"
+                  as={MdCheckCircle}
+                />
+              </SliderThumb>
+            </Slider>
+          </Box>
+          <br />
+          <Box
+            height={["fit-content", "400px", "fit-content"]}
             borderWidth="1px"
             rounded="lg"
             boxShadow=" rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px"
-            width={['100%',"100%","100%","55%"]}
+            width={['95%', "90%", "80%", "60%"]}
             position={"relative"}
+            margin={"auto"}
             p={6}
-            as="form"
-          >
+            as="form">
             {step === 1 ? <Form1 /> : step === 2 ? <Form2 /> : <Form3 />}
             <ButtonGroup mt="5%" w="100%">
               <Flex
@@ -649,8 +718,7 @@ export default function Checkout() {
                       setSliderValue(sliderValue - 50);
                     }}
                     isDisabled={step === 1}
-                    bg="#d11243"
-                    color={"white"}
+                    colorScheme={"red"}
                     variant="solid"
                     w="7rem"
                     mr="5%"
@@ -658,25 +726,24 @@ export default function Checkout() {
                     Back
                   </Button>
                   <Button
-                    w="7rem"
-                    bg="#d11243"
-                    color={"white"}
-                    isDisabled={step === 3}
+                    w={step == 3 ? 'fit-content' : "7rem"}
+                    colorScheme={"red"}
                     onClick={() => {
                       setStep(step + 1);
                       if (step === 3) {
                         // setProgress(100);
+                        handleSubmit();
                         setSliderValue(sliderValue + 50);
+
                       } else {
                         setSliderValue(sliderValue + 50);
                       }
                     }}
-                    variant="outline"
-                  >
-                    Next
+                    variant="solid"
+                  >{step == 3 ? `Place Order ₹ ${totalPrice}` : "Next"}
                   </Button>
                 </Flex>
-                {step === 3 ? (
+                {/* {step === 3 ? (
                   <Button
                     w="40%"
                     bg="#d11243"
@@ -686,89 +753,11 @@ export default function Checkout() {
                   >
                     Place Order with Pay ₹ {totalPrice}
                   </Button>
-                ) : null}
+                ) : null} */}
               </Flex>
             </ButtonGroup>
           </Box>
-
-          <Box
-            // border={"1px solid red"}
-            padding="10px"
-            position={"relative"}
-            width={['80%',"80%","80%","45%"]}
-          >
-            <Slider
-              // border={"1px solid red"}
-              paddingY={"110px"}
-              width="85%"
-              position={"absolute"}
-              right="0"
-              id="slider"
-              size={"lg"}
-              defaultValue={0}
-              min={0}
-              max={100}
-              // isDisabled
-              value={sliderValue}
-              transform={"rotate(180deg)"}
-              // direction={"ltr"}
-              orientation={"vertical"}
-              colorScheme="green"
-            >
-              <SliderMark
-                transform={"rotate(180deg)"}
-                value={-5}
-                ml="5"
-                mb="-1.5"
-                fontSize="sm"
-              >
-                <Text fontWeight={"bold"} fontSize={"20px"}>
-                  Choose Address{" "}
-                </Text>
-                Delivery address
-              </SliderMark>
-              <SliderMark
-                transform={"rotate(180deg)"}
-                value={47}
-                ml="-1"
-                mb="-2.5"
-                fontSize="sm"
-              >
-                <Text fontWeight={"bold"} fontSize={"20px"}>
-                  Delivery Summary{" "}
-                </Text>
-                {cart?.length} item in 1 shipments
-              </SliderMark>
-              <SliderMark
-                transform={"rotate(180deg)"}
-                value={95}
-                ml="2"
-                mb="-1.5"
-                fontSize="sm"
-              >
-                <Text fontWeight={"bold"} fontSize={"20px"}>
-                  Payment Method{" "}
-                </Text>
-              </SliderMark>
-              <SliderTrack
-                transform={"rotate(180deg)"}
-                dir="rtl"
-                position={"absolute"}
-                bottom={"0px"}
-              >
-                <SliderFilledTrack />
-              </SliderTrack>
-              <SliderThumb>
-                <Box
-                  color="green.800"
-                  transform={"rotate(180deg)"}
-                  size={"24px"}
-                  as={MdCheckCircle}
-                />
-              </SliderThumb>
-            </Slider>
-          </Box>
-        </Box>
+        </VStack>
         <br />
         <Stats />
       </Box>
