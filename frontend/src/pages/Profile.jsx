@@ -114,7 +114,7 @@ const Profile = () => {
                 </Box>
                 <Box position={"absolute"} top="140" margin={"auto"} width={"100%"}>
                     <Flex borderRadius={"5px"} onClick={onOpen} gap={3} flexWrap={"wrap"} padding="10px" backgroundColor={"#ffffff"} margin={"auto"} width={["100%", "90%", "70%"]} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" alignItems={"center"}>
-                        <Image src='https://www.licious.in/img/rebranding/profile_icon_2.svg' alt='profile' />
+                        <Image src='https://www.licious.in/image/rebranding/svg/profile-grey.svg' alt='profile' />
                         <VStack padding={"5px"} width={['60%', '60%', '30%']} justifyContent={"center"} alignItems="flex-start" lineHeight={"16px"}>
                             <Text color={'#d11243'} textDecoration={"underline"} textUnderlineOffset="5px" marginBottom={1.0}>{Profile?.user?.name}</Text>
                             <Text fontSize={"14px"} lineHeight={"13px"}>{Profile?.user?.email}</Text>
@@ -139,7 +139,7 @@ const Profile = () => {
                         <AccordionItem borderRadius={"5px"}>
                             <h3 >
                                 <AccordionButton>
-                                    <Image width={"20px"} src='https://www.licious.in/img/rebranding/rewards/milestone_logo.svg' />&nbsp;&nbsp;&nbsp;
+                                    <Image width={"20px"} src='https://www.licious.in/image/rebranding/png/reward-icon.png' />&nbsp;&nbsp;&nbsp;
                                     <Box color='#d11243' flex='1' textAlign='left'>
                                         My Rewards
                                     </Box>
@@ -154,7 +154,7 @@ const Profile = () => {
                 </Box>
                 <Box margin={"auto"} bg={"#ffdc93"} width={["80%", "60%", "40%"]} border={"1px solid #dedede"} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" borderRadius={"5px"} alignItems={"center"}>
                     <HStack justifyContent={"space-between"} padding={"10px"} alignItems="center">
-                        <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
+                        <Image src='https://www.licious.in/image/rebranding/svg/licious-meatopia-logo.svg' alt='Licious-meta' />
                         <Button bg={"#d11243"} color={"white"} size='sm' >Join Now</Button>
                     </HStack>
                     <hr color={"black"} />

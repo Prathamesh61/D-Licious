@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Img, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import "../Style/Home.css";
 import Slider from "./BestSeller_Slider";
@@ -90,8 +90,9 @@ const Home = () => {
     <div className='Divvv'>
       {/* Anil kapoor slider */}
       <div className="mainDiv">
-        <img
-          src="https://d2407na1z3fc0t.cloudfront.net/Slider/banner_63630e9d6ba0e"
+        <Img margin={"auto"}
+          width={["100%", "80%", "80%"]}
+          src="https://dao54xqhg9jfa.cloudfront.net/oms/c34eb824-4fdd-912c-b4e6-ab14fd512896/original/BANNERS-02_(4).jpeg"
           alt="anil kapoor img"
         />
       </div>
@@ -215,7 +216,7 @@ const Home = () => {
             </Link>
             <Link to="/product/">
               <div>
-                <img
+                <Img
                   src="https://dao54xqhg9jfa.cloudfront.net/OMS-Category/66e49926-d949-dfb3-2e79-8052d07f0a3b/original/PBM_6_(8).png"
                 />
                 <p>
@@ -231,8 +232,8 @@ const Home = () => {
         <Show above="850px">
           <div className="luccdiv">
             <div>
-              <img
-                src="https://www.licious.in/img/rebranding/loyalty_licious_logo.svg"
+              <Img
+                src="https://www.licious.in/image/rebranding/svg/licious-meatopia-logo.svg"
                 alt="luciousmetiapalogo"
               />
               <button>JOIN NOW</button>
@@ -325,8 +326,8 @@ const Home = () => {
 
         {/* rewards */}
         <Box width={["100%", "80%", "80%"]} className="rewarddiv">
-          <img
-            src="https://www.licious.in/img/rebranding/rewards/rewards_icon.svg"
+          <img width={"5%"}
+            src="https://www.licious.in/image/rebranding/png/reward-icon.png"
             alt="revardslogo"
           />
           {/* <Show above="850px"> */}

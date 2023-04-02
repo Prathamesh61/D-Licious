@@ -93,7 +93,7 @@ const Cart = () => {
                             Stop paying delivery charges. Join Meatopia today!</Text>
                         <HStack borderRadius={"5px"} backgroundColor={"#ffdc93"}
                             justifyContent={"space-between"} padding={"10px"} alignItems="center">
-                            <Image src='https://www.licious.in/img/rebranding/loyalty_licious_logo.svg' alt='Licious-meta' />
+                            <Image src='https://www.licious.in/image/rebranding/svg/licious-meatopia-logo.svg' alt='Licious-meta' />
                             <Button bg={"#d11243"} color={"white"} size='xs' >Join Now</Button>
                         </HStack>
                         <br />
@@ -119,7 +119,7 @@ const Cart = () => {
                             <HStack width={"100%"} padding={"5px"}
                                 justifyContent={"space-between"} borderBottom={"0.5px solid black"}>
                                 <HStack >
-                                    <Image width={"27px"} src='https://www.licious.in/img/rebranding/map-icon.png' />
+                                    <Image width={"27px"} src='https://www.licious.in/image/rebranding/png/map.png' />
                                     <Text fontWeight={"600"} fontSize={"20px"}>
                                         Delivery Address
                                     </Text>

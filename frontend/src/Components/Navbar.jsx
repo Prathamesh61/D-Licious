@@ -36,6 +36,8 @@ import { Link, useNavigate } from "react-router-dom";
 import LICIOUS from "./D'LICIOUS.jpeg";
 import axios from "axios";
 import { MdOutlineAccountCircle } from 'react-icons/md'
+import { BsApple, BsAndroid2 } from 'react-icons/bs'
+import { ImAndroid } from 'react-icons/im'
 import { IconButton } from '@chakra-ui/react'
 import Cart from "../Pages/Cart";
 import { NavbarMobTab } from "./NavbarMobTab";
@@ -60,19 +62,22 @@ const AboveNavbar = () => {
               style={{ paddingLeft: "5%" }}
               href="https://itunes.apple.com/in/app/buy-meat-online-licious/id1052440342?mt=8"
             >
-              <Image
+              {/* <Image
                 width="24px"
-                src="https://www.licious.in/img/rebranding/ios_app_icon.svg"
-              />
+                src="https://www.licious.in/image/rebranding/png/app-store-homepage.png"
+              /> */}
+              <BsApple width={"24px"} />
             </a>
             <a
               style={{ paddingLeft: "5%" }}
               href="https://play.google.com/store/apps/details?id=com.licious"
             >
-              <Image
+              {/* <Image
                 width="24px"
-                src="https://www.licious.in/img/rebranding/android_app_icon.svg"
-              />
+                src="https://www.licious.in/image/rebranding/png/playstore-homepage.png"
+              /> */}
+              <ImAndroid width={"24px"} />
+
             </a>
           </Flex>
         </Box>
@@ -233,7 +238,7 @@ const MiddleNavbar = () => {
       </Flex>
 
       <Box width="30%" position={'relative'}>
-        <Input value={query} onChange={(e) => setQuery(e.target.value)} borderColor="gray" variant="filled" size={["sm", "md", "lg"]} placeholder="Search for any delicious product" />
+        <Input value={query} onChange={(e) => setQuery(e.target.value)} borderColor="gray" variant="filled" size={["sm", "md", "md"]} placeholder="Search for any delicious product" />
         {SuggestionList.length > 0 ?
           <VStack borderColor="gray" border={"3px"} className="style-3" backgroundColor={"white"} borderBottomRadius='5px' padding={'10px'} width={"100%"} position={'absolute'} top={12} height={"fit-content"} maxHeight={'350px'} overflow={'auto'} >
             {SuggestionList.map((elem) => {
@@ -272,7 +277,7 @@ const MiddleNavbar = () => {
                 <MenuButton isActive={isOpen}>
                   {
                     <Flex>
-                      <Image src="https://www.licious.in/img/rebranding/category-dropdown-icon.svg" />
+                      <Image src="https://www.licious.in/image/rebranding/svg/categories-grey.svg" />
                       <Text padding="5px" _hover={{ color: "#D11243" }}>Categories</Text>
                     </Flex>
                   }
@@ -295,7 +300,7 @@ const MiddleNavbar = () => {
         </Box>
         <Box>
           <Flex>
-            <Image src="https://www.licious.in/img/rebranding/profile_icon.svg" />
+            <Image src="https://www.licious.in/image/rebranding/svg/profile-grey.svg" />
             <Text _hover={{ color: "#D11243" }}> {
               localStorage.getItem("token") == undefined ? <Button padding="5px" variant="link" onClick={onOpen}>Login</Button>
                 : <Menu>

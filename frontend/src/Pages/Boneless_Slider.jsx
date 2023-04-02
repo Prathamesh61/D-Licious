@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import "../Style/BestSeller_Slider.css";
 import "../Style/Boneless_Slider.css";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { MdDeliveryDining, MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 import { Box, Button, Flex, Image, Skeleton, Text, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -67,9 +67,9 @@ const Slider2 = ({ props }) => {
       />
       <div id="slider1">
         <Skeleton isLoaded={!load}>
-        {data.map((slide) => {
-          return (
-            <div key={slide._id} className="slider_card">
+          {data.map((slide) => {
+            return (
+              <div key={slide._id} className="slider_card">
                 <Link to={`/productdetails/${slide._id}`} >  <div id="image">
                   <img src={slide.imgUrl} alt="image" />
                 </div></Link>
@@ -104,15 +104,14 @@ const Slider2 = ({ props }) => {
                 </div>
                 <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
                   <div style={{ display: "flex", margin: "auto", }}>
-                    <Image
-                      width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                    <MdDeliveryDining />
                     <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
 
                   </div>
                 </Flex>
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
         </Skeleton>
       </div>
       <MdKeyboardArrowRight

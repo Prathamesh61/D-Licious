@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Style/BestSeller_Slider.css";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { MdDeliveryDining, MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
 import { Box, Button, Flex, Image, Skeleton, Text, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
@@ -119,8 +119,7 @@ const Slider = ({ props }) => {
                 </div>
                 <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
                   <div style={{ display: "flex", margin: "auto", }}>
-                    <Image
-                      width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                    <MdDeliveryDining />
                     <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
 
                   </div>

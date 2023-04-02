@@ -8,9 +8,9 @@ const Footer = () => {
   return (
     <div className={styled.maxWidth}>
 
-      <img className={styled.firstimg} src="https://www.licious.in/img/rebranding/licious-logo.svg" alt="footerlogo"/>
+      <img className={styled.firstimg} src="https://www.licious.in/image/rebranding/png/logo-homepage.png" alt="footerlogo" />
 
-    {/* useful links footer */}
+      {/* useful links footer */}
       <div className={styled.fmdiv}>
         {/* first footer div column*/}
         <div>
@@ -34,13 +34,13 @@ const Footer = () => {
           <div className={styled.apps}>
             <a href="https://apps.apple.com/in/app/buy-meat-online-licious/id1052440342" target="_blank"><img
               style={{ width: "120px", height: "40px" }}
-              src="https://www.licious.in/img/rebranding/app-store-new.svg" alt=""/>
+              src="https://www.licious.in/image/rebranding/png/app-store-homepage.png" alt="" />
             </a>
             <a href="https://play.google.com/store/apps/details?id=com.licious&pli=1" target="_blank">
-            <img
-              style={{ marginLeft: "15px", width: "120px", height: "40px" }}
-              src="https://www.licious.in/img/rebranding/play-store-new.png" alt=""/>
-            </a> 
+              <img
+                style={{ marginLeft: "15px", width: "120px", height: "40px" }}
+                src="https://www.licious.in/image/rebranding/png/playstore-homepage.png" alt="" />
+            </a>
           </div>
         </div>
 
@@ -55,7 +55,7 @@ const Footer = () => {
             <li> Talktous@licious.com</li>
           </div>
 
-          <div style={{marginTop:"12px"}}>
+          <div style={{ marginTop: "12px" }}>
             <li style={{ fontWeight: "600px", color: "rgb(100 100 100)" }}>
               <b>REGISTERED OFFICE ADDRESS:</b>
             </li>
@@ -73,7 +73,7 @@ const Footer = () => {
             <li>Privacy Policy</li>
           </div>
 
-          <div style={{marginTop:"12px"}}>
+          <div style={{ marginTop: "12px" }}>
             <li style={{ fontWeight: "600px", color: "rgb(100 100 100)" }}>
               <b>HAVE SECURITY CONCERN?</b>
             </li>
@@ -84,27 +84,27 @@ const Footer = () => {
 
         <div>
           <img
-            style={{height: "30px", width: "150px" }}
-            src="https://www.licious.in/img/rebranding/3-dsecure.png"
-            alt="footercartlogo"/>
+            style={{ width: "150px" }}
+            src="https://www.licious.in/image/rebranding/png/logo-homepage.png"
+            alt="footercartlogo" />
         </div>
       </div>
       {/* useful links footer */}
 
 
-      <hr style={{margin:"3%"}}/>
+      <hr style={{ margin: "3%" }} />
       {/* social media div */}
       <div className={styled.fmiddiv}>
         <span>KEEP IN TOUCH</span>
-        <a href="https://www.instagram.com/licious_foods/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram i1"></i></a> 
+        <a href="https://www.instagram.com/licious_foods/" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram i1"></i></a>
         <a href="https://www.facebook.com/LiciousFoods/" target="_blank" rel="noreferrer" ><i className="fa-brands fa-facebook-square i2"></i></a>
         <a href="https://twitter.com/LiciousFoods" target="_blank" rel="noreferrer" ><i className="fa-brands fa-twitter i3"></i></a>
       </div>
       {/* social media div */}
 
-      <hr style={{margin:"3%"}}/>
+      <hr style={{ margin: "3%" }} />
 
-{/*   <div className={styled.endFooter}>
+      {/*   <div className={styled.endFooter}>
         <img src={Footer1} alt="" />
         <img src={Footer2} alt="" />
       </div> */}
@@ -113,141 +113,141 @@ const Footer = () => {
       <br />
       {/* more no of listed div */}
       <div className={styled.citidiv}>
-        <Text fontWeight='600'>CITIES WE SERVE</Text> 
-        <Box className={styled.cities}>  
+        <Text fontWeight='600'>CITIES WE SERVE</Text>
+        <Box className={styled.cities}>
           <Text>
-            Bangaluru 
+            Bangaluru
           </Text>
 
           <Text>
-            NCR 
+            NCR
           </Text>
 
           <Text>
-            Hydrabad 
+            Hydrabad
           </Text>
 
           <Text>
-            Chandigarh 
+            Chandigarh
           </Text>
 
           <Text>
-            Panchkula 
+            Panchkula
           </Text>
 
           <Text>
-            MohaText 
+            MohaText
           </Text>
 
           <Text>
-            Mumbai 
+            Mumbai
           </Text>
 
           <Text>
-            Pune 
+            Pune
           </Text>
 
           <Text>
-            chennai 
+            chennai
           </Text>
 
           <Text>
-            Coimbatore 
+            Coimbatore
           </Text>
 
           <Text>
-            Jaipur 
+            Jaipur
           </Text>
 
           <Text>Cochin</Text>
-       
-        
+
+
           <Text>
-            Visakhapatnam 
+            Visakhapatnam
           </Text>
 
           <Text>
-            Pondicherry 
+            Pondicherry
           </Text>
 
           <Text>
-            Kolkata 
+            Kolkata
           </Text>
 
           <Text>
-            Trichy 
+            Trichy
           </Text>
 
           <Text>
-            Lucknow 
+            Lucknow
           </Text>
 
           <Text>
-            Kanpur 
+            Kanpur
           </Text>
 
           <Text>
-            Agra 
+            Agra
           </Text>
 
           <Text>
-            Thrissur 
+            Thrissur
           </Text>
 
           <Text>
-            Nagpur 
+            Nagpur
           </Text>
 
           <Text>
-            Bhilai 
+            Bhilai
           </Text>
 
           <Text>
-            Nashik 
+            Nashik
           </Text>
 
           <Text>Palakkad</Text>
-          </Box> 
-        </div>
-     
+        </Box>
+      </div>
 
-      <hr style={{margin:"3%"}}/>
 
-<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
-  <Text fontWeight="700">We will sell only the meat that we would eat ourselves.</Text>
-  <Text color='#4a4a4a'>At Licious, we’re big meat-lovers. And by big, we mean huge. So when it comes to the meat we put on your plate, we’re extremely picky. Every single product is handpicked by a team with years of experience.</Text>
-</Box>
+      <hr style={{ margin: "3%" }} />
 
-<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
-  <Text fontWeight="700">If it’s not fresh, we won’t sell it</Text>
-  <Text color='#4a4a4a'>For meat to stay fresh and retain its natural juices, it needs to be stored at a temperature between 0° and 5°C. We maintain this temperature from the time we procure the product to cleaning, cutting and storing it, until it leaves for delivery. And even when it’s out for delivery, we keep it chilled right up to your doorstep.Did we mention that we’re obsessed?</Text>
-</Box>
+      <Box fontSize={["14px", "14px", "12px"]} style={{ textAlign: "justify", marginBottom: "2%" }}>
+        <Text fontWeight="700">We will sell only the meat that we would eat ourselves.</Text>
+        <Text color='#4a4a4a'>At Licious, we’re big meat-lovers. And by big, we mean huge. So when it comes to the meat we put on your plate, we’re extremely picky. Every single product is handpicked by a team with years of experience.</Text>
+      </Box>
 
-<Box fontSize={["14px","14px","12px"]} style={{textAlign:"justify",marginBottom:"2%"}}>
-  <Text fontWeight="700">We will charge only for what you buy</Text>
-  <Text color='#4a4a4a'>Doesn’t everyone do this? Not really. Most other places first weigh the meat, then cut up the pieces, and throw out the parts which aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you still pay based on the original weight even though what you finally get is 10% to 30% less</Text>
-</Box>
+      <Box fontSize={["14px", "14px", "12px"]} style={{ textAlign: "justify", marginBottom: "2%" }}>
+        <Text fontWeight="700">If it’s not fresh, we won’t sell it</Text>
+        <Text color='#4a4a4a'>For meat to stay fresh and retain its natural juices, it needs to be stored at a temperature between 0° and 5°C. We maintain this temperature from the time we procure the product to cleaning, cutting and storing it, until it leaves for delivery. And even when it’s out for delivery, we keep it chilled right up to your doorstep.Did we mention that we’re obsessed?</Text>
+      </Box>
 
-<hr style={{margin:"3%"}}/>
+      <Box fontSize={["14px", "14px", "12px"]} style={{ textAlign: "justify", marginBottom: "2%" }}>
+        <Text fontWeight="700">We will charge only for what you buy</Text>
+        <Text color='#4a4a4a'>Doesn’t everyone do this? Not really. Most other places first weigh the meat, then cut up the pieces, and throw out the parts which aren’t fit to eat, such as offal, gizzard, wingtips, etc. But you still pay based on the original weight even though what you finally get is 10% to 30% less</Text>
+      </Box>
+
+      <hr style={{ margin: "3%" }} />
 
       <p style={{ textAlign: "center", fontSize: "12px", color: "#333a3f" }}>
-       
-       
-          <b> @2022 Delicious. All Rights Reserved.</b>
-       
+
+
+        <b> @2022 Delicious. All Rights Reserved.</b>
+
       </p>
-      <Box style={{textAlign:"justify",alignItems:"center",fontSize:"12px",marginBottom:"2%"}}>
-  
-  <Text fontSize={["14px","14px","12px"]} color='#4a4a4a'> Licious is your one-stop fresh meat delivery shop. In here, you get
-        nothing but the freshest meat & seafood, delivered straight to your
-        doorstep. Now you can buy meat online anytime at your convenience.
-        Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish,
-        Prawns, Crabs), Marinades & Cold Cuts. All our products are completely
-        natural and healthy. Once you've experienced Licious, you'll
-       
-        
+      <Box style={{ textAlign: "justify", alignItems: "center", fontSize: "12px", marginBottom: "2%" }}>
+
+        <Text fontSize={["14px", "14px", "12px"]} color='#4a4a4a'> Licious is your one-stop fresh meat delivery shop. In here, you get
+          nothing but the freshest meat & seafood, delivered straight to your
+          doorstep. Now you can buy meat online anytime at your convenience.
+          Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish,
+          Prawns, Crabs), Marinades & Cold Cuts. All our products are completely
+          natural and healthy. Once you've experienced Licious, you'll
+
+
           never go back to the old way of buying meat and seafood.</Text>
-</Box>
+      </Box>
 
     </div>
   );
