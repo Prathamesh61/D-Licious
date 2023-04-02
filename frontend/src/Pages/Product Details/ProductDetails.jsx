@@ -57,13 +57,13 @@ const ProductDetails = () => {
   const [currentProduct, setCurrentProduct] = useState({});
   const [datamap, setdatamap] = useState([]);
   const { id } = useParams();
-  const products = useSelector((state) => state.ProductReducer.products.data);
+  const products = useSelector((state) => state.ProductReducer.allProducts.data)
   const dispatch = useDispatch();
   const toast = useToast();
   // console.log(products, "products")
   const getdata1 = async () => {
     axios.get("https://dilicious-adm-api.onrender.com/fooditems/get").then((res) => {
-      let newdata=res.data.data
+      let newdata = res.data.data
       setdatamap(newdata)
     })
   };
@@ -79,7 +79,7 @@ const ProductDetails = () => {
         duration: 3000,
         isClosable: true,
       })
-    }else{
+    } else {
       dispatch(postCartData(item))
       dispatch(getCartData());
       toast({
@@ -92,7 +92,7 @@ const ProductDetails = () => {
       })
     }
   };
-//********end add to cart function from button addToCart
+  //********end add to cart function from button addToCart
 
 
   useEffect(() => {
@@ -223,7 +223,7 @@ const ProductDetails = () => {
             </Box>
 
 
-<br />
+            <br />
             <Box className="price-addtwocard-main">
 
               <Flex style={{ alignItems: "center" }}>
@@ -234,8 +234,8 @@ const ProductDetails = () => {
 
               <Box style={{ marginLeft: "30%" }}>
 
-                <Button bg={"#D11243"} color="white" _hover={{ color: "black" }} 
-                paddingX={"8px"} onClick={() => addToCart(currentProduct, currentProduct.name)}>
+                <Button bg={"#D11243"} color="white" _hover={{ color: "black" }}
+                  paddingX={"8px"} onClick={() => addToCart(currentProduct, currentProduct.name)}>
                   ADD TO CART
                 </Button>
                 {/* <ADDTOCARTBUTTON/> */}
@@ -309,7 +309,7 @@ const ProductDetails = () => {
 
 
 
-{/* 
+        {/* 
 the deliciousBox way box start */}
         <Box className="DLicious-way">
 
@@ -368,7 +368,7 @@ the deliciousBox way box start */}
 
         </Box>
 
-{/* 
+        {/* 
 the deliciousBox way box end */}
 
 
@@ -377,18 +377,18 @@ the deliciousBox way box end */}
         <Box>
 
 
-           {/*carausal slider start */}
+          {/*carausal slider start */}
           <Box>
             <div className="App">
               <Text fontSize='3xl' style={{ textAlign: "left" }}>You may also like</Text>
-             
-              <CarousalProductDetails/>
+
+              <CarousalProductDetails />
 
             </div>
 
 
           </Box>
-  {/* slider end */}
+          {/* slider end */}
 
 
 

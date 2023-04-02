@@ -22,12 +22,18 @@ let userInitial = {
 }
 const Profile = () => {
 
+    const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
+    const MyOrder = useSelector((state) => state.ProfileReducer.myOrders?.orders) || null;
+    const Address = useSelector((state) => state.ProfileReducer.address.address_List) || null
+
     const [isModalVisible, setIsModalVisible] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const firstField = React.useRef();
     const [userDetail, setuserDetail] = useState(userInitial);
     const [userAdd, setuserAdd] = useState(addressInitial);
     const dispatch = useDispatch();
+    const [name, setName] = useState(Profile?.user?.name);
+    const [mobile, setMobile] = useState(Profile?.user?.mobile);
     const toast = useToast();
     useEffect(() => {
         dispatch(getProfileData());
@@ -35,10 +41,6 @@ const Profile = () => {
         dispatch(getMyOrdersData());
     }, [])
     // console.log(Profile)
-
-    const Profile = useSelector((state) => state.ProfileReducer.profile) || null;
-    const MyOrder = useSelector((state) => state.ProfileReducer.myOrders?.orders) || null;
-    const Address = useSelector((state) => state.ProfileReducer.address.address_List) || null
     // console.log(MyOrder, "MyOrder");
 
     const AddAddress = () => {
@@ -58,8 +60,8 @@ const Profile = () => {
 
     const submitUserDetails = () => {
         let data = {
-            name: userDetail.name,
-            mobile: userDetail.mobile
+            name: name,
+            mobile: mobile
         }
         // console.log(data, "data")
         dispatch(patchProfileData(data));
@@ -114,7 +116,7 @@ const Profile = () => {
                     <Flex borderRadius={"5px"} onClick={onOpen} gap={3} flexWrap={"wrap"} padding="10px" backgroundColor={"#ffffff"} margin={"auto"} width={["100%", "90%", "70%"]} boxShadow="rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px" alignItems={"center"}>
                         <Image src='https://www.licious.in/img/rebranding/profile_icon_2.svg' alt='profile' />
                         <VStack padding={"5px"} width={['60%', '60%', '30%']} justifyContent={"center"} alignItems="flex-start" lineHeight={"16px"}>
-                            <Text textDecoration={"underline"} marginBottom={1.0}>{Profile?.user?.name}</Text>
+                            <Text color={'#d11243'} textDecoration={"underline"} textUnderlineOffset="5px" marginBottom={1.0}>{Profile?.user?.name}</Text>
                             <Text fontSize={"14px"} lineHeight={"13px"}>{Profile?.user?.email}</Text>
                             <Text fontSize={"13px"} lineHeight={"13px"}>+91 {Profile?.user?.mobile}</Text>
                         </VStack>
@@ -171,12 +173,8 @@ const Profile = () => {
                                 </AccordionButton>
                             </h3>
                             <AccordionPanel pb={4}>
-                                <Box color='#d11243' flex='1' textAlign='left'>
+                                <Box flex='1' textAlign='left'>
                                     {MyOrder?.length > 0 && MyOrder?.map((item) => {
-                                        // console.log(item)
-                                        // item.products.map((el) => {
-                                        //     return <MyOrders_Card key={el._id} name={el} time={item.createdAt} />
-                                        // })
                                         return <MyOrders_Card key={item._id} data={item.products} time={item.createdAt} />
                                     })}
                                 </Box>
@@ -314,11 +312,11 @@ const Profile = () => {
                             </Box>
                             <Box>
                                 <FormLabel fontSize={"13px"} htmlFor='Full Name'>Full name</FormLabel>
-                                <Input name="name" onChange={handleUserDetail}
+                                <Input name="name" onChange={(e) => { setName(e.target.value) }}
                                     type={"text"}
-                                    ref={firstField}
+                                    // ref={firstField}
                                     id='name'
-
+                                    value={name}
                                     placeholder='Please enter Full Name'
                                 />
                             </Box>
@@ -336,11 +334,11 @@ const Profile = () => {
                             </Box>
                             <Box>
                                 <FormLabel fontSize={"13px"} htmlFor='Phone'>Phone Number</FormLabel>
-                                <Input name="mobile" onChange={handleUserDetail}
+                                <Input name="mobile" onChange={(e) => { setMobile(e.target.value) }}
                                     type={"tel"}
-                                    ref={firstField}
+                                    // ref={firstField}
                                     id='phone'
-
+                                    value={mobile}
                                     placeholder='Please enter Phone No' />
                             </Box>
                             <Box>

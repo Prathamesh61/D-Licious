@@ -10,7 +10,7 @@ const cors = require('cors');
 const { authentication } = require('./middlewares/Authentication');
 const { MyOrderMOdel, UserModel } = require('./models/User.model');
 
-app.use(cors({origin :"*"}));
+app.use(cors({ origin: "*" }));
 
 
 app.get("/", (req, res) => {

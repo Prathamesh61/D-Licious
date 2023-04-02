@@ -41,7 +41,7 @@ const Cart = () => {
                     <HStack fontSize={["13px", "15px", "18px"]} padding={["0px", "0px", "5px"]} justify={"center"} align={"center"} position={"relative"}>
                         <Image
                             width="20px"
-                            src="https://www.licious.in/img/rebranding/cart_icon.svg"
+                            src="https://www.licious.in/image/rebranding/svg/cart.svg"
                         />
                         <Text position={"absolute"} top={0} left={3.0} fontWeight={700} color={"#d11243"}>{cart?.length}
                         </Text>
@@ -53,7 +53,7 @@ const Cart = () => {
                     <HStack fontSize={["13px", "15px", "18px"]} padding={["0px", "0px", "5px"]} justify={"center"} align={"center"} position={"relative"}>
                         <Image
                             width="20px"
-                            src="https://www.licious.in/img/rebranding/cart_icon.svg"
+                            src="https://www.licious.in/image/rebranding/svg/cart.svg"
                         />
                         <Text position={"absolute"} top={0} left={3.0} fontWeight={700} color={"#d11243"}>{cart?.length}
                         </Text>

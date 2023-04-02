@@ -4,42 +4,47 @@ import "../Style/Product.css";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../Redux/ProductsRedux/action";
-import { Menu, MenuButton, MenuList, MenuItem, Button, Show, Spinner, Image, Box, Stack, Text, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel } from "@chakra-ui/react";
+import { Menu, MenuButton, MenuList, MenuItem, Button, Show, Spinner, Image, Box, Stack, Text, Accordion, AccordionItem, AccordionButton, AccordionIcon, AccordionPanel, Tag, Skeleton } from "@chakra-ui/react";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const Product = () => {
+  const { id } = useParams();
   const products =
     useSelector((state) => state.ProductReducer.products.data) || [];
   const isLoading = useSelector((state) => state.ProductReducer.isLoading)
   const dispatch = useDispatch();
   const [subCategory, setSubCategory] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [category, setCategory] = useState('');
   const [currCatProductsId, setCurrCatProductsId] = useState("");
   const url = process.env.REACT_APP_PRODUCTS_URL;
+  useEffect(() => {
+    axios
+      .get(`${url}/category/${id}`)
+      .then((res) => {
+        setCategory(res.data[0].cat_name);
+        setCurrCatProductsId("");
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
+  }, [id])
 
   useEffect(() => {
-    dispatch(getProducts());
-    // console.log("first");
+    dispatch(getProducts(id));
     axios
-      .get(`${url}/category/getcategory`)
+      .get(`${url}/subcat/get/`)
       .then((res) => {
-        setCategory(res.data);
+        let filterSubCat = res.data.filter((el) => {
+          return el.cat_id === id;
+        })
+        setSubCategory(filterSubCat);
+        // console.log(filterSubCat)
       })
       .catch((err) => {
         // console.log(err);
       });
-
-    axios
-      .get(`${url}/subcat/get`)
-      .then((res) => {
-        setSubCategory(res.data);
-        // console.log(res.data)
-      })
-      .catch((err) => {
-        // console.log(err);
-      });
-  }, [currCatProductsId]);
-  //  console.log(subCategory,"subCategory")
+  }, [currCatProductsId, id]);
 
   const filterProduct = (id) => {
     setCurrCatProductsId(id);
@@ -51,7 +56,7 @@ const Product = () => {
         <Show above="450px">    <div id="wrapper">
           <div className="static_nav_section">
             <div className="child-1">
-              <h1>Chicken</h1>
+              <h1>{category}</h1>
             </div>
             <div className="child-2">
               <img
@@ -72,7 +77,7 @@ const Product = () => {
 
         {/* Filter section start */}
         <div className="filter_wrapper">
-          <Accordion allowToggle width={"100%"} backgroundColor={"white"}>
+          {/* <Accordion allowToggle width={"100%"} backgroundColor={"white"}>
             <AccordionItem>
               <h2>
                 <AccordionButton>
@@ -82,36 +87,21 @@ const Product = () => {
                   <AccordionIcon />
                 </AccordionButton>
               </h2>
-              <AccordionPanel pb={4}>
-                <div className="filter_wrapper_box">
-                  {category.map((elem) => {
-                    return (
-                      <div key={elem._id}>
-                        <Menu>
-                          <MenuButton className="catMenu" as={Button} rightIcon={<ChevronDownIcon />}>
-                            {elem.cat_name}
-                          </MenuButton>
-                          <MenuList>
-                            {subCategory.map((el) => {
-                              return el.cat_id == elem._id ? (
-                                <MenuItem
-                                  onClick={() => filterProduct(el._id)}
-                                  key={el._id}
-                                >
-                                  {el.sub_cat}
-                                </MenuItem>
-                              ) : null;
-                            })}
-                          </MenuList>
-                        </Menu>
-                      </div>
-                    );
-                  })}
-                </div>
-              </AccordionPanel>
-            </AccordionItem>
-          </Accordion>
+              <AccordionPanel pb={4}> */}
+          <div className="filter_wrapper_box">
+            {subCategory.map((el) => {
+              return (
+                <Skeleton isLoaded={!isLoading} >
+                  <Tag padding={'10px'} variant='outline' width={["150px", 'fit-content', 'fit-content']} colorScheme='red' color={'black'}
+                    onClick={() => filterProduct(el._id)}
+                    key={el._id}>
+                    {el.sub_cat}
+                  </Tag>
+                </Skeleton>
+              )
+            })}
 
+          </div>
         </div>
 
         {/* body wrapper */}
@@ -129,18 +119,19 @@ const Product = () => {
           </Stack>
           :
           <div className="body_wrapper">
-            {currCatProductsId != ""
+            {currCatProductsId !== ""
               ? products.length > 0 &&
               products.map((d) => {
                 return (
                   d.sub_cate == currCatProductsId && (
-                    <ProductCard key={d._id} item={d} />
-                  )
+                    <Skeleton isLoaded={!isLoading}>
+                      <ProductCard key={d._id} item={d} />
+                    </Skeleton>)
                 );
               })
               : products.length > 0 &&
               products.map((d) => {
-                return <ProductCard key={d._id} item={d} />;
+                return <Skeleton isLoaded={!isLoading}><ProductCard key={d._id} item={d} /></Skeleton>;
               })}
           </div>
         }
