@@ -1,7 +1,14 @@
-# coherent-laborer-2044
 
-<h1>Live</h1>
- <li><a href="https://frontend-pi-lovat.vercel.app/">https://d-licious.vercel.app//</a></l1>
+# <img src="https://user-images.githubusercontent.com/50316091/229377823-a5eeb7e6-a500-4f3b-b12f-883abad3ba8a.png" width="25" height="25">   **Licious Clone** _(Group Project)_
+
+#### About
+Licious is the first company in the sector to have pledged towards a complete ESG compliance. To this end, the company has deployed a task-force that has been actively working towards achieving the goal. In late 2021, Licious partnered with the World Animal Protection India organization, to signed up to the ‘Commitment to Chicken Welfare
+
+
+
+- Deployment on vercel : https://d-licious.vercel.app
+- Original Website: https://www.licious.in
+
 
 
 Team Members :-
@@ -21,3 +28,4 @@ Profile Page
 Products Page
 ![image](https://user-images.githubusercontent.com/50316091/201758115-aba4f0f1-3674-42c2-ba96-acbb217656fc.png)
 
+ Project code : coherent-laborer-2044
