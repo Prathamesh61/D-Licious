@@ -87,8 +87,11 @@ Licious is the first company in the sector to have pledged towards a complete ES
 
 
 <br/>
- Project code : coherent-laborer-2044
+
+```Project code : coherent-laborer-2044 ```
+
 <br/>
+
 Team Members Contribution :-
 1. Prathamesh rawool : Cart & Checkout Page , Profile Page , User Backend 
 2. Tushar Tyagi : Login/signup , Catgeory Page, Backend/frontend
