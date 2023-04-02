@@ -1,13 +1,18 @@
 
 # <img src="https://user-images.githubusercontent.com/50316091/229377823-a5eeb7e6-a500-4f3b-b12f-883abad3ba8a.png" width="25" height="25">   **Licious Clone** _(Group Project)_
 
+<br/>
+
 ## About
 Licious is the first company in the sector to have pledged towards a complete ESG compliance. To this end, the company has deployed a task-force that has been actively working towards achieving the goal. In late 2021, Licious partnered with the World Animal Protection India organization, to signed up to the ‘Commitment to Chicken Welfare
 
 
+<br/>
 
 - Deployment on vercel : https://d-licious.vercel.app
 - Original Website: https://www.licious.in
+
+<br/>
 
 ## This project is created in a week by a team of five members -
 - Prathamesh Rawool  <a href="https://www.linkedin.com/in/prathamesh-rawool411/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Prathamesh Rawool" height="10" width="20" /></a>
@@ -15,6 +20,26 @@ Licious is the first company in the sector to have pledged towards a complete ES
 - Mahesh Kumar <a href="https://www.linkedin.com/in/mahesh-kumar-golla-91a5111a4/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Akash Mondal" height="10" width="20" /></a>
 - Sugam Kumar <a href="https://www.linkedin.com/in/sugam-kumar-6b07041bb/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Ankit Mishra" height="10" width="20" /></a>
 - Shipra Pal <a href="https://www.linkedin.com/in/shiprasingh97/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="Ankit Mishra" height="10" width="20" /></a>
+
+<br/>
+
+## Features
+- Login and Signup User Account
+- JWT (Json Web Token) Authentication and BcryptJS Password Hashing
+- Product Filters Based on Price, Category, Brand and Rating
+- Product Sorting Based on Price, Rating and Discount
+- Product Filtering and Sorting works together
+- Search functionality
+- My Orders Section for details of all ordered item
+- Wishlist Add and Remove Items
+- Cart Add and Remove Items
+- Profile Management
+- Address Management
+- Order Summary
+- Location Service
+- Admin panel
+
+<br/>
 
 ## Tech Stack
 
@@ -28,17 +53,19 @@ Licious is the first company in the sector to have pledged towards a complete ES
 ![image](https://user-images.githubusercontent.com/50316091/229378794-735b23cf-e505-41ad-bb4f-f8c55578977c.png)
 ![image](https://user-images.githubusercontent.com/50316091/229378855-97c70bfb-1574-4933-9d5e-8653dd8b2f47.png)
 
+<br/>
 
-Here are some Screenshots of the Cloned Website
+## Here are some Screenshots of the Cloned Website :-
+
 Homepage
 ![image](https://user-images.githubusercontent.com/50316091/229377268-39c210dd-2c5e-4ead-ba58-8354f181c5ab.png)
 Profile Page
 ![image](https://user-images.githubusercontent.com/50316091/201757785-81f40877-6e56-492e-8a13-59d62f8e6c58.png)
 Products Page
 ![image](https://user-images.githubusercontent.com/50316091/201758115-aba4f0f1-3674-42c2-ba96-acbb217656fc.png)
-
+<br/>
  Project code : coherent-laborer-2044
-
+<br/>
 Team Members Contribution :-
 1. Prathamesh rawool : Cart & Checkout Page , Profile Page , User Backend 
 2. Tushar Tyagi : Login/signup , Catgeory Page, Backend/frontend
