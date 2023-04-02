@@ -23,7 +23,7 @@ Licious is the first company in the sector to have pledged towards a complete ES
 
 <br/>
 
-## Screens ( All screens are responsive along with Dark Mode)
+## Screens ( All screens are responsive )
 - Homepage / Landing Page
 - Product Listing Page with Filters
 - Product Description Page
