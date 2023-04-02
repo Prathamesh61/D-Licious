@@ -23,6 +23,17 @@ Licious is the first company in the sector to have pledged towards a complete ES
 
 <br/>
 
+## Screens ( All screens are responsive along with Dark Mode)
+- Homepage / Landing Page
+- Product Listing Page with Filters
+- Product Description Page
+- Cart Management Page
+- Profile Page
+- Checkout with Address Management Page
+- Login / Logout Page
+- Signup Page
+- Order Summary Page
+
 ## Features
 - Login and Signup User Account
 - JWT (Json Web Token) Authentication and BcryptJS Password Hashing
@@ -69,6 +80,10 @@ Licious is the first company in the sector to have pledged towards a complete ES
 |My Orders Page|
 |:-:|
 |![image](https://user-images.githubusercontent.com/50316091/229380612-0103cae9-7f7f-4743-b1c4-4068fb515944.png)|
+
+|Product Description Page|
+|:-:|
+|![image](https://user-images.githubusercontent.com/50316091/229380806-c9bd8c9b-b425-4aea-b298-914960836be5.png)|
 
 
 <br/>
