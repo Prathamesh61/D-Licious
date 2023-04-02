@@ -57,12 +57,20 @@ Licious is the first company in the sector to have pledged towards a complete ES
 
 ## Here are some Screenshots of the Cloned Website :-
 
-Homepage
-![image](https://user-images.githubusercontent.com/50316091/229377268-39c210dd-2c5e-4ead-ba58-8354f181c5ab.png)
-Profile Page
-![image](https://user-images.githubusercontent.com/50316091/201757785-81f40877-6e56-492e-8a13-59d62f8e6c58.png)
-Products Page
-![image](https://user-images.githubusercontent.com/50316091/201758115-aba4f0f1-3674-42c2-ba96-acbb217656fc.png)
+|Home Page|Products Page|
+|:-:|:-:|
+|![image](https://user-images.githubusercontent.com/50316091/229379794-61092654-70a3-4c57-8f21-4f88b333d7cd.png)|![image](https://user-images.githubusercontent.com/50316091/229380015-ea5f50b6-4f09-4bfb-b9bd-78df6b926200.png)|
+|Profile Page|Cart Page|
+|![image](https://user-images.githubusercontent.com/50316091/229380429-f1d136b6-65fc-421c-b109-9c11e489e0d2.png)|![image](https://user-images.githubusercontent.com/50316091/229380234-c81c69b2-5c5a-4c66-95c1-cbc395589f98.png)|
+|Order Summary Details|Payment Page|
+|![image](https://user-images.githubusercontent.com/50316091/229380498-5e5f7ef0-8f6f-4101-ad17-9ec07d68e1f1.png)|![image](https://user-images.githubusercontent.com/50316091/229380534-cd7a4308-bec5-4d80-a55a-995498c91930.png)|
+
+
+|My Orders Page|
+|:-:|
+|![image](https://user-images.githubusercontent.com/50316091/229380612-0103cae9-7f7f-4743-b1c4-4068fb515944.png)|
+
+
 <br/>
  Project code : coherent-laborer-2044
 <br/>
