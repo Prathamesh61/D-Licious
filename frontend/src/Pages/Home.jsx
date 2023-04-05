@@ -1,5 +1,5 @@
 import { Img, Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../Style/Home.css";
 import Slider from "./BestSeller_Slider";
 import Slider2 from "./Boneless_Slider";
@@ -90,8 +90,8 @@ const Home = () => {
     <div className='Divvv'>
       {/* Anil kapoor slider */}
       <div className="mainDiv">
-        <Img margin={"auto"}
-          width={["100%", "80%", "80%"]}
+        <Img margin={"auto"} borderRadius={"10px"} pt={"20px"}
+          width={["100%", "80%", "75%"]}
           src="https://dao54xqhg9jfa.cloudfront.net/oms/c34eb824-4fdd-912c-b4e6-ab14fd512896/original/BANNERS-02_(4).jpeg"
           alt="anil kapoor img"
         />

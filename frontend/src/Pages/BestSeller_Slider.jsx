@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../Style/BestSeller_Slider.css";
-import { MdDeliveryDining, MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import axios from "axios";
-import { Box, Button, Flex, Image, Skeleton, Text, useToast } from "@chakra-ui/react";
+import { Button, Flex, Image, Skeleton, Text, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getCartData, postCartData } from "../Redux/ProfileRedux/action";
@@ -119,7 +119,7 @@ const Slider = ({ props }) => {
                 </div>
                 <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
                   <div style={{ display: "flex", margin: "auto", }}>
-                    <MdDeliveryDining />
+                    <Image width="30px" src="https://www.licious.in/image/rebranding/png/Scooter_express.png" />
                     <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
 
                   </div>

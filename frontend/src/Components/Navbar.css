@@ -14,7 +14,7 @@
 }
 
 .aboveNavbar-inner {
-    width: 80%;
+    width: 77%;
     height: 100%;
     margin: auto;
     display: flex;
@@ -39,7 +39,7 @@
 
 /* for Middle Navbar-main */
 .MiddleNavbar-main {
-    width: 90%;
+    width:85%;
     margin: auto;
     align-items: center;
     padding: 1%;

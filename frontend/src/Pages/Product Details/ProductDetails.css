@@ -6,8 +6,8 @@
 }
 
 .sizeChange {
-    padding-top: 5%;
-    width: 80%;
+    padding-top: 20px;
+    width: 75%;
     margin: auto;
 }
 
@@ -147,7 +147,8 @@
 
 
     .slide-img {
-width: 650px;margin: auto;
+        width: 650px;
+        margin: auto;
         border-top-left-radius: 5%;
         border-top-right-radius: 5%;
 
@@ -253,7 +254,8 @@ width: 650px;margin: auto;
         /* border: 1px solid yellow; */
         grid-template-columns: repeat(3, 1fr);
     }
-    .Card-titleName{
+
+    .Card-titleName {
         height: 25px;
         overflow: hidden;
     }
@@ -392,7 +394,7 @@ width: 650px;margin: auto;
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .Card-titleName{
+    .Card-titleName {
         height: 25px;
         overflow: hidden;
     }

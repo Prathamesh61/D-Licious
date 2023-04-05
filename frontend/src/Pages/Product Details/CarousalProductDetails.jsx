@@ -114,7 +114,7 @@ const Slider = ({ props }) => {
               <Flex style={{ textAlign: "center", alignItems: "center", marginTop: "1%" }}>
                 <div style={{ display: "flex", margin: "auto", }}>
                   <Image
-                    width="20px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                    width="20px" src="https://www.licious.in/image/rebranding/png/Scooter_express.png" />
                   <Text fontSize="sm" color='gray'>&nbsp;&nbsp;Today in 12PM-2PM&nbsp;</Text>
 
                 </div>

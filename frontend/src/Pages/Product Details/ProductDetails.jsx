@@ -7,10 +7,8 @@ import { Slide } from "react-slideshow-image";
 import YoutubeVideoPlayer from "./YoutubePlayes";
 import no from './Images/no.png';
 import './slider.css';
-import imgGirl from './Images/yes.png';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartData, postCartData } from "../../Redux/ProfileRedux/action";
 import axios from "axios";
@@ -164,12 +162,6 @@ const ProductDetails = () => {
               </Text>
 
               <Text style={{ paddingTop: "3%" }}>
-                Some popular chicken breast recipes include Chicken Tikka, Butter
-                Chicken, Baked Chicken Breast, Lemon Chicken etc. Try the one that
-                you are in the mood for today's meal.
-              </Text>
-
-              <Text style={{ paddingTop: "3%" }}>
                 Licious chickens are raised on biosecure farms and are
                 antibiotic-residue free. They are cut & cleaned by experts and
                 temperature-controlled between 0-4?, to ensure that it is chilled,
@@ -249,7 +241,7 @@ const ProductDetails = () => {
               <Box><YoutubeVideoPlayer /></Box>
 
               <Flex style={{ textAlign: "center", alignItems: "center" }}>
-                <Image width="30px" src="https://www.licious.in/img/rebranding/express_delivery.svg" />
+                <Image width="30px" src="https://www.licious.in/image/rebranding/png/Scooter_express.png" />
                 <Text fontSize="xl" color='gray'>Today in &nbsp;</Text>
                 <Text fontSize="xl" style={{ color: "gray", fontWeight: "600" }}> 90 min</Text>
 
@@ -330,26 +322,26 @@ the deliciousBox way box start */}
 
 
             <Box>
-              <Image src="https://www.licious.in/img/rebranding/landing/USP1.png" />
+              <Image src="https://www.licious.in/image/rebranding/png/USP1.png" />
               <Text fontSize='sm' className="spaceing">Premium produce, sourced directly from the origin</Text>
             </Box>
 
             <Box>
-              <Image src="https://www.licious.in/img/rebranding/landing/USP2.png" />
+              <Image src="https://www.licious.in/image/rebranding/png/USP2.png" />
               <Text fontSize='sm' className="spaceing">Scientifically designed central production Unit</Text>
             </Box>
 
             <Box>
-              <Image src="https://www.licious.in/img/rebranding/landing/USP3.png" />
+              <Image src="https://www.licious.in/image/rebranding/png/USP3.png" />
               <Text fontSize='sm' className="spaceing">Compliance to stringent quality checks</Text>
             </Box>
 
             <Box>
-              <Image src="https://www.licious.in/img/rebranding/landing/USP4.png" />
+              <Image src="https://www.licious.in/image/rebranding/png/USP4.png" />
               <Text fontSize='sm' className="spaceing">Delivered fresh everyday</Text>
             </Box>
             <Box>
-              <Image src="https://www.licious.in/img/rebranding/landing/USP5.png" />
+              <Image src="https://www.licious.in/image/rebranding/png/USP5.png" />
               <Text fontSize='sm' className="spaceing">Experience extraordinary cooking</Text>
             </Box>
 
